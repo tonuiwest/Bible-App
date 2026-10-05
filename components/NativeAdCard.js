@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Image, Platform, Animated } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
-import { getNativeId } from '../ads/AdManager';
+import { AdManager, getNativeId } from '../ads/AdManager';
+import { getRequestOptions } from '../constants/ads';
 
 let NativeAd = null;
 let NativeAdView = null;
@@ -33,12 +34,16 @@ export default function NativeAdCard({ style }) {
   const requested = useRef(false);
   const adRef = useRef(null);
   const opacity = useRef(new Animated.Value(0)).current;
+  const [sdkReady, setSdkReady] = useState(AdManager.isInitialized);
+
+  // Never request before the consent flow + SDK init have finished.
+  useEffect(() => AdManager.onReady(() => setSdkReady(true)), []);
 
   useEffect(() => {
-    if (!NativeAd || requested.current) return;
+    if (!NativeAd || !sdkReady || requested.current) return;
     requested.current = true;
     let cancelled = false;
-    NativeAd.createForAdRequest(getNativeId(), { requestNonPersonalizedAdsOnly: true })
+    NativeAd.createForAdRequest(getNativeId(), { ...getRequestOptions(), startVideoMuted: true })
       .then(ad => {
         if (cancelled) {
           // Screen was already gone by the time the ad arrived — release it
@@ -52,7 +57,7 @@ export default function NativeAdCard({ style }) {
         // part of keeping it genuinely non-disruptive.
         Animated.timing(opacity, { toValue: 1, duration: 280, useNativeDriver: true }).start();
       })
-      .catch(() => { /* stay hidden */ });
+      .catch((e) => { console.log('[Ads] Native ad failed to load:', e?.message); });
     return () => {
       cancelled = true;
       // Native ad objects hold native-side resources (images, video, etc).
@@ -61,7 +66,7 @@ export default function NativeAdCard({ style }) {
       adRef.current?.destroy?.();
       adRef.current = null;
     };
-  }, []);
+  }, [sdkReady]);
 
   if (!NativeAdView || !nativeAd) return null;
 

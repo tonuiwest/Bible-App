@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
-import PersistentBanner from '../components/PersistentBanner';
 import NativeAdCard from '../components/NativeAdCard';
 import VersionSwitcher from '../components/VersionSwitcher';
 import ThemeToggle from '../components/ThemeToggle';
@@ -48,7 +47,6 @@ export default function ChaptersScreen({ navigation, route }) {
         />
       </View>
 
-      <PersistentBanner />
     </ParchmentBackground>
   );
 }

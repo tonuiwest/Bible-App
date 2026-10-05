@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from 'expo-splash-screen';
@@ -15,13 +15,16 @@ import {
   Inter_600SemiBold,
   Inter_700Bold,
 } from '@expo-google-fonts/inter';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { VersionProvider } from './context/VersionContext';
 import { PlannerProvider } from './context/PlannerContext';
 import { AdManager } from './ads/AdManager';
+import BottomDock from './components/BottomDock';
+import { usePlanHint } from './components/ReminderSheet';
+import { setupNotificationHandler, listenForReminderTaps, refreshReminder } from './utils/reminders';
 
 import HomeScreen from './screens/HomeScreen';
 import BooksScreen from './screens/BooksScreen';
@@ -33,28 +36,57 @@ import AIQAScreen from './screens/AIQAScreen';
 import SermonScreen from './screens/SermonScreen';
 import PlannerScreen from './screens/PlannerScreen';
 import PlannerDetailScreen from './screens/PlannerDetailScreen';
+import CreatePlanScreen from './screens/CreatePlanScreen';
 
 const Stack = createNativeStackNavigator();
+const navigationRef = createNavigationContainerRef();
 SplashScreen.preventAutoHideAsync().catch(() => {});
+setupNotificationHandler();
 
 function RootNavigator() {
-  const { isDark } = useTheme();
+  const { isDark, colors } = useTheme();
+  const [currentRoute, setCurrentRoute] = useState('Home');
+
+  const syncRoute = () => {
+    const r = navigationRef.getCurrentRoute?.();
+    if (r?.name) setCurrentRoute(r.name);
+  };
+
+  // Daily reading reminder: open the right screen when tapped, and refresh
+  // tomorrow's verse/plan preview whenever the app starts or the plan changes.
+  const planHint = usePlanHint();
+  useEffect(() => listenForReminderTaps((screen, params) => {
+    const go = () => (navigationRef.isReady() ? navigationRef.navigate(screen, params) : setTimeout(go, 300));
+    go();
+  }), []);
+  useEffect(() => {
+    const t = setTimeout(() => refreshReminder(planHint), 1500);
+    return () => clearTimeout(t);
+  }, [planHint?.id, planHint?.day]);
+
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef} onReady={syncRoute} onStateChange={syncRoute}>
       <StatusBar style={isDark ? 'light' : 'dark'} />
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Books" component={BooksScreen} />
-        <Stack.Screen name="Chapters" component={ChaptersScreen} />
-        <Stack.Screen name="Verse" component={VerseScreen} />
-        <Stack.Screen name="Search" component={SearchScreen} />
-        <Stack.Screen name="Bookmarks" component={BookmarksScreen} />
-        <Stack.Screen name="AIQA" component={AIQAScreen} />
-        <Stack.Screen name="Sermon" component={SermonScreen} />
-        <Stack.Screen name="Planner" component={PlannerScreen} />
-        <Stack.Screen name="PlannerDetail" component={PlannerDetailScreen} />
-        <Stack.Screen name="Audio" component={VerseScreen} />
-      </Stack.Navigator>
+      <View style={{ flex: 1, backgroundColor: colors.background }}>
+        <View style={{ flex: 1 }}>
+          <Stack.Navigator screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Books" component={BooksScreen} />
+            <Stack.Screen name="Chapters" component={ChaptersScreen} />
+            <Stack.Screen name="Verse" component={VerseScreen} />
+            <Stack.Screen name="Search" component={SearchScreen} />
+            <Stack.Screen name="Bookmarks" component={BookmarksScreen} />
+            <Stack.Screen name="AIQA" component={AIQAScreen} />
+            <Stack.Screen name="Sermon" component={SermonScreen} />
+            <Stack.Screen name="Planner" component={PlannerScreen} />
+            <Stack.Screen name="PlannerDetail" component={PlannerDetailScreen} />
+            <Stack.Screen name="CreatePlan" component={CreatePlanScreen} />
+            <Stack.Screen name="Audio" component={VerseScreen} />
+          </Stack.Navigator>
+        </View>
+        {/* Persistent on every screen: Home button dock, then the banner ad. */}
+        <BottomDock navigationRef={navigationRef} currentRoute={currentRoute} />
+      </View>
     </NavigationContainer>
   );
 }

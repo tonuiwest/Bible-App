@@ -1,101 +1,240 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useMemo, useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BUILTIN_PLANS, chaptersOf, splitIntoDays } from '../data/readingPlans';
 
-export const PLANS = [
-  {id:'peace', label:'Peace & Anxiety', icon:'leaf-outline', days:7, verses: [{bookId:'php', ch:4},{bookId:'isa', ch:26},{bookId:'jhn', ch:14},{bookId:'psa', ch:23},{bookId:'mat', ch:11},{bookId:'php', ch:4},{bookId:'isa', ch:41}]},
-  {id:'love', label:'Love & Relationships', icon:'heart-outline', days:14, verses: [{bookId:'1co', ch:13},{bookId:'1jn', ch:4},{bookId:'eph', ch:4},{bookId:'col', ch:3},{bookId:'pro', ch:17},{bookId:'jhn', ch:15},{bookId:'rom', ch:12},{bookId:'1co', ch:13},{bookId:'eph', ch:5},{bookId:'1jn', ch:3},{bookId:'col', ch:3},{bookId:'jhn', ch:13},{bookId:'1pe', ch:4},{bookId:'rom', ch:13}]},
-  {id:'faith', label:'Faith & Trust', icon:'shield-checkmark-outline', days:7, verses: [{bookId:'heb', ch:11},{bookId:'rom', ch:8},{bookId:'psa', ch:46},{bookId:'isa', ch:41},{bookId:'mat', ch:17},{bookId:'mrk', ch:11},{bookId:'jas', ch:1}]},
-  {id:'healing', label:'Healing & Strength', icon:'medkit-outline', days:14, verses: [{bookId:'isa', ch:41},{bookId:'psa', ch:103},{bookId:'jer', ch:30},{bookId:'psa', ch:147},{bookId:'isa', ch:53},{bookId:'exo', ch:15},{bookId:'psa', ch:34},{bookId:'mat', ch:9},{bookId:'jas', ch:5},{bookId:'psa', ch:41},{bookId:'pro', ch:4},{bookId:'3jn', ch:1},{bookId:'psa', ch:30},{bookId:'isa', ch:57}]},
-  {id:'purpose', label:'Purpose & Guidance', icon:'compass-outline', days:30, verses: Array.from({length:30}, (_,i)=>({bookId:['jer','pro','rom','psa','php','isa','eph','col','psa','pro','mat','rom','psa','isa','php','jhn','psa','pro','isa','rom','psa','php','col','isa','psa','pro','jer','mat','psa','rom'][i%30], ch: [29,3,12,32,4,30,2,3,25,16,6,8,119,26,2,14,37,3,40,12,46,4,1,55,27,2,1,11,1,8][i%30]}))},
-];
-
+// Same storage key as before, extended with new fields, so existing progress
+// on the original plans carries straight over.
 const STORAGE_KEY = 'planner_state_v2';
+const CUSTOM_KEY = 'planner_custom_plans_v1';
 
-const Ctx = createContext({
-  plans: PLANS,
-  progress: {},
-  cycles: {},
-  addProgress: () => {},
-  removeProgress: () => {},
-  isDayDone: () => false,
-  getProgress: () => 0,
-  isPlanComplete: () => false,
-  renewPlan: () => {},
-});
+const Ctx = createContext(null);
 
+/*
+ * State shape (persisted):
+ *   progress:   { [planId]: { [dayIndex]: true } }           completed days
+ *   reads:      { [planId]: { [dayIndex]: number[] } }       readings opened within a day
+ *   cycles:     { [planId]: number }                         times completed
+ *   lastActive: { [planId]: timestamp }
+ *   startedAt:  { [planId]: timestamp }
+ */
 export function PlannerProvider({ children }) {
-  // progress: { [planId]: { [dayIndex]: true } }
   const [progress, setProgress] = useState({});
-  // cycles: { [planId]: number } — how many times a plan has been completed
+  const [reads, setReads] = useState({});
   const [cycles, setCycles] = useState({});
+  const [lastActive, setLastActive] = useState({});
+  const [startedAt, setStartedAt] = useState({});
+  const [customPlans, setCustomPlans] = useState([]);
+  const stateRef = useRef({ progress: {}, reads: {}, cycles: {}, lastActive: {}, startedAt: {} });
 
   useEffect(() => {
     (async () => {
       try {
         const raw = await AsyncStorage.getItem(STORAGE_KEY);
         if (raw) {
-          const parsed = JSON.parse(raw);
-          setProgress(parsed.progress || {});
-          setCycles(parsed.cycles || {});
+          const p = JSON.parse(raw);
+          const next = {
+            progress: p.progress || {}, reads: p.reads || {}, cycles: p.cycles || {},
+            lastActive: p.lastActive || {}, startedAt: p.startedAt || {},
+          };
+          stateRef.current = next;
+          setProgress(next.progress); setReads(next.reads); setCycles(next.cycles);
+          setLastActive(next.lastActive); setStartedAt(next.startedAt);
         }
+      } catch {}
+      try {
+        const rawCustom = await AsyncStorage.getItem(CUSTOM_KEY);
+        if (rawCustom) setCustomPlans(JSON.parse(rawCustom) || []);
       } catch {}
     })();
   }, []);
 
-  const persist = async (nextProgress, nextCycles) => {
-    setProgress(nextProgress);
-    setCycles(nextCycles);
-    try {
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify({ progress: nextProgress, cycles: nextCycles }));
-    } catch {}
+  const plans = useMemo(() => [...customPlans, ...BUILTIN_PLANS], [customPlans]);
+  const getPlan = (id) => plans.find((p) => p.id === id) || null;
+
+  // Writes go through a ref so several quick updates never clobber each other.
+  const commit = async (patch) => {
+    const next = { ...stateRef.current, ...patch };
+    stateRef.current = next;
+    if (patch.progress) setProgress(next.progress);
+    if (patch.reads) setReads(next.reads);
+    if (patch.cycles) setCycles(next.cycles);
+    if (patch.lastActive) setLastActive(next.lastActive);
+    if (patch.startedAt) setStartedAt(next.startedAt);
+    try { await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch {}
   };
 
+  const touch = (planId) => {
+    const s = stateRef.current;
+    const patch = { lastActive: { ...s.lastActive, [planId]: Date.now() } };
+    if (!s.startedAt[planId]) patch.startedAt = { ...s.startedAt, [planId]: Date.now() };
+    return patch;
+  };
+
+  const isPlanDone = (plan, days) => plan.days.every((_, i) => days[i]);
+
+  /** Marks a whole day complete. */
   const addProgress = async (planId, dayIndex) => {
-    const planDays = progress[planId] || {};
+    const plan = getPlan(planId);
+    const s = stateRef.current;
+    const planDays = s.progress[planId] || {};
     if (planDays[dayIndex]) return { alreadyDone: true, completedPlan: false };
     const nextPlanDays = { ...planDays, [dayIndex]: true };
-    await persist({ ...progress, [planId]: nextPlanDays }, cycles);
-    const plan = PLANS.find((p) => p.id === planId);
-    const completedPlan = !!plan && plan.verses.every((_, i) => nextPlanDays[i]);
-    return { alreadyDone: false, completedPlan };
+    await commit({ progress: { ...s.progress, [planId]: nextPlanDays }, ...touch(planId) });
+    return { alreadyDone: false, completedPlan: !!plan && isPlanDone(plan, nextPlanDays) };
   };
 
   const removeProgress = async (planId, dayIndex) => {
-    const planDays = { ...(progress[planId] || {}) };
-    if (!planDays[dayIndex]) return;
+    const s = stateRef.current;
+    const planDays = { ...(s.progress[planId] || {}) };
+    const planReads = { ...(s.reads[planId] || {}) };
     delete planDays[dayIndex];
-    await persist({ ...progress, [planId]: planDays }, cycles);
+    delete planReads[dayIndex];
+    await commit({ progress: { ...s.progress, [planId]: planDays }, reads: { ...s.reads, [planId]: planReads } });
   };
+
+  /**
+   * Records that one reading of a day was opened. When every reading of that
+   * day has been opened, the day is marked complete automatically.
+   */
+  const markReadingRead = async (planId, dayIndex, readingIndex = 0) => {
+    const plan = getPlan(planId);
+    if (!plan || !plan.days[dayIndex]) return { completedDay: false, completedPlan: false };
+    const s = stateRef.current;
+    const dayReads = new Set((s.reads[planId] || {})[dayIndex] || []);
+    dayReads.add(readingIndex);
+    const nextReads = { ...s.reads, [planId]: { ...(s.reads[planId] || {}), [dayIndex]: [...dayReads] } };
+    const allRead = plan.days[dayIndex].every((_, i) => dayReads.has(i));
+    const planDays = s.progress[planId] || {};
+    if (allRead && !planDays[dayIndex]) {
+      const nextPlanDays = { ...planDays, [dayIndex]: true };
+      await commit({ reads: nextReads, progress: { ...s.progress, [planId]: nextPlanDays }, ...touch(planId) });
+      return { completedDay: true, completedPlan: isPlanDone(plan, nextPlanDays) };
+    }
+    await commit({ reads: nextReads, ...touch(planId) });
+    return { completedDay: false, completedPlan: false };
+  };
+
+  const isReadingRead = (planId, dayIndex, readingIndex) =>
+    !!(progress[planId] && progress[planId][dayIndex]) ||
+    ((reads[planId] || {})[dayIndex] || []).includes(readingIndex);
 
   const isDayDone = (planId, dayIndex) => !!(progress[planId] && progress[planId][dayIndex]);
 
-  const getProgress = (planId) => {
-    const plan = PLANS.find((p) => p.id === planId);
+  const getDoneCount = (planId) => {
+    const plan = getPlan(planId);
     if (!plan) return 0;
-    const planDays = progress[planId] || {};
-    const done = plan.verses.filter((_, i) => planDays[i]).length;
-    return Math.round((done / plan.verses.length) * 100);
+    const d = progress[planId] || {};
+    return plan.days.filter((_, i) => d[i]).length;
+  };
+
+  const getProgress = (planId) => {
+    const plan = getPlan(planId);
+    if (!plan || !plan.days.length) return 0;
+    return Math.round((getDoneCount(planId) / plan.days.length) * 100);
   };
 
   const isPlanComplete = (planId) => getProgress(planId) === 100;
 
-  /** Clears a finished plan's progress and bumps its completed-cycle count,
-   * so the reading plan is renewed and ready to go through again. */
-  const renewPlan = async (planId) => {
-    const nextProgress = { ...progress, [planId]: {} };
-    const nextCycles = { ...cycles, [planId]: (cycles[planId] || 0) + 1 };
-    await persist(nextProgress, nextCycles);
+  /** First day not yet completed (or the last day if all are done). */
+  const nextDayIndex = (planId) => {
+    const plan = getPlan(planId);
+    if (!plan) return 0;
+    const d = progress[planId] || {};
+    const i = plan.days.findIndex((_, idx) => !d[idx]);
+    return i === -1 ? plan.days.length - 1 : i;
   };
 
-  const overall = Object.values(progress).reduce((sum, days) => sum + Object.keys(days).length, 0);
+  const renewPlan = async (planId) => {
+    const s = stateRef.current;
+    await commit({
+      progress: { ...s.progress, [planId]: {} },
+      reads: { ...s.reads, [planId]: {} },
+      cycles: { ...s.cycles, [planId]: (s.cycles[planId] || 0) + 1 },
+    });
+  };
 
-  return (
-    <Ctx.Provider value={{ plans: PLANS, progress, cycles, addProgress, removeProgress, isDayDone, getProgress, isPlanComplete, renewPlan, overall }}>
-      {children}
-    </Ctx.Provider>
-  );
+  const resetPlan = async (planId) => {
+    const s = stateRef.current;
+    await commit({ progress: { ...s.progress, [planId]: {} }, reads: { ...s.reads, [planId]: {} } });
+  };
+
+  /** Plans with progress that are not finished, most recently used first. */
+  const activePlans = useMemo(() => {
+    return plans
+      .filter((p) => {
+        const done = Object.keys(progress[p.id] || {}).length;
+        const started = done > 0 || Object.keys(reads[p.id] || {}).length > 0;
+        return started && done < p.days.length;
+      })
+      .sort((a, b) => (lastActive[b.id] || 0) - (lastActive[a.id] || 0));
+  }, [plans, progress, reads, lastActive]);
+
+  // ---------------- Custom plans ----------------
+
+  const saveCustom = async (list) => {
+    setCustomPlans(list);
+    try { await AsyncStorage.setItem(CUSTOM_KEY, JSON.stringify(list)); } catch {}
+  };
+
+  /**
+   * Creates a user plan.
+   *   { label, description?, icon?, bookIds?, fromChapter?, toChapter?, days?, readings? }
+   * Either pass bookIds (+ optional chapter range when a single book is
+   * chosen) and a number of days to auto-split, or pass `readings` — an
+   * explicit list of days built by hand.
+   */
+  const createCustomPlan = async ({ label, description, icon, bookIds = [], fromChapter, toChapter, days = 7, readings }) => {
+    let planDays;
+    if (Array.isArray(readings) && readings.length) {
+      planDays = readings;
+    } else {
+      let chapters = chaptersOf(bookIds);
+      if (bookIds.length === 1 && (fromChapter || toChapter)) {
+        const lo = Math.max(1, fromChapter || 1);
+        const hi = toChapter || Number.MAX_SAFE_INTEGER;
+        chapters = chapters.filter((c) => c.c >= lo && c.c <= hi);
+      }
+      if (!chapters.length) throw new Error('Pick at least one book.');
+      planDays = splitIntoDays(chapters, Math.max(1, days));
+    }
+    const plan = {
+      id: `custom_${Date.now().toString(36)}`,
+      label: String(label || 'My Reading Plan').trim().slice(0, 40),
+      description: description || `${planDays.length} days · created by you`,
+      icon: icon || 'star-outline',
+      category: 'mine',
+      custom: true,
+      createdAt: Date.now(),
+      days: planDays,
+    };
+    await saveCustom([plan, ...customPlans]);
+    await commit(touch(plan.id));
+    return plan;
+  };
+
+  const deleteCustomPlan = async (planId) => {
+    await saveCustom(customPlans.filter((p) => p.id !== planId));
+    const s = stateRef.current;
+    const strip = (obj) => { const o = { ...obj }; delete o[planId]; return o; };
+    await commit({
+      progress: strip(s.progress), reads: strip(s.reads), cycles: strip(s.cycles),
+      lastActive: strip(s.lastActive), startedAt: strip(s.startedAt),
+    });
+  };
+
+  const overall = Object.values(progress).reduce((sum, days) => sum + Object.keys(days || {}).length, 0);
+
+  const value = {
+    plans, customPlans, progress, reads, cycles, lastActive, startedAt, overall, activePlans,
+    getPlan, addProgress, removeProgress, markReadingRead, isReadingRead, isDayDone,
+    getDoneCount, getProgress, isPlanComplete, nextDayIndex, renewPlan, resetPlan,
+    createCustomPlan, deleteCustomPlan,
+  };
+  return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
 export function usePlanner() {
-  return useContext(Ctx);
+  const ctx = useContext(Ctx);
+  if (!ctx) throw new Error('usePlanner must be used inside PlannerProvider');
+  return ctx;
 }

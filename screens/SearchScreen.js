@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, TextInput } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
-import PersistentBanner from '../components/PersistentBanner';
 import ThemeToggle from '../components/ThemeToggle';
 import ScreenHeader from '../components/ScreenHeader';
 import { useContentBottomPad } from '../components/useContentBottomPad';
@@ -17,9 +16,14 @@ export default function SearchScreen({ navigation }) {
   const [q, setQ] = useState('');
   const [verseRes, setVerseRes] = useState([]);
 
+  // Debounced so a full-Bible scan doesn't run on every keystroke.
   useEffect(() => {
-    if (mode === 'verses' && q.length >= 2) { searchVerses(q, 'kjv', 20).then(setVerseRes); }
-    else setVerseRes([]);
+    if (!(mode === 'verses' && q.trim().length >= 2)) { setVerseRes([]); return; }
+    let cancelled = false;
+    const t = setTimeout(() => {
+      searchVerses(q.trim(), 'kjv', 60).then((r) => { if (!cancelled) setVerseRes(r); });
+    }, 350);
+    return () => { cancelled = true; clearTimeout(t); };
   }, [q, mode]);
 
   const bookRes = mode === 'books' && q.length >= 1 ? BOOKS.filter((b) => b.name.toLowerCase().indexOf(q.toLowerCase()) > -1) : [];
@@ -37,8 +41,8 @@ export default function SearchScreen({ navigation }) {
       </View>
 
       <View style={{ flexDirection: 'row', gap: 6, paddingHorizontal: 8, marginBottom: 8 }}>
-        <TouchableOpacity onPress={() => setMode('books')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: mode === 'books' ? colors.primary : colors.card, borderColor: mode === 'books' ? colors.primary : colors.border }}><Text style={{ color: mode === 'books' ? '#fff' : colors.textPrimary, fontSize: 11 }}>Books</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => setMode('verses')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: mode === 'verses' ? colors.primary : colors.card, borderColor: mode === 'verses' ? colors.primary : colors.border }}><Text style={{ color: mode === 'verses' ? '#fff' : colors.textPrimary, fontSize: 11 }}>Verses</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => setMode('books')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: mode === 'books' ? colors.primary : colors.card, borderColor: mode === 'books' ? colors.primary : colors.border }}><Text style={{ color: mode === 'books' ? colors.onPrimary : colors.textPrimary, fontSize: 11 }}>Books</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => setMode('verses')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: mode === 'verses' ? colors.primary : colors.card, borderColor: mode === 'verses' ? colors.primary : colors.border }}><Text style={{ color: mode === 'verses' ? colors.onPrimary : colors.textPrimary, fontSize: 11 }}>Verses</Text></TouchableOpacity>
       </View>
 
       <View style={{ flex: 1, margin: 8, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border, borderRadius: 12 }}>
@@ -59,7 +63,6 @@ export default function SearchScreen({ navigation }) {
           )} />
         )}
       </View>
-      <PersistentBanner />
     </ParchmentBackground>
   );
 }

@@ -1,12 +1,21 @@
-import { Platform } from 'react-native';
+import { Platform, AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { AD_UNIT_IDS, REQUEST_OPTIONS, USE_TEST_ADS } from '../constants/ads';
+import { AD_UNIT_IDS, USE_TEST_ADS, getRequestOptions, setNonPersonalizedOnly } from '../constants/ads';
 
+// ---------------------------------------------------------------------------
+// SDK bindings (guarded so the JS bundle still runs in Expo Go / web, where
+// the native module does not exist — every ad call simply becomes a no-op).
+// ---------------------------------------------------------------------------
 let mobileAds = null;
 let InterstitialAd = null;
 let RewardedAd = null;
+let RewardedInterstitialAd = null;
+let AppOpenAd = null;
 let AdEventType = null;
 let RewardedAdEventType = null;
+let AdsConsent = null;
+let AdsConsentStatus = null;
+let AdsConsentPrivacyOptionsRequirementStatus = null;
 let BannerAdSize = null;
 
 if (Platform.OS !== 'web') {
@@ -15,259 +24,385 @@ if (Platform.OS !== 'web') {
     mobileAds = ads.default;
     InterstitialAd = ads.InterstitialAd;
     RewardedAd = ads.RewardedAd;
+    RewardedInterstitialAd = ads.RewardedInterstitialAd;
+    AppOpenAd = ads.AppOpenAd;
     AdEventType = ads.AdEventType;
     RewardedAdEventType = ads.RewardedAdEventType;
+    AdsConsent = ads.AdsConsent;
+    AdsConsentStatus = ads.AdsConsentStatus;
+    AdsConsentPrivacyOptionsRequirementStatus = ads.AdsConsentPrivacyOptionsRequirementStatus;
     BannerAdSize = ads.BannerAdSize;
   } catch (e) {
     console.log('[Ads] SDK not available in this runtime:', e?.message);
   }
 }
 
-// Audio unlock: a single rewarded-ad watch unlocks read-aloud everywhere in
-// the app (every book/chapter/verse checks this same global key) for exactly
-// 1 hour.
+// Audio unlock: one rewarded watch unlocks read-aloud everywhere for 1 hour.
 const AUDIO_UNLOCK_KEY = '@audio_unlock_until';
-const AUDIO_UNLOCK_MS = 60 * 60 * 1000; // 1 hour, exactly
+const AUDIO_UNLOCK_MS = 60 * 60 * 1000;
 
-// Interstitial pacing: never more than once every 4 minutes, and only after
-// the reader has taken several actions (or at an explicit natural break —
-// leaving a chapter, opening a new book, finishing a share) — keeps
-// interstitials occasional and never mid-reading, even across a long
-// session.
+// Interstitial pacing — occasional and never mid-reading.
 const INTERSTITIAL_COOLDOWN_MS = 4 * 60 * 1000;
 const MIN_INTERACTIONS_BEFORE_AD = 5;
 
-// Retry backoff for a failed ad load, so a single no-fill doesn't permanently
-// disable interstitials/rewarded for the rest of the session.
-const RELOAD_BACKOFF_MS = 30 * 1000;
+// App-open pacing (Google guidance: show on foreground, not too often, and
+// discard an ad that has been cached for more than 4 hours).
+const APP_OPEN_MIN_BACKGROUND_MS = 30 * 1000;
+const APP_OPEN_COOLDOWN_MS = 3 * 60 * 1000;
+const APP_OPEN_EXPIRY_MS = 4 * 60 * 60 * 1000;
+const LAUNCH_COUNT_KEY = '@launch_count';
 
-class AdManagerClass {
-  constructor() {
-    this.isInitialized = false;
-    this.interstitial = null;
-    this.interstitialLoaded = false;
-    this.interstitialLoading = false;
-    this.rewarded = null;
-    this.rewardedLoaded = false;
-    this.rewardedLoading = false;
-    this.lastInterstitialAt = 0;
-    this.interactionCount = 0;
+const RELOAD_BACKOFF_MS = 30 * 1000;
+const LOAD_TIMEOUT_MS = 20 * 1000;
+
+/**
+ * One reusable "slot" per full-screen format. It owns exactly one ad object
+ * at a time, loads it ahead of time, retries with back-off on no-fill, and
+ * reloads automatically after it is shown. All four full-screen formats
+ * (interstitial, rewarded, rewarded interstitial, app open) share this code,
+ * so they all behave identically and predictably.
+ */
+class FullScreenSlot {
+  constructor({ name, create, loadedEvent, isRewarded = false }) {
+    this.name = name;
+    this.create = create;
+    this.loadedEvent = loadedEvent;
+    this.isRewarded = isRewarded;
+    this.ad = null;
+    this.loaded = false;
+    this.loading = false;
+    this.loadedAt = 0;
+    this.unsubs = [];
+    this.retryTimer = null;
   }
 
-  async init() {
-    if (this.isInitialized) return;
-    if (!mobileAds) {
-      console.log('[Ads] Skipping init — native ads SDK is not available in this runtime (e.g. running in Expo Go instead of a dev-client/EAS build).');
+  _clear() {
+    this.unsubs.forEach((u) => { try { u(); } catch {} });
+    this.unsubs = [];
+  }
+
+  load() {
+    if (this.loading || this.loaded) return;
+    if (!this.create) return;
+    this.loading = true;
+    let ad;
+    try {
+      ad = this.create();
+    } catch (e) {
+      this.loading = false;
+      console.log(`[Ads] ${this.name}: create failed:`, e?.message);
       return;
     }
+    this._clear();
+    let settled = false;
+    this.unsubs.push(ad.addAdEventListener(this.loadedEvent, () => {
+      settled = true;
+      this.loading = false;
+      this.loaded = true;
+      this.loadedAt = Date.now();
+      console.log(`[Ads] ${this.name}: loaded`);
+    }));
+    this.unsubs.push(ad.addAdEventListener(AdEventType.ERROR, (err) => {
+      settled = true;
+      this.loading = false;
+      this.loaded = false;
+      console.log(`[Ads] ${this.name}: failed to load —`, err?.code || '', err?.message || err);
+      clearTimeout(this.retryTimer);
+      this.retryTimer = setTimeout(() => this.load(), RELOAD_BACKOFF_MS);
+    }));
+    this.ad = ad;
     try {
-      await mobileAds().initialize();
-      mobileAds().setRequestConfiguration({
-        tagForChildDirectedTreatment: false,
-        tagForUnderAgeOfConsent: false,
-      });
-      this.isInitialized = true;
-      this._loadInterstitial();
-      this._loadRewarded();
-      console.log('[Ads] Initialized. Test ads:', USE_TEST_ADS);
-    } catch (e) {
-      console.log('[Ads] init failed:', e?.message);
-    }
-  }
-
-  // ---------------- Interstitial ----------------
-
-  _loadInterstitial() {
-    if (!InterstitialAd || this.interstitialLoading) return;
-    this.interstitialLoading = true;
-    try {
-      const ad = InterstitialAd.createForAdRequest(AD_UNIT_IDS.INTERSTITIAL, REQUEST_OPTIONS);
-      this.interstitialLoaded = false;
-      let settled = false;
-      const cleanup = () => { unsubLoaded(); unsubClosed(); unsubError(); };
-      const unsubLoaded = ad.addAdEventListener(AdEventType.LOADED, () => {
-        settled = true;
-        this.interstitialLoading = false;
-        this.interstitialLoaded = true;
-      });
-      const unsubClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
-        this.interstitialLoaded = false;
-        this.interstitialLoading = false;
-        cleanup();
-        this._loadInterstitial();
-      });
-      const unsubError = ad.addAdEventListener(AdEventType.ERROR, () => {
-        settled = true;
-        this.interstitialLoaded = false;
-        this.interstitialLoading = false;
-        cleanup();
-        setTimeout(() => this._loadInterstitial(), RELOAD_BACKOFF_MS);
-      });
       ad.load();
-      this.interstitial = ad;
-      // Safety net: some SDK versions never fire an event on certain
-      // failures. If nothing happened within 15s, allow a retry.
-      setTimeout(() => {
-        if (!settled && this.interstitialLoading) {
-          this.interstitialLoading = false;
-        }
-      }, 15000);
     } catch (e) {
-      this.interstitialLoading = false;
-      console.log('[Ads] interstitial load failed:', e?.message);
+      this.loading = false;
+      console.log(`[Ads] ${this.name}: load() threw:`, e?.message);
+      return;
     }
+    setTimeout(() => {
+      if (!settled && this.loading) {
+        console.log(`[Ads] ${this.name}: load timed out, allowing a fresh attempt.`);
+        this.loading = false;
+      }
+    }, LOAD_TIMEOUT_MS);
   }
 
-  /**
-   * Call at natural transition points (leaving a chapter, opening a new
-   * book, finishing a search, etc). Respects a cooldown and a minimum
-   * interaction count so it never interrupts an ongoing reading session.
-   * `isNaturalBreak: true` skips the interaction-count requirement (still
-   * respects the cooldown) for especially natural moments like navigating
-   * back out of a chapter.
-   */
-  tryShowInterstitial({ isNaturalBreak = false } = {}) {
-    this.interactionCount++;
-    const now = Date.now();
-    if (now - this.lastInterstitialAt < INTERSTITIAL_COOLDOWN_MS) return false;
-    if (!isNaturalBreak && this.interactionCount < MIN_INTERACTIONS_BEFORE_AD) return false;
-    if (!this.interstitial || !this.interstitialLoaded) return false;
-
-    try {
-      this.interstitial.show();
-      this.lastInterstitialAt = now;
-      this.interactionCount = 0;
-      return true;
-    } catch (e) {
-      console.log('[Ads] interstitial show failed:', e?.message);
+  isReady(maxAgeMs = 0) {
+    if (!this.loaded || !this.ad) return false;
+    if (maxAgeMs && Date.now() - this.loadedAt > maxAgeMs) {
+      this.loaded = false;
+      this.load();
       return false;
     }
+    return true;
   }
 
-  // ---------------- Rewarded (unlocks audio, globally) ----------------
-
-  _loadRewarded() {
-    if (!RewardedAd || this.rewardedLoading) return;
-    this.rewardedLoading = true;
-    console.log('[Ads] Requesting a rewarded ad...');
-    try {
-      const ad = RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED, {
-        ...REQUEST_OPTIONS,
-        keywords: ['bible', 'faith', 'religion', 'devotional'],
-      });
-      this.rewardedLoaded = false;
-      let settled = false;
-      const cleanup = () => { unsubLoaded(); unsubClosed(); unsubError(); };
-      const markLoaded = (source) => {
-        if (this.rewardedLoaded) return; // already handled by the other listener
-        settled = true;
-        this.rewardedLoading = false;
-        this.rewardedLoaded = true;
-        console.log(`[Ads] Rewarded ad ready (via ${source}).`);
-      };
-      const unsubLoaded = ad.addAdEventListener(RewardedAdEventType.LOADED, () => markLoaded('RewardedAdEventType.LOADED'));
-      const unsubError = ad.addAdEventListener(AdEventType.ERROR, (e) => {
-        settled = true;
-        this.rewardedLoaded = false;
-        this.rewardedLoading = false;
-        console.log('[Ads] Rewarded ad failed to load:', e?.message || e);
-        cleanup();
-        setTimeout(() => this._loadRewarded(), RELOAD_BACKOFF_MS);
-      });
-      const unsubClosed = ad.addAdEventListener(AdEventType.CLOSED, () => {
-        this.rewardedLoaded = false;
-        this.rewardedLoading = false;
-        cleanup();
-        this._loadRewarded();
-      });
-      ad.load();
-      this.rewarded = ad;
-      setTimeout(() => {
-        if (!settled && this.rewardedLoading) {
-          console.log('[Ads] Rewarded ad load timed out after 15s with no LOADED/ERROR event — resetting to allow a fresh attempt.');
-          this.rewardedLoading = false;
-        }
-      }, 15000);
-    } catch (e) {
-      this.rewardedLoading = false;
-      console.log('[Ads] rewarded load failed:', e?.message);
-    }
-  }
-
-  isRewardedReady() {
-    return !!this.rewardedLoaded;
-  }
-
-  /**
-   * Waits for a rewarded ad to finish loading if one isn't ready yet
-   * (common right after app launch, or right after the previous one was
-   * just watched and a replacement is still loading), instead of failing
-   * instantly. If nothing has happened by the time we'd give up, forces one
-   * more fresh load attempt rather than silently staying stuck — this is
-   * what makes the reward-for-audio flow reliable across a whole session,
-   * not just the first time.
-   */
-  async _waitForRewardedReady(timeoutMs = 8000) {
-    if (this.rewardedLoaded) return true;
-    if (!this.rewardedLoading) this._loadRewarded();
+  async waitUntilReady(timeoutMs = 8000) {
+    if (this.loaded) return true;
+    this.load();
     const start = Date.now();
     while (Date.now() - start < timeoutMs) {
-      if (this.rewardedLoaded) return true;
+      if (this.loaded) return true;
       await new Promise((r) => setTimeout(r, 250));
     }
-    if (!this.rewardedLoaded) {
-      console.log('[Ads] Rewarded ad still not ready after', timeoutMs, 'ms — forcing a retry.');
-      this.rewardedLoading = false;
-      this._loadRewarded();
+    if (!this.loaded) {
+      this.loading = false;
+      this.load();
     }
-    return this.rewardedLoaded;
+    return this.loaded;
   }
 
-  /**
-   * Shows the rewarded ad. Resolves `true` only if the reward was actually
-   * earned (and audio has been unlocked globally for an hour); `false`
-   * otherwise (no fill, user dismissed early, or SDK unavailable here).
-   */
-  async showRewarded() {
-    if (!RewardedAd) {
-      console.log('[Ads] showRewarded: SDK unavailable on this runtime.');
-      return false;
-    }
-    console.log('[Ads] showRewarded: rewardedLoaded =', this.rewardedLoaded, ', rewardedLoading =', this.rewardedLoading);
-    const ready = await this._waitForRewardedReady();
-    if (!ready || !this.rewarded) {
-      console.log('[Ads] showRewarded: no rewarded ad became ready in time.');
-      return false;
-    }
-
+  /** Shows the ad. Resolves { shown, earned } once the ad is dismissed. */
+  show(onOpen, onClose) {
+    if (!this.isReady()) return Promise.resolve({ shown: false, earned: false });
+    const ad = this.ad;
     return new Promise((resolve) => {
       let earned = false;
       let done = false;
-      const finish = (result) => {
+      const local = [];
+      const finish = (shown) => {
         if (done) return;
         done = true;
-        unsubEarned();
-        unsubClosed();
-        resolve(result);
+        local.forEach((u) => { try { u(); } catch {} });
+        this.loaded = false;
+        this.loading = false;
+        onClose && onClose();
+        resolve({ shown, earned });
+        this.load(); // pre-load the next one
       };
-      const unsubEarned = this.rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, async () => {
-        earned = true;
-        console.log('[Ads] Reward earned — unlocking audio.');
-        await this.unlockAudio();
-      });
-      const unsubClosed = this.rewarded.addAdEventListener(AdEventType.CLOSED, () => {
-        console.log('[Ads] Rewarded ad closed. Earned:', earned);
-        finish(earned);
-      });
+      if (this.isRewarded) {
+        local.push(ad.addAdEventListener(RewardedAdEventType.EARNED_REWARD, () => { earned = true; }));
+      }
+      local.push(ad.addAdEventListener(AdEventType.OPENED, () => { onOpen && onOpen(); }));
+      local.push(ad.addAdEventListener(AdEventType.CLOSED, () => finish(true)));
+      // A failure to *show* also arrives as ERROR — resolve instead of hanging.
+      local.push(ad.addAdEventListener(AdEventType.ERROR, () => finish(false)));
       try {
-        this.rewarded.show();
-        console.log('[Ads] Rewarded ad show() called.');
+        ad.show();
       } catch (e) {
-        console.log('[Ads] rewarded show failed:', e?.message);
+        console.log(`[Ads] ${this.name}: show failed:`, e?.message);
         finish(false);
       }
     });
   }
+}
+
+class AdManagerClass {
+  constructor() {
+    this.isInitialized = false;
+    this.initPromise = null;
+    this.readyListeners = new Set();
+    this.lastFullScreenAt = 0;
+    this.lastInterstitialAt = 0;
+    this.interactionCount = 0;
+    this.fullScreenShowing = false;
+    this.backgroundedAt = 0;
+    this.appState = AppState.currentState;
+    this.launchCount = 0;
+    this.privacyOptionsRequired = false;
+
+    const opts = () => getRequestOptions();
+    this.interstitial = new FullScreenSlot({
+      name: 'Interstitial',
+      create: InterstitialAd ? () => InterstitialAd.createForAdRequest(AD_UNIT_IDS.INTERSTITIAL, opts()) : null,
+      loadedEvent: AdEventType?.LOADED,
+    });
+    this.rewarded = new FullScreenSlot({
+      name: 'Rewarded',
+      create: RewardedAd ? () => RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED, opts()) : null,
+      loadedEvent: RewardedAdEventType?.LOADED,
+      isRewarded: true,
+    });
+    this.rewardedInterstitial = new FullScreenSlot({
+      name: 'RewardedInterstitial',
+      create: RewardedInterstitialAd ? () => RewardedInterstitialAd.createForAdRequest(AD_UNIT_IDS.REWARDED_INTERSTITIAL, opts()) : null,
+      loadedEvent: RewardedAdEventType?.LOADED,
+      isRewarded: true,
+    });
+    this.appOpen = new FullScreenSlot({
+      name: 'AppOpen',
+      create: AppOpenAd ? () => AppOpenAd.createForAdRequest(AD_UNIT_IDS.APP_OPEN, opts()) : null,
+      loadedEvent: AdEventType?.LOADED,
+    });
+  }
+
+  // ---------------- Lifecycle ----------------
+
+  init() {
+    if (this.initPromise) return this.initPromise;
+    this.initPromise = this._init();
+    return this.initPromise;
+  }
+
+  async _init() {
+    if (!mobileAds) {
+      console.log('[Ads] Skipping init — native SDK unavailable (Expo Go / web).');
+      return false;
+    }
+    try {
+      const n = parseInt((await AsyncStorage.getItem(LAUNCH_COUNT_KEY)) || '0', 10) + 1;
+      this.launchCount = n;
+      AsyncStorage.setItem(LAUNCH_COUNT_KEY, String(n)).catch(() => {});
+    } catch {}
+
+    // 1) Consent first (GDPR / US-state privacy via Google UMP). Ads are only
+    //    requested once the SDK says we may.
+    let canRequestAds = true;
+    if (AdsConsent) {
+      try {
+        const info = await AdsConsent.gatherConsent();
+        canRequestAds = info?.canRequestAds !== false;
+        this.privacyOptionsRequired =
+          info?.privacyOptionsRequirementStatus === AdsConsentPrivacyOptionsRequirementStatus?.REQUIRED;
+        // If consent is required but the user has not granted it, stay with
+        // non-personalised requests.
+        if (info?.status === AdsConsentStatus?.REQUIRED) setNonPersonalizedOnly(true);
+      } catch (e) {
+        // No consent message configured in AdMob, or offline — ads can still
+        // be requested; Google serves accordingly.
+        console.log('[Ads] Consent step skipped:', e?.message);
+      }
+    }
+    if (!canRequestAds) {
+      console.log('[Ads] Consent not given — ads will not be requested this session.');
+      return false;
+    }
+
+    // 2) Initialise the SDK and pre-load every full-screen format.
+    try {
+      await mobileAds().initialize();
+      await mobileAds().setRequestConfiguration({
+        tagForChildDirectedTreatment: false,
+        tagForUnderAgeOfConsent: false,
+      });
+    } catch (e) {
+      console.log('[Ads] initialize failed:', e?.message);
+    }
+    this.isInitialized = true;
+    this.interstitial.load();
+    this.rewarded.load();
+    this.rewardedInterstitial.load();
+    this.appOpen.load();
+    this.readyListeners.forEach((fn) => { try { fn(); } catch {} });
+    this.readyListeners.clear();
+    console.log('[Ads] Initialized. Test ads:', USE_TEST_ADS);
+
+    this._watchAppState();
+    this._maybeShowColdStartAppOpen();
+    return true;
+  }
+
+  /** Banner & native components wait for this so nothing is requested before consent. */
+  onReady(fn) {
+    if (this.isInitialized) { fn(); return () => {}; }
+    this.readyListeners.add(fn);
+    return () => this.readyListeners.delete(fn);
+  }
+
+  // ---------------- Full-screen coordination ----------------
+
+  _beforeFullScreen() {
+    this.fullScreenShowing = true;
+  }
+
+  _afterFullScreen() {
+    this.fullScreenShowing = false;
+    this.lastFullScreenAt = Date.now();
+  }
+
+  // ---------------- App open ----------------
+
+  _watchAppState() {
+    if (this._appStateSub) return;
+    this._appStateSub = AppState.addEventListener('change', (next) => {
+      const prev = this.appState;
+      this.appState = next;
+      if (next === 'background') {
+        this.backgroundedAt = Date.now();
+      }
+      if (prev && prev.match(/inactive|background/) && next === 'active') {
+        const awayFor = this.backgroundedAt ? Date.now() - this.backgroundedAt : 0;
+        if (awayFor >= APP_OPEN_MIN_BACKGROUND_MS) this.showAppOpen();
+      }
+    });
+  }
+
+  async _maybeShowColdStartAppOpen() {
+    // Never on a first-ever launch (bad first impression); afterwards, only if
+    // an ad is ready within a few seconds of launch.
+    if (this.launchCount < 2) return;
+    const ok = await this.appOpen.waitUntilReady(4000);
+    if (ok && this.appState === 'active') this.showAppOpen();
+  }
+
+  async showAppOpen() {
+    if (this.fullScreenShowing) return false;
+    if (Date.now() - this.lastFullScreenAt < APP_OPEN_COOLDOWN_MS) return false;
+    if (!this.appOpen.isReady(APP_OPEN_EXPIRY_MS)) { this.appOpen.load(); return false; }
+    const { shown } = await this.appOpen.show(() => this._beforeFullScreen(), () => this._afterFullScreen());
+    return shown;
+  }
+
+  // ---------------- Interstitial ----------------
+
+  /**
+   * Call at natural transition points. Respects a cooldown and a minimum
+   * interaction count so it never interrupts an ongoing reading session.
+   */
+  tryShowInterstitial({ isNaturalBreak = false } = {}) {
+    this.interactionCount++;
+    const now = Date.now();
+    if (this.fullScreenShowing) return false;
+    if (now - this.lastInterstitialAt < INTERSTITIAL_COOLDOWN_MS) return false;
+    if (now - this.lastFullScreenAt < 60 * 1000) return false;
+    if (!isNaturalBreak && this.interactionCount < MIN_INTERACTIONS_BEFORE_AD) return false;
+    if (!this.interstitial.isReady()) { this.interstitial.load(); return false; }
+    this.lastInterstitialAt = now;
+    this.interactionCount = 0;
+    this.interstitial.show(() => this._beforeFullScreen(), () => this._afterFullScreen());
+    return true;
+  }
+
+  // ---------------- Rewarded (unlocks audio) ----------------
+
+  isRewardedReady() {
+    return this.rewarded.isReady() || this.rewardedInterstitial.isReady();
+  }
+
+  /**
+   * Shows a rewarded ad for the audio unlock. Falls back to the rewarded
+   * interstitial unit if the rewarded unit has no fill, so the user almost
+   * always gets an ad to unlock with. Resolves true only if earned.
+   */
+  async showRewarded() {
+    if (!this.rewarded.create && !this.rewardedInterstitial.create) return false;
+    let slot = null;
+    if (await this.rewarded.waitUntilReady(6000)) slot = this.rewarded;
+    else if (await this.rewardedInterstitial.waitUntilReady(3000)) slot = this.rewardedInterstitial;
+    if (!slot) {
+      console.log('[Ads] showRewarded: nothing ready in time.');
+      return false;
+    }
+    const { earned } = await slot.show(() => this._beforeFullScreen(), () => this._afterFullScreen());
+    if (earned) await this.unlockAudio();
+    return earned;
+  }
+
+  // ---------------- Rewarded interstitial (unlocks AI sermons) ----------------
+
+  /**
+   * Shows the rewarded interstitial (used after the user has opted in via the
+   * in-app intro sheet). Resolves { shown, earned }. If no ad is available the
+   * caller should still give the user their content — no-fill must never
+   * block a feature.
+   */
+  async showRewardedInterstitial() {
+    if (!this.rewardedInterstitial.create) return { shown: false, earned: false };
+    const ready = await this.rewardedInterstitial.waitUntilReady(5000);
+    if (!ready) return { shown: false, earned: false };
+    return this.rewardedInterstitial.show(() => this._beforeFullScreen(), () => this._afterFullScreen());
+  }
+
+  // ---------------- Audio unlock state ----------------
 
   async unlockAudio() {
     const until = Date.now() + AUDIO_UNLOCK_MS;
@@ -275,7 +410,6 @@ class AdManagerClass {
     return until;
   }
 
-  /** Global, app-wide check — works identically from any book/chapter/verse. */
   async isAudioUnlocked() {
     try {
       const until = await AsyncStorage.getItem(AUDIO_UNLOCK_KEY);
@@ -294,15 +428,27 @@ class AdManagerClass {
     }
   }
 
+  // ---------------- Privacy ----------------
+
+  isPrivacyOptionsRequired() {
+    return this.privacyOptionsRequired;
+  }
+
+  async showPrivacyOptions() {
+    if (!AdsConsent) return false;
+    try {
+      await AdsConsent.showPrivacyOptionsForm();
+      return true;
+    } catch (e) {
+      console.log('[Ads] privacy options failed:', e?.message);
+      return false;
+    }
+  }
+
   // ---------------- IDs ----------------
 
-  getBannerId() {
-    return AD_UNIT_IDS.BANNER;
-  }
-
-  getNativeId() {
-    return AD_UNIT_IDS.NATIVE;
-  }
+  getBannerId() { return AD_UNIT_IDS.BANNER; }
+  getNativeId() { return AD_UNIT_IDS.NATIVE; }
 }
 
 export const AdManager = new AdManagerClass();

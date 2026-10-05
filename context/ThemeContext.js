@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Appearance } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -22,6 +22,12 @@ export const Light = {
   verseHighlight: 'rgba(201,168,106,0.22)',
   verseHighlightBorder: 'rgba(201,168,106,0.45)',
   shadow: 'rgba(62,39,35,0.12)',
+  onPrimary: '#FFFFFF',
+  success: '#2E9E5B',
+  successLight: '#E3F4EA',
+  danger: '#C0392B',
+  heroStart: '#3E2723',
+  heroEnd: '#6D4C41',
   statusBar: 'dark',
 };
 
@@ -45,6 +51,12 @@ export const Dark = {
   verseHighlight: 'rgba(201,168,106,0.18)',
   verseHighlightBorder: 'rgba(201,168,106,0.35)',
   shadow: 'rgba(0,0,0,0.5)',
+  onPrimary: '#14110D',
+  success: '#43C07A',
+  successLight: 'rgba(67,192,122,0.15)',
+  danger: '#E57368',
+  heroStart: '#1E1A14',
+  heroEnd: '#2D261C',
   statusBar: 'light',
 };
 

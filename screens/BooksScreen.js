@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity, TextInput } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
-import PersistentBanner from '../components/PersistentBanner';
 import NativeAdCard from '../components/NativeAdCard';
 import VersionSwitcher from '../components/VersionSwitcher';
 import ThemeToggle from '../components/ThemeToggle';
@@ -55,9 +54,9 @@ export default function BooksScreen({ navigation }) {
       </View>
 
       <View style={{ flexDirection: 'row', gap: 6, paddingHorizontal: 8 }}>
-        <TouchableOpacity onPress={() => setFilter('all')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: filter === 'all' ? colors.primary : colors.card, borderColor: filter === 'all' ? colors.primary : colors.border }}><Text style={{ color: filter === 'all' ? '#fff' : colors.textPrimary, fontSize: 11 }}>All {BOOKS.length}</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => setFilter('old')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: filter === 'old' ? colors.primary : colors.card, borderColor: filter === 'old' ? colors.primary : colors.border }}><Text style={{ color: filter === 'old' ? '#fff' : colors.textPrimary, fontSize: 11 }}>Old 39</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => setFilter('new')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: filter === 'new' ? colors.primary : colors.card, borderColor: filter === 'new' ? colors.primary : colors.border }}><Text style={{ color: filter === 'new' ? '#fff' : colors.textPrimary, fontSize: 11 }}>New 27</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => setFilter('all')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: filter === 'all' ? colors.primary : colors.card, borderColor: filter === 'all' ? colors.primary : colors.border }}><Text style={{ color: filter === 'all' ? colors.onPrimary : colors.textPrimary, fontSize: 11 }}>All {BOOKS.length}</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => setFilter('old')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: filter === 'old' ? colors.primary : colors.card, borderColor: filter === 'old' ? colors.primary : colors.border }}><Text style={{ color: filter === 'old' ? colors.onPrimary : colors.textPrimary, fontSize: 11 }}>Old 39</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => setFilter('new')} style={{ flex: 1, paddingVertical: 8, borderRadius: 8, borderWidth: 1, alignItems: 'center', backgroundColor: filter === 'new' ? colors.primary : colors.card, borderColor: filter === 'new' ? colors.primary : colors.border }}><Text style={{ color: filter === 'new' ? colors.onPrimary : colors.textPrimary, fontSize: 11 }}>New 27</Text></TouchableOpacity>
       </View>
 
       <View style={{ flex: 1, margin: 8, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border, borderRadius: 12 }}>
@@ -81,7 +80,6 @@ export default function BooksScreen({ navigation }) {
         />
       </View>
 
-      <PersistentBanner />
     </ParchmentBackground>
   );
 }

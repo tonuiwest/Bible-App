@@ -3,7 +3,6 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
-import PersistentBanner from '../components/PersistentBanner';
 import ThemeToggle from '../components/ThemeToggle';
 import ScreenHeader from '../components/ScreenHeader';
 import { useContentBottomPad } from '../components/useContentBottomPad';
@@ -36,10 +35,16 @@ export default function BookmarksScreen() {
           data={items}
           keyExtractor={i => i.id}
           contentContainerStyle={{ padding: 12, paddingBottom: bottomPad }}
-          ListEmptyComponent={<Text style={{ textAlign: 'center', marginTop: 60, color: colors.textSecondary, fontFamily: fonts.sans }}>No saved verses yet</Text>}
+          ListEmptyComponent={
+            <View style={{ alignItems: 'center', marginTop: 60, paddingHorizontal: 24 }}>
+              <Ionicons name="bookmark-outline" size={34} color={colors.gold} />
+              <Text style={{ textAlign: 'center', marginTop: 10, color: colors.textPrimary, fontFamily: fonts.sansBold }}>No saved verses yet</Text>
+              <Text style={{ textAlign: 'center', marginTop: 4, color: colors.textSecondary, fontFamily: fonts.sans, fontSize: 12 }}>Tap any verse while reading, then choose Save.</Text>
+            </View>
+          }
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate('Verse', { bookId: item.bookId, bookName: item.bookName, chapter: item.chapter })}
+              onPress={() => navigation.navigate('Verse', { bookId: item.bookId, bookName: item.bookName, chapter: item.chapter, highlightVerse: item.verse })}
               style={[styles.card, { backgroundColor: colors.background, borderColor: colors.border }]}
             >
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -53,7 +58,6 @@ export default function BookmarksScreen() {
           )}
         />
       </View>
-      <PersistentBanner />
     </ParchmentBackground>
   );
 }

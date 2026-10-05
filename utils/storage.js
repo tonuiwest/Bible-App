@@ -29,15 +29,41 @@ export const getLastRead = async () => {
   }
 };
 
-const STREAK_KEY = '@bible_streak';
+const STREAK_KEY = '@bible_streak_v2';
 
+const dayKey = (d = new Date()) => `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+const yesterdayKey = () => dayKey(new Date(Date.now() - 86400000));
+
+/**
+ * Reading streak: consecutive days on which at least one chapter was opened.
+ * Returns { count, best, readToday }.
+ */
 export const getStreak = async () => {
   try {
-    const value = await AsyncStorage.getItem(STREAK_KEY);
-    return value != null ? parseInt(value, 10) : 0;
+    const raw = await AsyncStorage.getItem(STREAK_KEY);
+    const s = raw ? JSON.parse(raw) : null;
+    if (!s) return { count: 0, best: 0, readToday: false, totalDays: 0 };
+    const today = dayKey();
+    const alive = s.last === today || s.last === yesterdayKey();
+    return { count: alive ? s.count : 0, best: s.best || 0, readToday: s.last === today, totalDays: s.totalDays || 0 };
   } catch (e) {
-    console.error('Failed to load streak:', e);
-    return 0;
+    return { count: 0, best: 0, readToday: false, totalDays: 0 };
+  }
+};
+
+/** Call whenever a chapter is opened. Safe to call many times a day. */
+export const recordReadingDay = async () => {
+  try {
+    const raw = await AsyncStorage.getItem(STREAK_KEY);
+    const s = raw ? JSON.parse(raw) : { count: 0, best: 0, last: null, totalDays: 0 };
+    const today = dayKey();
+    if (s.last === today) return s;
+    const count = s.last === yesterdayKey() ? (s.count || 0) + 1 : 1;
+    const next = { count, best: Math.max(s.best || 0, count), last: today, totalDays: (s.totalDays || 0) + 1 };
+    await AsyncStorage.setItem(STREAK_KEY, JSON.stringify(next));
+    return next;
+  } catch (e) {
+    return null;
   }
 };
 
