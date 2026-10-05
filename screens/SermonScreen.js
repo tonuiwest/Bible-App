@@ -8,7 +8,7 @@ import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
 import ScreenHeader from '../components/ScreenHeader';
 import ThemeToggle from '../components/ThemeToggle';
-import AIAnswer from '../components/AIAnswer';
+import AIAnswer, { TextSizeButton } from '../components/AIAnswer';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import { generateSermon, toPlainText } from '../utils/aiBible';
 import { getBookById } from '../data/books';
@@ -153,7 +153,7 @@ export default function SermonScreen() {
 
   return (
     <ParchmentBackground>
-      <ScreenHeader title="SERMON WRITER" subtitle="Biblically grounded, ready to preach" onBack={() => navigation.goBack()} right={<ThemeToggle size={14} />} />
+      <ScreenHeader title="SERMON WRITER" subtitle="Biblically grounded, ready to preach" onBack={() => navigation.goBack()} right={<><TextSizeButton /><ThemeToggle size={14} /></>} />
       <ScrollView ref={scrollRef} style={{ flex: 1 }} contentContainerStyle={{ padding: 16, paddingBottom: bottomPad }} keyboardShouldPersistTaps="handled">
         {!sermon && !loading && (
           <View style={{ backgroundColor: colors.card, borderRadius: 18, borderWidth: 1, borderColor: colors.border, padding: 16 }}>

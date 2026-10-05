@@ -7,7 +7,7 @@ import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
 import ScreenHeader from '../components/ScreenHeader';
 import ThemeToggle from '../components/ThemeToggle';
-import AIAnswer from '../components/AIAnswer';
+import AIAnswer, { TextSizeButton } from '../components/AIAnswer';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import { askBibleQuestion, toPlainText } from '../utils/aiBible';
 import { getBookById } from '../data/books';
@@ -128,6 +128,7 @@ export default function AIQAScreen() {
               <Ionicons name="create-outline" size={19} color={colors.textPrimary} />
             </TouchableOpacity>
           )}
+          <TextSizeButton />
           <ThemeToggle size={14} />
         </>}
       />
