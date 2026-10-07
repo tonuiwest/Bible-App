@@ -58,6 +58,7 @@ module.exports = {
         },
       ],
     ],
-    extra: { eas: { projectId: "bible-app-parchment" } },
+    owner: "tonuiw3",
+    extra: { eas: { projectId: "34aec51d-eeee-48a9-ba72-3079a7174d18" } },
   },
 };
