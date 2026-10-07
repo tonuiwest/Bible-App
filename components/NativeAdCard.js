@@ -28,13 +28,17 @@ if (Platform.OS !== 'web') {
  * is actually ready, and disappears again if loading fails — so it never
  * leaves a broken or empty-looking gap in a "free space" of the layout.
  */
-export default function NativeAdCard({ style }) {
+const MEDIA_MIN_WIDTH = 260; // narrower than this, the card stays a slim text row
+const MEDIA_MAX_HEIGHT = 180;
+
+export default function NativeAdCard({ style, compact = false }) {
   const { colors, fonts } = useTheme();
   const [nativeAd, setNativeAd] = useState(null);
   const requested = useRef(false);
   const adRef = useRef(null);
   const opacity = useRef(new Animated.Value(0)).current;
   const [sdkReady, setSdkReady] = useState(AdManager.isInitialized);
+  const [width, setWidth] = useState(0);
 
   // Never request before the consent flow + SDK init have finished.
   useEffect(() => AdManager.onReady(() => setSdkReady(true)), []);
@@ -70,6 +74,14 @@ export default function NativeAdCard({ style }) {
 
   if (!NativeAdView || !nativeAd) return null;
 
+  // Adaptive media: sized from the creative's own aspect ratio and the width
+  // actually available, capped so it never dominates the list. Narrow
+  // layouts (or compact) keep the slim icon + text row only.
+  const innerWidth = Math.max(0, width - 24);
+  const ratio = nativeAd.mediaContent?.aspectRatio || 16 / 9;
+  const showMedia = !compact && !!nativeAd.mediaContent && !!NativeMediaView && innerWidth >= MEDIA_MIN_WIDTH;
+  const mediaHeight = Math.min(MEDIA_MAX_HEIGHT, Math.round(innerWidth / ratio));
+
   return (
     <Animated.View style={[{
       backgroundColor: colors?.card || '#FFFEF9',
@@ -79,7 +91,7 @@ export default function NativeAdCard({ style }) {
       padding: 12,
       marginVertical: 8,
       opacity,
-    }, style]}>
+    }, style]} onLayout={(e) => setWidth(e.nativeEvent.layout.width)}>
       <Text style={{ fontSize: 9, letterSpacing: 1.5, color: colors?.textSecondary || '#8D7A64', marginBottom: 6, fontFamily: fonts?.sans }}>
         SPONSORED
       </Text>
@@ -116,8 +128,11 @@ export default function NativeAdCard({ style }) {
             as a sibling outside NativeAdView is what caused
             "Cannot read property 'responseId' of undefined": the native
             module has no ad response to associate the media view with. */}
-        {!!nativeAd.mediaContent && NativeMediaView && (
-          <NativeMediaView style={{ width: '100%', height: 140, borderRadius: 10, marginTop: 10 }} resizeMode="cover" />
+        {showMedia && (
+          <NativeMediaView
+            style={{ width: '100%', height: mediaHeight, borderRadius: 10, marginTop: 10, overflow: 'hidden' }}
+            resizeMode="contain"
+          />
         )}
       </NativeAdView>
     </Animated.View>

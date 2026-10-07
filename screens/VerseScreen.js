@@ -158,7 +158,9 @@ export default function VerseScreen() {
     })();
   }, [bookId, chapter]);
 
-  useEffect(() => () => { speakToken.current += 1; Speech.stop(); }, []);
+  useEffect(() => () => { speakToken.current += 1; Speech.stop(); AdManager.setBusy('audio', false); }, []);
+  // No full-screen ad may interrupt read-aloud.
+  useEffect(() => { AdManager.setBusy('audio', playing != null); }, [playing]);
   useEffect(() => { getTtsSettings().then(setTts); }, []);
 
   const goBack = () => {
@@ -171,7 +173,8 @@ export default function VerseScreen() {
     const n = neighbourChapter(bookId, chapter, dir);
     if (!n) return;
     stopSpeech();
-    AdManager.tryShowInterstitial();
+    // Chapter-to-chapter is still an active reading session: count it, never interrupt it.
+    AdManager.tryShowInterstitial({ isNaturalBreak: false });
     navigation.replace('Verse', n);
   };
 
@@ -241,11 +244,19 @@ export default function VerseScreen() {
       setSheet(false);
       Alert.alert('Unlocked', 'Audio is unlocked for 1 hour — across every book and chapter.');
       if (pending) play(pending);
+    } else if (!AdManager.lastRewardedShown) {
+      // No ad could be loaded (no-fill / offline). Never lock the listener
+      // out for that — grant a short free session instead.
+      await AdManager.grantAudioGrace();
+      await refreshUnlockState();
+      setSheet(false);
+      if (pending) play(pending);
     } else {
+      // An ad was available but closed before the reward — let them retry.
       Alert.alert(
         'Not unlocked',
-        'No ad was available just then. This is usually temporary — tap Retry to try again.',
-        [{ text: 'Cancel', style: 'cancel' }, { text: 'Retry', onPress: unlock }]
+        'Watch the video to the end to unlock audio for 1 hour.',
+        [{ text: 'Cancel', style: 'cancel' }, { text: 'Try again', onPress: unlock }]
       );
     }
   };
@@ -449,7 +460,7 @@ export default function VerseScreen() {
       )}
 
       {playing !== null && sel.size === 0 && (
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14, paddingVertical: 10, backgroundColor: colors.card, borderTopWidth: 1, borderTopColor: colors.border }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 14, paddingTop: 10, paddingBottom: bottomPad, backgroundColor: colors.card, borderTopWidth: 1, borderTopColor: colors.border }}>
           <Ionicons name="volume-high" size={18} color={colors.gold} />
           <View style={{ flex: 1 }}>
             <Text style={{ color: colors.textPrimary, fontSize: 13, fontFamily: fonts.sansBold }}>{bookName} {chapter}:{playing}</Text>
@@ -468,7 +479,7 @@ export default function VerseScreen() {
       )}
 
       {sel.size > 0 && (
-        <View style={{ padding: 10, backgroundColor: colors.card, borderTopWidth: 1, borderTopColor: colors.border }}>
+        <View style={{ padding: 10, paddingBottom: bottomPad, backgroundColor: colors.card, borderTopWidth: 1, borderTopColor: colors.border }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 10, paddingHorizontal: 4 }}>
             <Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: fonts.sansMedium, flex: 1 }}>
               {sel.size} selected · Highlight

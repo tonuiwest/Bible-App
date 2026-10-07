@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Platform } from 'react-native';
+import { View, Platform, useWindowDimensions } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { AdManager, getBannerId } from '../ads/AdManager';
 import { getRequestOptions } from '../constants/ads';
@@ -16,23 +16,28 @@ if (Platform.OS !== 'web') {
   }
 }
 
-const RETRY_MS = 60 * 1000;
+// No-fill retry back-off: 30s, 60s, 120s … capped at 5 min.
+const RETRY_BASE_MS = 30 * 1000;
+const RETRY_MAX_MS = 5 * 60 * 1000;
 
 /**
  * The ONE app-wide anchored adaptive banner. It is mounted once at the root
- * (below the navigation stack and the bottom dock), so it is never torn down
- * and re-requested on every screen change — AdMob's own refresh cycle
- * controls it, which is what the anchored-banner format expects.
+ * (between the bottom dock and the system navigation inset), so it is never
+ * torn down and re-requested on every screen change — AdMob's own refresh
+ * cycle controls it, which is what the anchored-banner format expects.
  *
- * It waits for consent/initialisation before requesting, collapses to zero
- * height when there is no fill, and quietly retries a minute later.
+ * It waits for consent/initialisation before requesting. Until an ad has
+ * actually filled it takes no space at all (no empty strip), and on no-fill
+ * it quietly retries with back-off.
  */
 export default function PersistentBanner() {
   const { colors } = useTheme();
+  const { width } = useWindowDimensions();
   const [ready, setReady] = useState(AdManager.isInitialized);
-  const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const timer = useRef(null);
+  const failures = useRef(0);
 
   useEffect(() => AdManager.onReady(() => setReady(true)), []);
   useEffect(() => () => clearTimeout(timer.current), []);
@@ -45,9 +50,10 @@ export default function PersistentBanner() {
         width: '100%',
         alignItems: 'center',
         backgroundColor: colors.card,
-        borderTopWidth: failed ? 0 : 1,
+        borderTopWidth: loaded ? 1 : 0,
         borderTopColor: colors.border,
-        height: failed ? 0 : undefined,
+        // Collapsed (but still mounted, so the request runs) until filled.
+        height: loaded ? undefined : 0,
         overflow: 'hidden',
       }}
     >
@@ -55,13 +61,19 @@ export default function PersistentBanner() {
         key={attempt}
         unitId={getBannerId()}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+        width={Math.floor(width)}
         requestOptions={getRequestOptions()}
-        onAdLoaded={() => setFailed(false)}
+        onAdLoaded={() => {
+          failures.current = 0;
+          setLoaded(true);
+        }}
         onAdFailedToLoad={(e) => {
           console.log('[Ads] Banner failed to load:', e?.code || '', e?.message || e);
-          setFailed(true);
+          setLoaded(false);
+          const delay = Math.min(RETRY_MAX_MS, RETRY_BASE_MS * 2 ** failures.current);
+          failures.current += 1;
           clearTimeout(timer.current);
-          timer.current = setTimeout(() => setAttempt((n) => n + 1), RETRY_MS);
+          timer.current = setTimeout(() => setAttempt((n) => n + 1), delay);
         }}
       />
     </View>

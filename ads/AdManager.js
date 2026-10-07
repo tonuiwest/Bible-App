@@ -41,9 +41,15 @@ if (Platform.OS !== 'web') {
 const AUDIO_UNLOCK_KEY = '@audio_unlock_until';
 const AUDIO_UNLOCK_MS = 60 * 60 * 1000;
 
-// Interstitial pacing — occasional and never mid-reading.
-const INTERSTITIAL_COOLDOWN_MS = 4 * 60 * 1000;
-const MIN_INTERACTIONS_BEFORE_AD = 5;
+// If no rewarded ad is available, the user is never locked out: audio is
+// granted for a short grace period instead (no-fill must not block a feature).
+const AUDIO_GRACE_MS = 15 * 60 * 1000;
+
+// Interstitial pacing — occasional, only at natural breaks, never mid-session.
+const INTERSTITIAL_COOLDOWN_MS = 5 * 60 * 1000;
+const MIN_INTERACTIONS_BEFORE_AD = 6;
+const SESSION_GRACE_MS = 2 * 60 * 1000; // no interstitial in the first 2 min
+const CONSENT_TIMEOUT_MS = 8 * 1000;
 
 // App-open pacing (Google guidance: show on foreground, not too often, and
 // discard an ad that has been cached for more than 4 hours).
@@ -199,6 +205,10 @@ class AdManagerClass {
     this.appState = AppState.currentState;
     this.launchCount = 0;
     this.privacyOptionsRequired = false;
+    this.sessionStartedAt = Date.now();
+    // Reasons the user is actively engaged (e.g. 'audio'). While any is set,
+    // no full-screen ad (interstitial / app open) may appear.
+    this.busy = new Set();
 
     const opts = () => getRequestOptions();
     this.interstitial = new FullScreenSlot({
@@ -249,7 +259,12 @@ class AdManagerClass {
     let canRequestAds = true;
     if (AdsConsent) {
       try {
-        const info = await AdsConsent.gatherConsent();
+        // Never let a slow/hung consent request stop ads (incl. the banner)
+        // from ever starting.
+        const info = await Promise.race([
+          AdsConsent.gatherConsent(),
+          new Promise((_, rej) => setTimeout(() => rej(new Error('consent timeout')), CONSENT_TIMEOUT_MS)),
+        ]);
         canRequestAds = info?.canRequestAds !== false;
         this.privacyOptionsRequired =
           info?.privacyOptionsRequirementStatus === AdsConsentPrivacyOptionsRequirementStatus?.REQUIRED;
@@ -269,11 +284,12 @@ class AdManagerClass {
 
     // 2) Initialise the SDK and pre-load every full-screen format.
     try {
-      await mobileAds().initialize();
+      // Request configuration must be set BEFORE initialize() to apply.
       await mobileAds().setRequestConfiguration({
         tagForChildDirectedTreatment: false,
         tagForUnderAgeOfConsent: false,
       });
+      await mobileAds().initialize();
     } catch (e) {
       console.log('[Ads] initialize failed:', e?.message);
     }
@@ -299,6 +315,15 @@ class AdManagerClass {
   }
 
   // ---------------- Full-screen coordination ----------------
+
+  /** Mark the user as actively engaged (e.g. audio playing) so nothing interrupts. */
+  setBusy(reason, on) {
+    if (on) this.busy.add(reason); else this.busy.delete(reason);
+  }
+
+  isBusy() {
+    return this.busy.size > 0;
+  }
 
   _beforeFullScreen() {
     this.fullScreenShowing = true;
@@ -335,7 +360,7 @@ class AdManagerClass {
   }
 
   async showAppOpen() {
-    if (this.fullScreenShowing) return false;
+    if (this.fullScreenShowing || this.isBusy()) return false;
     if (Date.now() - this.lastFullScreenAt < APP_OPEN_COOLDOWN_MS) return false;
     if (!this.appOpen.isReady(APP_OPEN_EXPIRY_MS)) { this.appOpen.load(); return false; }
     const { shown } = await this.appOpen.show(() => this._beforeFullScreen(), () => this._afterFullScreen());
@@ -345,16 +370,20 @@ class AdManagerClass {
   // ---------------- Interstitial ----------------
 
   /**
-   * Call at natural transition points. Respects a cooldown and a minimum
-   * interaction count so it never interrupts an ongoing reading session.
+   * Every call counts as an interaction, but an ad is only ever shown when
+   * the caller marks a genuine natural break (leaving the reader, finishing
+   * a plan reading, after sharing) — never on ordinary navigation, never
+   * while audio plays, never early in a session, and at most every 5 min.
    */
   tryShowInterstitial({ isNaturalBreak = false } = {}) {
     this.interactionCount++;
     const now = Date.now();
-    if (this.fullScreenShowing) return false;
+    if (!isNaturalBreak) return false;
+    if (this.fullScreenShowing || this.isBusy()) return false;
+    if (now - this.sessionStartedAt < SESSION_GRACE_MS) return false;
     if (now - this.lastInterstitialAt < INTERSTITIAL_COOLDOWN_MS) return false;
     if (now - this.lastFullScreenAt < 60 * 1000) return false;
-    if (!isNaturalBreak && this.interactionCount < MIN_INTERACTIONS_BEFORE_AD) return false;
+    if (this.interactionCount < MIN_INTERACTIONS_BEFORE_AD) return false;
     if (!this.interstitial.isReady()) { this.interstitial.load(); return false; }
     this.lastInterstitialAt = now;
     this.interactionCount = 0;
@@ -378,11 +407,13 @@ class AdManagerClass {
     let slot = null;
     if (await this.rewarded.waitUntilReady(6000)) slot = this.rewarded;
     else if (await this.rewardedInterstitial.waitUntilReady(3000)) slot = this.rewardedInterstitial;
+    this.lastRewardedShown = false;
     if (!slot) {
       console.log('[Ads] showRewarded: nothing ready in time.');
       return false;
     }
-    const { earned } = await slot.show(() => this._beforeFullScreen(), () => this._afterFullScreen());
+    const { shown, earned } = await slot.show(() => this._beforeFullScreen(), () => this._afterFullScreen());
+    this.lastRewardedShown = shown;
     if (earned) await this.unlockAudio();
     return earned;
   }
@@ -403,6 +434,13 @@ class AdManagerClass {
   }
 
   // ---------------- Audio unlock state ----------------
+
+  /** Short unlock used when no rewarded ad could be loaded. */
+  async grantAudioGrace() {
+    const until = Date.now() + AUDIO_GRACE_MS;
+    await AsyncStorage.setItem(AUDIO_UNLOCK_KEY, String(until));
+    return until;
+  }
 
   async unlockAudio() {
     const until = Date.now() + AUDIO_UNLOCK_MS;

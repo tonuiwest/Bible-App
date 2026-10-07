@@ -99,8 +99,9 @@ export default function AIQAScreen() {
       setThread((t) => t.map((m) => (m.id === id ? { ...m, result } : m)));
       setLoading(false);
       remember(question);
-      // Every few answers is a natural pause for an (occasional, capped) interstitial.
-      AdManager.tryShowInterstitial();
+      // Counted as engagement only — the user is about to read the answer,
+      // so this is never an interruption point.
+      AdManager.tryShowInterstitial({ isNaturalBreak: false });
     }, wait);
   };
 
@@ -205,7 +206,7 @@ export default function AIQAScreen() {
           <View style={{ height: 8 }} />
         </ScrollView>
 
-        <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, paddingHorizontal: 12, paddingTop: 10, paddingBottom: Math.max(10, bottomPad - 18), backgroundColor: colors.card, borderTopWidth: 1, borderTopColor: colors.border }}>
+        <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: 8, paddingHorizontal: 12, paddingTop: 10, paddingBottom: bottomPad, backgroundColor: colors.card, borderTopWidth: 1, borderTopColor: colors.border }}>
           <View style={{ flex: 1, minHeight: 44, maxHeight: 120, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.background, paddingHorizontal: 14, justifyContent: 'center' }}>
             <TextInput
               value={q}
