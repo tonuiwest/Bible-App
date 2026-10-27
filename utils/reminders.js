@@ -16,6 +16,10 @@ const KEY = 'daily_reminder_v1';
 const CHANNEL_ID = 'daily-reading';
 const DEFAULT = { enabled: false, hour: 7, minute: 0, id: null };
 
+// Never let a native call or a slow verse lookup leave the Save button spinning.
+const withTimeout = (p, ms, fallback) =>
+  Promise.race([Promise.resolve(p), new Promise((res) => setTimeout(() => res(fallback), ms))]);
+
 export const remindersSupported = () => !!Notifications;
 
 /** Show reminders as a banner even if the app is open. Call once at startup. */
@@ -56,11 +60,16 @@ async function ensureChannel() {
 
 async function ensurePermission() {
   if (!Notifications) return false;
+  // Android 13+: the permission prompt only appears once a channel exists;
+  // without it requestPermissionsAsync can hang forever (the endless spinner).
+  try { await ensureChannel(); } catch (e) { console.log('[Reminder] channel:', e?.message); }
   const current = await Notifications.getPermissionsAsync();
   if (current.granted) return true;
   if (current.canAskAgain === false) return false;
-  const asked = await Notifications.requestPermissionsAsync();
-  return !!asked.granted;
+  const asked = await withTimeout(Notifications.requestPermissionsAsync(), 20000, null);
+  if (asked) return !!asked.granted;
+  const after = await Notifications.getPermissionsAsync();
+  return !!after.granted;
 }
 
 const fmt = (h, m) => {
@@ -77,7 +86,7 @@ export const formatReminderTime = (r) => fmt(r.hour, r.minute);
 async function buildContent(planHint) {
   const tomorrow = new Date(Date.now() + 86400000);
   let verse = null;
-  try { verse = await getVerseOfTheDay(tomorrow); } catch {}
+  try { verse = await withTimeout(getVerseOfTheDay(tomorrow), 3000, null); } catch {}
   const preview = verse
     ? `“${verse.text.length > 110 ? verse.text.slice(0, 107).replace(/\s+\S*$/, '') + '…' : verse.text}” — ${verse.ref}`
     : 'Take a few quiet minutes in God’s Word today.';
@@ -110,13 +119,21 @@ async function schedule(r, planHint) {
 /** Turns the reminder on at hour:minute. Returns { ok, reason }. */
 export async function enableReminder(hour, minute, planHint) {
   if (!Notifications) return { ok: false, reason: 'unsupported' };
-  const allowed = await ensurePermission();
-  if (!allowed) return { ok: false, reason: 'denied' };
-  const prev = await getReminder();
-  const id = await schedule({ ...prev, hour, minute }, planHint);
-  const next = { enabled: true, hour, minute, id };
-  await saveReminder(next);
-  return { ok: true, reminder: next };
+  try {
+    const allowed = await ensurePermission();
+    if (!allowed) return { ok: false, reason: 'denied' };
+    const prev = await getReminder();
+    // Clear any stale copies (e.g. from older builds) so only one fires daily.
+    try { await Notifications.cancelAllScheduledNotificationsAsync(); } catch {}
+    const id = await withTimeout(schedule({ ...prev, id: null, hour, minute }, planHint), 10000, null);
+    if (!id) return { ok: false, reason: 'error' };
+    const next = { enabled: true, hour, minute, id };
+    await saveReminder(next);
+    return { ok: true, reminder: next };
+  } catch (e) {
+    console.log('[Reminder] enable failed:', e?.message);
+    return { ok: false, reason: 'error', message: e?.message };
+  }
 }
 
 export async function disableReminder() {

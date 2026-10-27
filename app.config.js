@@ -3,7 +3,8 @@ module.exports = {
     name: "Bible App",
     slug: "bible-app",
     version: "1.0.0",
-    orientation: "portrait",
+    // "default" (not "portrait"): Play vitals — support large screens / foldables.
+    orientation: "default",
     icon: "./assets/icon.png",
     scheme: "bibleapp",
     userInterfaceStyle: "automatic",
@@ -12,6 +13,9 @@ module.exports = {
     ios: { bundleIdentifier: "com.wess.bibleapp", supportsTablet: true },
     android: {
       package: "com.wess.bibleapp",
+      // Android 15+ edge-to-edge: stops RN/Expo calling the deprecated
+      // setStatusBarColor / setNavigationBarColor / LAYOUT_IN_DISPLAY_CUTOUT APIs.
+      edgeToEdgeEnabled: true,
       // Dedicated adaptive-icon foreground: the ring + Bible are scaled to sit
       // inside Android's safe zone, so circle/squircle launcher masks never
       // clip the golden ring.
@@ -57,6 +61,7 @@ module.exports = {
           },
         },
       ],
+      "./plugins/withAndroidVitals",
     ],
     owner: "tonuiw3",
     extra: { eas: { projectId: "34aec51d-eeee-48a9-ba72-3079a7174d18" } },

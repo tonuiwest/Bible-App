@@ -54,34 +54,43 @@ export default function ReminderSheet({ visible, onClose, onChanged }) {
 
   useEffect(() => {
     if (!visible) return;
+    setBusy(false);
     getReminder().then((r) => { setEnabled(r.enabled); setHour(r.hour); setMinute(r.minute); });
   }, [visible]);
 
   const save = async () => {
+    if (busy) return;
     setBusy(true);
     let r;
-    if (!enabled) {
-      r = await disableReminder();
-    } else {
-      const res = await enableReminder(hour, minute, planHint);
-      if (!res.ok) {
-        setBusy(false);
-        if (res.reason === 'denied') {
-          Alert.alert('Notifications are off', 'Allow notifications for Bible App in your phone settings to get a daily reminder.', [
-            { text: 'Not now', style: 'cancel' },
-            { text: 'Open settings', onPress: () => Linking.openSettings() },
-          ]);
-        } else {
-          Alert.alert('Reminders unavailable', 'Daily reminders need the latest version of the app.');
+    try {
+      if (!enabled) {
+        r = await disableReminder();
+      } else {
+        const res = await enableReminder(hour, minute, planHint);
+        if (!res.ok) {
+          if (res.reason === 'denied') {
+            Alert.alert('Notifications are off', 'Allow notifications for Bible App in your phone settings to get a daily reminder.', [
+              { text: 'Not now', style: 'cancel' },
+              { text: 'Open settings', onPress: () => Linking.openSettings() },
+            ]);
+          } else if (res.reason === 'unsupported') {
+            Alert.alert('Reminders unavailable', 'Daily reminders need the latest version of the app.');
+          } else {
+            Alert.alert('Couldn’t set reminder', 'Something went wrong scheduling your reminder. Please try again.');
+          }
+          return;
         }
-        return;
+        r = res.reminder;
       }
-      r = res.reminder;
+    } catch (e) {
+      Alert.alert('Couldn’t set reminder', 'Please try again.');
+      return;
+    } finally {
+      setBusy(false);
     }
-    setBusy(false);
     onChanged && onChanged(r);
     onClose();
-    if (r.enabled) Alert.alert('Reminder set 🔔', `We’ll remind you to read every day at ${formatReminderTime(r)}.`);
+    if (r.enabled) setTimeout(() => Alert.alert('Reminder set 🔔', `We’ll remind you to read every day at ${formatReminderTime(r)}.`), 350);
   };
 
   const h12 = (h) => String(((h + 11) % 12) + 1);
