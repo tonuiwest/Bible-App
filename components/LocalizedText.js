@@ -12,7 +12,9 @@ function translateChild(child, translate) {
     const trailing = child.match(/\s*$/)[0];
     return `${leading}${translated}${trailing}`;
   }
-  if (Array.isArray(child)) return child.map((item) => translateChild(item, translate));
+  // React.Children.map keeps/assigns keys, so mixed text + <Text> children
+  // don't trigger the "unique key" warning.
+  if (Array.isArray(child)) return React.Children.map(child, (item) => translateChild(item, translate));
   if (React.isValidElement(child)) {
     return React.cloneElement(child, {
       children: translateChild(child.props.children, translate),
