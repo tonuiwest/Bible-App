@@ -1,0 +1,23 @@
+{
+  "locale": "sw",
+  "language": "Swahili",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Biblia Takatifu",
+    "shortDescription": "Biblia Takatifu · KJV · Sikiliza sura · Mipango ya kusoma",
+    "fullDescription": "Soma, sikiliza na uelewe Biblia Takatifu - bila malipo, na iliyoundwa vizuri kama Biblia halisi ya karatasi.\n\n📖 MATOLEO NYINGI YA BIBLIA\n• King James Version (KJV) - iliyojengwa ndani, inafanya kazi kikamilifu nje ya mtandao\n• World English Bible (WEB) — Kiingereza cha kisasa, ambacho ni rahisi kusoma\n• American Standard Version (ASV) — usahihi wa kawaida, wa neno kwa neno\n• Bible in Basic English (BBE) — Kiingereza rahisi, bora kwa wasomaji wapya na wanaojifunza Kiingereza\n• Badilisha matoleo mara moja kwenye ukurasa wowote; matoleo unayofungua yanahifadhiwa kwa usomaji wa nje ya mtandao\n• Vitabu vyote 66 vya Agano la Kale na Jipya\n• Angazia mistari katika rangi 4, alamisho na ushiriki\n• Ukubwa wa maandishi unaoweza kurekebishwa, hali ya mchana na usiku (giza).\n\n🎧 BIBLIA YA AUDIO\n• Sikiliza sura yoyote ikisomwa kwa sauti\n• Chagua msimulizi wako: Classic, Deep, Mpole, Msimulizi wa Hadithi na zaidi\n• Kasi ya kusoma inayoweza kubadilishwa\n\n✨ ULIZA BIBLIA (AI)\n• Uliza swali lolote: \"Je! Yeremia 29:11 inamaanisha nini?\"\n• Ufafanuzi wa mistari, vitabu na wahusika wa Biblia\n• Kila jibu linanukuu Maandiko halisi yenye marejeleo\n• Msaada wa wasiwasi, hofu, huzuni, msamaha, ndoa na zaidi\n\n🎤 MWANDISHI WA MAHUBIRI\n• Tengeneza mahubiri kamili na muhtasari wa masomo ya Biblia kwa sekunde\n• Mitindo ya mada, ufafanuzi au uinjilisti\n• Vielelezo, matumizi, maombi na maswali ya majadiliano\n\n📅 MIPANGO YA KUSOMA BIBLIA\n• Mipango 34: Biblia Katika Mwaka, Agano Jipya katika Siku 90, Zaburi, Mithali, Injili ya Yohana na mada kama vile amani, tumaini na maombi.\n• Unda mpango wako wa kusoma\n• Fuatilia maendeleo na uhifadhi mfululizo wako wa kila siku\n\n🔔 AYA YA SIKU & KUMBUSHO LA KILA SIKU\n• Mstari mpya wa Biblia kila siku\n• Kikumbusho cha upole kila siku cha kusoma Neno la Mungu\nNi kamili kwa ibada za kila siku, kusoma Biblia, kanisa, maombi na maandalizi ya mahubiri. Iwe wewe ni mpya kwa imani au umesoma Maandiko kwa miaka mingi, programu hii ya Biblia Takatifu hukusaidia kukua karibu na Mungu kila siku.\n\nPakua programu ya Biblia Takatifu bila malipo sasa na uanze kusoma leo!",
+    "releaseNotes": "Nini kipya:\r\n• Muundo mpya wa ngozi na Hali Nyeusi\r\n• Sauti maalum za sauti za Biblia na kasi ya kucheza tena\r\n• Vikumbusho vya kila siku na mfululizo wa mpango wa kusoma\r\n• Uliza maswali au gusa Eleza kwa umaizi wa aya\r\n• Hakuna matangazo wakati wa kusoma au sauti\r\n• Ishara iliyoboreshwa na usaidizi kutoka makali hadi makali\r\n• Utendaji wa haraka na thabiti zaidi"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

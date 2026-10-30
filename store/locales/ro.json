@@ -1,0 +1,23 @@
+{
+  "locale": "ro",
+  "language": "Romanian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Sfânta Biblie",
+    "shortDescription": "Sfânta Biblie · KJV · Ascultă capitolul · Planuri de lectură",
+    "fullDescription": "Citiți, ascultați și înțelegeți Sfânta Biblie - gratuit și frumos concepută ca o Biblie reală de hârtie.\n\n📖 MULTIPLE VERSIUNI BIBLICE\n• Versiunea King James (KJV) — încorporată, funcționează complet offline\n• World English Bible (WEB) — engleză modernă, ușor de citit\n• American Standard Version (ASV) — acuratețe clasică, cuvânt cu cuvânt\n• Biblie în limba engleză de bază (BBE) — engleză simplă, ideală pentru cititorii noi și cei care învață limba engleză\n• Schimbați versiunile instantaneu pe orice pagină; versiunile pe care le deschideți sunt salvate pentru citire offline\n• Toate cele 66 de cărți ale Vechiului și Noului Testament\n• Evidențiați versurile în 4 culori, marcați și distribuiți\n• Dimensiunea textului reglabilă, modul zi și noapte (întunecat).\n\n🎧 BIBLIA AUDIO\n• Ascultați orice capitol citit cu voce tare\n• Alege-ți naratorul: clasic, profund, blând, povestitor și multe altele\n• Viteza de citire reglabila\n\n✨ ÎNTREBĂ BIBLIA (AI)\n• Pune orice întrebare: „Ce înseamnă Ieremia 29:11?”\n• Explicații de versete, cărți și personaje din Biblie\n• Fiecare răspuns citează Scriptura reală cu referințe\n• Ajutor pentru anxietate, frică, durere, iertare, căsătorie și multe altele\n\n🎤 AUTORIZATOR DE PREDICI\n• Creați predici complete și schițe de studiu biblic în câteva secunde\n• Stiluri de actualitate, expozitive sau evanghelistice\n• Ilustrații, aplicații, rugăciuni și întrebări de discuție\n\n📅 PLANURI DE CITIRE A BIBLII\n• 34 de planuri: Biblie într-un an, Noul Testament în 90 de zile, Psalmi, Proverbe, Evanghelia după Ioan și subiecte precum pacea, speranța și rugăciunea\n• Creați-vă propriul plan de lectură\n• Urmăriți progresul și păstrați-vă succesul zilnic\n\n🔔 VERSEUL ZILEI și METOARE ZILNICĂ\n• Un nou verset biblic în fiecare zi\n• Memento zilnic blând să citiți Cuvântul lui Dumnezeu\nPerfect pentru devotiunile zilnice, studiul Bibliei, biserica, rugăciunea și pregătirea predicilor. Indiferent dacă sunteți nou în credință sau ați citit Scripturile de ani de zile, această aplicație Sfânta Biblie vă ajută să vă apropiați de Dumnezeu în fiecare zi.\n\nDescărcați acum aplicația gratuită Holy Bible și începeți să citiți astăzi!",
+    "releaseNotes": "Ce este nou:\r\n• Design nou pergament și modul întunecat\r\n• Voci audio biblice personalizate și viteza de redare\r\n• Memento-uri zilnice și planuri de lectură\r\n• Puneți întrebări sau atingeți Explicați pentru informații despre versuri\r\n• Fără reclame în timpul citirii sau audio\r\n• Gesturi îmbunătățite și suport de la margine la margine\r\n• Performanță mai rapidă, mai stabilă"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "locale": "it",
+  "language": "Italian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "La Sacra Bibbia",
+    "shortDescription": "La Sacra Bibbia · KJV · Ascolta il capitolo · Piani di lettura",
+    "fullDescription": "Leggi, ascolta e comprendi la Sacra Bibbia: gratuita e splendidamente progettata come una vera Bibbia cartacea.\n\n📖 MOLTEPLICI VERSIONI DELLA BIBBIA\n• Versione King James (KJV): integrata, funziona completamente offline\n• World English Bible (WEB): inglese moderno e di facile lettura\n• American Standard Version (ASV): classica, precisione parola per parola\n• Bibbia in inglese di base (BBE): inglese semplice, ideale per nuovi lettori e studenti di inglese\n• Cambiare versione istantaneamente su qualsiasi pagina; le versioni aperte vengono salvate per la lettura offline\n• Tutti i 66 libri dell'Antico e del Nuovo Testamento\n• Evidenzia i versi in 4 colori, aggiungi ai segnalibri e condividi\n• Dimensioni del testo regolabili, modalità giorno e notte (scuro).\n\n🎧AUDIOBIBBIA\n• Ascolta qualsiasi capitolo letto ad alta voce\n• Scegli il tuo narratore: Classico, Profondo, Gentile, Narratore e altro ancora\n• Velocità di lettura regolabile\n\n✨ CHIEDI ALLA BIBBIA (AI)\n• Fai una domanda: \"Cosa significa Geremia 29:11?\"\n• Spiegazioni di versetti, libri e personaggi biblici\n• Ogni risposta cita la Scrittura reale con riferimenti\n• Aiuto per ansia, paura, dolore, perdono, matrimonio e altro ancora\n\n🎤 SCRITTORE DI SERMONI\n• Crea sermoni completi e schemi di studio biblico in pochi secondi\n• Stili topici, espositivi o evangelistici\n• Illustrazioni, applicazioni, domande di preghiera e discussione\n\n📅 PIANI DI LETTURA DELLA BIBBIA\n• 34 piani: Bibbia in un anno, Nuovo Testamento in 90 giorni, Salmi, Proverbi, Vangelo di Giovanni e argomenti come pace, speranza e preghiera\n• Crea il tuo piano di lettura\n• Tieni traccia dei progressi e mantieni la tua serie giornaliera\n\n🔔 VERSO DEL GIORNO E PROMEMORIA GIORNALIERA\n• Un nuovo versetto della Bibbia ogni giorno\n• Dolce promemoria quotidiano per leggere la Parola di Dio\nPerfetto per le devozioni quotidiane, lo studio della Bibbia, la chiesa, la preghiera e la preparazione dei sermoni. Che tu sia nuovo alla fede o che tu legga le Scritture da anni, questa app della Sacra Bibbia ti aiuta ad avvicinarti a Dio ogni giorno.\n\nScarica subito l'app gratuita della Sacra Bibbia e inizia a leggere oggi!",
+    "releaseNotes": "Novità:\r\n• Nuovo design della pergamena e modalità oscura\r\n• Voci audio bibliche personalizzate e velocità di riproduzione\r\n• Promemoria giornalieri e sequenze di piani di lettura\r\n• Fai domande o tocca Spiega per approfondimenti sui versetti\r\n• Nessuna pubblicità durante la lettura o l'audio\r\n• Gesti migliorati e supporto da bordo a bordo\r\n• Prestazioni più veloci e più stabili"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

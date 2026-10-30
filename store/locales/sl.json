@@ -1,0 +1,23 @@
+{
+  "locale": "sl",
+  "language": "Slovenian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Sveto pismo",
+    "shortDescription": "Sveto pismo · KJV · Poslušaj poglavje · Bralni načrti",
+    "fullDescription": "Berite, poslušajte in razumejte Sveto pismo – brezplačno in lepo oblikovano kot pravo papirnato Sveto pismo.\n\n📖 VEČ SVETIH RAZLIČIC\n• King James Version (KJV) — vgrajeno, deluje v celoti brez povezave\n• World English Bible (WEB) — sodobna, lahko berljiva angleščina\n• Ameriška standardna različica (ASV) — klasična, natančnost do besede\n• Sveto pismo v osnovni angleščini (BBE) — preprosta angleščina, idealna za nove bralce in učence angleščine\n• Takoj zamenjajte različico na kateri koli strani; različice, ki jih odprete, so shranjene za branje brez povezave\n• Vseh 66 knjig Stare in Nove zaveze\n• Označite verze v 4 barvah, dodajte med zaznamke in jih delite\n• Nastavljiva velikost besedila, dnevni in nočni (temen) način\n\n🎧 ZVOČNA BIBLIJA\n• Poslušajte katero koli poglavje, ki ga preberete na glas\n• Izberite svojega pripovedovalca: klasičen, globok, nežen, pripovedovalec in več\n• Nastavljiva hitrost branja\n\n✨ VPRAŠAJTE BIBLIO (AI)\n• Postavite katero koli vprašanje: \"Kaj pomeni Jeremiah 29:11?\"\n• Razlage verzov, knjig in biblijskih likov\n• Vsak odgovor citira pravo sveto pismo z referencami\n• Pomoč pri tesnobi, strahu, žalosti, odpuščanju, poroki in več\n\n🎤 PISEC PRIDIG\n• V nekaj sekundah ustvarite popolne pridige in orise biblijskih študij\n• Aktualni, razlagalni ali evangelizacijski slogi\n• Ilustracije, aplikacije, molitve in vprašanja za razpravo\n\n📅 NAČRTI ZA BRANJE SVETEGA PISMA\n• 34 načrtov: Sveto pismo v enem letu, Nova zaveza v 90 dneh, psalmi, pregovori, Janezov evangelij in teme, kot so mir, upanje in molitev\n• Ustvarite svoj bralni načrt\n• Spremljajte napredek in obdržite svoj dnevni niz\n\n🔔 VERZ DNEVA & DNEVNI OPOMNIK\n• Vsak dan nov svetopisemski verz\n• Nežen dnevni opomnik za branje Božje besede\nPopoln za vsakodnevne pobožnosti, preučevanje Svetega pisma, cerkev, molitve in priprave na pridige. Ne glede na to, ali ste novi v veri ali že leta berete Sveto pismo, vam ta aplikacija Svetega pisma pomaga, da ste vsak dan bližje Bogu.\n\nPrenesite brezplačno aplikacijo Holy Bible in začnite brati še danes!",
+    "releaseNotes": "Kaj je novega:\r\n• Nova oblika pergamenta in temni način\r\n• Zvočni glasovi Svetega pisma po meri in hitrost predvajanja\r\n• Dnevni opomniki in nizi bralnih načrtov\r\n• Postavite vprašanja ali tapnite Razloži za vpogled v verze\r\n• Brez oglasov med branjem ali zvokom\r\n• Izboljšana podpora za poteze in od roba do roba\r\n• Hitrejše in stabilnejše delovanje"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

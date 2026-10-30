@@ -1,0 +1,23 @@
+{
+  "locale": "pl",
+  "language": "Polish",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Biblia Święta",
+    "shortDescription": "Biblia Święta · KJV · Posłuchaj rozdziału · Czytanie planów",
+    "fullDescription": "Czytaj, słuchaj i zrozum Pismo Święte — bezpłatne i pięknie zaprojektowane jak prawdziwa papierowa Biblia.\n\n📖 WIELE WERSJI BIBLII\n• Wersja Króla Jakuba (KJV) — wbudowana, działa całkowicie offline\n• World English Bible (WEB) — nowoczesny, łatwy do czytania angielski\n• American Standard Version (ASV) — klasyczna dokładność słowo w słowo\n• Biblia w języku podstawowym (BBE) — prosty angielski, idealny dla nowych czytelników i uczących się języka angielskiego\n• Natychmiastowe przełączanie wersji na dowolnej stronie; Wersje, które otwierasz, są zapisywane do czytania w trybie offline\n• Wszystkie 66 ksiąg Starego i Nowego Testamentu\n• Zaznacz wersety w 4 kolorach, dodaj do zakładek i udostępnij\n• Regulowany rozmiar tekstu, tryb dzienny i nocny (ciemny).\n\n🎧 BIBLIA AUDIO\n• Posłuchaj dowolnego rozdziału przeczytanego na głos\n• Wybierz narratora: Klasyczny, Głęboki, Delikatny, Narrator i nie tylko\n• Regulowana prędkość odczytu\n\n✨ ZAPYTAJ BIBLIĘ (AI)\n• Zadaj dowolne pytanie: „Co oznacza Jeremiasz 29:11?”\n• Objaśnienia wersetów, ksiąg i postaci biblijnych\n• Każda odpowiedź cytuje prawdziwe Pismo Święte z odniesieniami\n• Pomoc w przypadku niepokoju, strachu, żalu, przebaczenia, małżeństwa i nie tylko\n\n🎤 PISARKA KAZANIA\n• Twórz pełne kazania i zarysy studiów biblijnych w ciągu kilku sekund\n• Style tematyczne, objaśniające lub ewangelizacyjne\n• Ilustracje, aplikacje, modlitwy i pytania do dyskusji\n\n📅 PLANY CZYTANIA BIBLII\n• 34 plany: Biblia w rok, Nowy Testament w 90 dni, Psalmy, Przysłowia, Ewangelia Jana i tematy takie jak pokój, nadzieja i modlitwa\n• Stwórz swój własny plan czytania\n• Śledź postępy i utrzymuj codzienną passę\n\n🔔 WERSET DNIA I CODZIENNE PRZYPOMNIENIE\n• Codziennie nowy werset biblijny\n• Delikatne codzienne przypomnienie o czytaniu Słowa Bożego\nIdealny do codziennych nabożeństw, studiowania Biblii, kościoła, modlitwy i przygotowywania kazań. Niezależnie od tego, czy dopiero zaczynasz swoją wiarę, czy czytasz Pismo Święte od lat, ta aplikacja Pisma Świętego pomaga Ci każdego dnia zbliżać się do Boga.\n\nPobierz teraz bezpłatną aplikację Pismo Święte i zacznij czytać już dziś!",
+    "releaseNotes": "Co nowego:\r\n• Nowy projekt pergaminu i tryb ciemny\r\n• Niestandardowe głosy biblijne i prędkość odtwarzania\r\n• Codzienne przypomnienia i serie planów czytania\r\n• Zadawaj pytania lub stuknij opcję Wyjaśnij, aby uzyskać szczegółowe informacje na temat wersetów\r\n• Brak reklam podczas czytania lub dźwięku\r\n• Ulepszona obsługa gestów i krawędzi do krawędzi\r\n• Szybsza i bardziej stabilna wydajność"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "locale": "es-419",
+  "language": "Spanish (Latin America)",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "La Santa Biblia",
+    "shortDescription": "La Santa Biblia · RV · escuchar el capitulo · Planes de lectura",
+    "fullDescription": "Lea, escuche y comprenda la Santa Biblia: gratuita y bellamente diseñada como una Biblia de papel real.\n\n📖 MÚLTIPLES VERSIONES DE LA BIBLIA\n• Versión King James (KJV): integrada, funciona completamente sin conexión\n• Biblia en inglés mundial (WEB): inglés moderno y fácil de leer\n• Versión estándar americana (ASV): clásica, precisión palabra por palabra\n• Biblia en inglés básico (BBE): inglés sencillo, ideal para nuevos lectores y estudiantes de inglés\n• Cambie de versión instantáneamente en cualquier página; Las versiones que abres se guardan para leerlas sin conexión.\n• Los 66 libros del Antiguo y Nuevo Testamento\n• Resalte versos en 4 colores, márquelos y compártalos\n• Tamaño de texto ajustable, modo día y noche (oscuro)\n\n🎧 BIBLIA EN AUDIO\n• Escuche cualquier capítulo leído en voz alta.\n• Elige tu narrador: Clásico, Profundo, Gentil, Narrador y más\n• Velocidad de lectura ajustable\n\n✨PREGUNTE A LA BIBLIA (AI)\n• Haga cualquier pregunta: \"¿Qué significa Jeremías 29:11?\"\n• Explicaciones de versículos, libros y personajes de la Biblia.\n• Cada respuesta cita Escrituras reales con referencias.\n• Ayuda para la ansiedad, el miedo, la pena, el perdón, el matrimonio y más\n\n🎤 ESCRITOR DE SERMONES\n• Cree sermones completos y esquemas de estudios bíblicos en segundos\n• Estilos temáticos, expositivos o evangelísticos.\n• Ilustraciones, preguntas de aplicación, oración y discusión.\n\n📅 PLANES DE LECTURA DE LA BIBLIA\n• 34 planes: Biblia en un año, Nuevo Testamento en 90 días, Salmos, Proverbios, Evangelio de Juan y temas como paz, esperanza y oración.\n• Crea tu propio plan de lectura\n• Realice un seguimiento del progreso y mantenga su racha diaria\n\n🔔 VERSO DEL DÍA Y RECORDATORIO DIARIO\n• Un nuevo versículo de la Biblia cada día.\n• Suave recordatorio diario para leer la Palabra de Dios\nPerfecto para devocionales diarios, estudio bíblico, iglesia, oración y preparación de sermones. Si eres nuevo en la fe o has leído las Escrituras durante años, esta aplicación de la Santa Biblia te ayuda a acercarte más a Dios todos los días.\n\n¡Descarga la aplicación gratuita de la Santa Biblia ahora y comienza a leer hoy!",
+    "releaseNotes": "Qué hay de nuevo:\r\n• Nuevo diseño de pergamino y modo oscuro\r\n• Voces de audio de la Biblia personalizadas y velocidad de reproducción\r\n• Recordatorios diarios y rachas de planes de lectura\r\n• Haga preguntas o toque Explicar para obtener información sobre los versos.\r\n• Sin anuncios durante la lectura o el audio\r\n• Gestos mejorados y soporte de borde a borde\r\n• Rendimiento más rápido y estable"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

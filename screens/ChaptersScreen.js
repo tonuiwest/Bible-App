@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity } from '../components/LocalizedReactNative';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
 import NativeAdCard from '../components/NativeAdCard';

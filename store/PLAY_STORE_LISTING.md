@@ -4,6 +4,19 @@ Paste into **Play Console → Grow users → Store presence → Main store listi
 All lengths checked against Play limits. Copy avoids terms Play rejects in
 titles/short descriptions ("best", "#1", "free", "top", emoji, ALL CAPS).
 
+Machine-translation drafts for the listing are generated in `store/locales/`.
+By default, they use the recommended English copy in this file. To localize the
+current live listing instead, use the saved live listing snapshot and command
+below. Each locale file records character-limit checks and is explicitly marked
+as machine-translated and not human-reviewed.
+Over-limit titles and short descriptions are condensed using existing
+localized app labels; review those adaptations and compare them with the live
+listing before applying them in Play Console. Run
+`node scripts/generateLocalization.js --store-only` to recheck the saved drafts
+without calling the translation service. To refresh drafts from the live
+English listing snapshot in `store/PLAY_STORE_LIVE_LISTING.json`, run
+`node scripts/generateLocalization.js --store-only --live-listing-source --refresh-listing-fields --refresh-release-notes`.
+
 ---
 
 ## App name (30 max)

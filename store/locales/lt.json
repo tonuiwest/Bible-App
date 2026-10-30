@@ -1,0 +1,23 @@
+{
+  "locale": "lt",
+  "language": "Lithuanian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Šventoji Biblija",
+    "shortDescription": "Šventoji Biblija · KJV · Klausykite skyriaus · Skaitymo planai",
+    "fullDescription": "Skaitykite, klausykite ir supraskite Šventąją Bibliją – nemokama ir gražiai suprojektuota kaip tikra popierinė Biblija.\n\n📖 KELI BIBLIJOS VERSIJA\n• King James Version (KJV) – integruota, veikia visiškai neprisijungus\n• World English Bible (WEB) – moderni, lengvai skaitoma anglų kalba\n• Amerikos standartinė versija (ASV) – klasikinis, tikslumas žodis žodin\n• Biblija pagrindine anglų kalba (BBE) – paprasta anglų kalba, puikiai tinka naujiems skaitytojams ir besimokantiems anglų kalbos\n• Iš karto perjunkite versijas bet kuriame puslapyje; atidarytos versijos išsaugomos skaitymui neprisijungus\n• Visos 66 Senojo ir Naujojo Testamento knygos\n• Paryškinkite eilutes 4 spalvomis, pažymėkite ir bendrinkite\n• Reguliuojamas teksto dydis, dieninis ir naktinis (tamsus) režimas\n\n🎧 GARSO BIBLIJA\n• Klausykite bet kurio skyriaus garsiai skaitomo\n• Pasirinkite savo pasakotoją: klasikinis, gilus, švelnus, pasakotojas ir kt\n• Reguliuojamas skaitymo greitis\n\n✨ KLAUSKITE BIBLIJOS (AI)\n• Užduokite bet kokį klausimą: „Ką reiškia Jeremijo 29:11?\n• Eilučių, knygų ir Biblijos veikėjų paaiškinimai\n• Kiekviename atsakyme cituojamas tikras Šventasis Raštas su nuorodomis\n• Pagalba nerimo, baimės, sielvarto, atleidimo, santuokos ir kt\n\n🎤 PAmokslų rašytojas\n• Per kelias sekundes sukurkite visus pamokslus ir Biblijos studijų metmenis\n• Aktualus, aiškinamasis arba evangelinis stilius\n• Iliustracijos, aplikacijos, maldos ir diskusijų klausimai\n\n📅 BIBLIJAS SKAITYMO PLANAI\n• 34 planai: Biblija per metus, Naujasis Testamentas per 90 dienų, Psalmės, Patarlės, Jono evangelija ir tokios temos kaip taika, viltis ir malda\n• Susikurkite savo skaitymo planą\n• Stebėkite pažangą ir išlaikykite savo kasdienę seriją\n\n🔔 DIENOS EIGA IR DIENOS PRIMINIMAS\n• Kiekvieną dieną nauja Biblijos eilutė\n• Švelnus kasdienis priminimas skaityti Dievo Žodį\nPuikiai tinka kasdienėms pamaldoms, Biblijos studijoms, bažnyčiai, maldai ir pamokslo ruošimui. Nesvarbu, ar esate tikėjimo naujokas, ar daug metų skaitote Šventąjį Raštą, ši Šventosios Biblijos programa padeda jums kasdien priartėti prie Dievo.\n\nAtsisiųskite nemokamą Šventosios Biblijos programą dabar ir pradėkite skaityti šiandien!",
+    "releaseNotes": "Kas naujo:\r\n• Naujas pergamento dizainas ir tamsus režimas\r\n• Pasirinktiniai Biblijos garso balsai ir atkūrimo greitis\r\n• Kasdieniniai priminimai ir skaitymo plano eilės\r\n• Užduokite klausimus arba bakstelėkite Paaiškinti, kad pamatytumėte eilėraščių įžvalgas\r\n• Jokių skelbimų skaitymo ar garso metu\r\n• Patobulintas gestas ir palaikymas nuo krašto iki krašto\r\n• Greitesnis, stabilesnis veikimas"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

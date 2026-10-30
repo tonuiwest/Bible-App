@@ -1,0 +1,23 @@
+{
+  "locale": "hu",
+  "language": "Hungarian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "A Szent Biblia",
+    "shortDescription": "A Szent Biblia · KJV · Hallgasd meg a fejezetet · Tervek olvasása",
+    "fullDescription": "Olvassa, hallgassa és értse meg a Szent Bibliát – ingyenes és gyönyörűen megtervezett, mint egy valódi papír Biblia.\n\n📖 TÖBB BIBLIAVERZIÓ\n• King James Version (KJV) – beépített, teljesen offline állapotban működik\n• World English Bible (WEB) – modern, könnyen olvasható angol nyelv\n• American Standard Version (ASV) – klasszikus, szóról szóra pontosság\n• Bible in Basic English (BBE) – egyszerű angol, ideális új olvasók és angolul tanulók számára\n• Azonnal válthat verziót bármelyik oldalon; a megnyitott verziók mentésre kerülnek offline olvasáshoz\n• Az Ó- és Újszövetség mind a 66 könyve\n• Jelölje ki a verseket 4 színben, vegye fel a könyvjelzők közé és ossza meg\n• Állítható szövegméret, nappali és éjszakai (sötét) mód\n\n🎧 AUDIO BIBLIA\n• Hallgassa meg bármelyik fejezetet felolvasva\n• Válassza ki a narrátort: klasszikus, mély, gyengéd, mesemondó és így tovább\n• Állítható olvasási sebesség\n\n✨ KÉRDEZD A BIBLIÁT (AI)\n• Tegyen fel bármilyen kérdést: \"Mit jelent a Jeremiás 29:11?\"\n• Versek, könyvek és bibliai szereplők magyarázata\n• Minden válasz a valódi Szentírást idézi hivatkozásokkal\n• Segítség a szorongás, a félelem, a bánat, a megbocsátás, a házasság és egyebek kezelésére\n\n🎤 Prédikációíró\n• Készítsen teljes prédikációkat és bibliatanulmányozási vázlatokat másodpercek alatt\n• Aktuális, ismertető vagy evangelizációs stílusok\n• Illusztrációk, alkalmazások, ima- és vitakérdések\n\n📅 BIBLIAOLVASÁSI TERVEK\n• 34 terv: Biblia egy év alatt, Újszövetség 90 nap alatt, Zsoltárok, Példabeszédek, János evangéliuma és olyan témák, mint a béke, a remény és az ima\n• Készítse el saját olvasási tervét\n• Kövesse nyomon a fejlődést, és tartsa meg napi sorozatát\n\n🔔 A NAP VERSE & NAPI EMLÉKEZTETŐ\n• Minden nap egy új bibliavers\n• Gyengéd napi emlékeztető, hogy olvassa el Isten Igéjét\nTökéletes napi áhítatokhoz, bibliatanulmányozáshoz, templomhoz, imához és prédikáció előkészítéséhez. Akár új a hitben, akár évek óta olvassa a Szentírást, ez a Szent Biblia alkalmazás segít minden nap közelebb kerülni Istenhez.\n\nTöltse le az ingyenes Holy Bible alkalmazást most, és kezdje el olvasni még ma!",
+    "releaseNotes": "Újdonságok:\r\n• Új pergamen dizájn és sötét mód\r\n• Egyedi bibliai hangok és lejátszási sebesség\r\n• Napi emlékeztetők és olvasási tervsorozatok\r\n• Tegyen fel kérdéseket, vagy koppintson a Magyarázat elemre a versbetekintésért\r\n• Nincsenek hirdetések olvasás vagy hang közben\r\n• Továbbfejlesztett kézmozdulat és széltől szélig támogatás\r\n• Gyorsabb, stabilabb teljesítmény"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "locale": "nl",
+  "language": "Dutch",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "De Heilige Bijbel",
+    "shortDescription": "De Heilige Bijbel · KJV · Luister naar hoofdstuk · Plannen lezen",
+    "fullDescription": "Lees, luister naar en begrijp de Bijbel - gratis en prachtig ontworpen als een echte papieren Bijbel.\n\n📖 MEERDERE BIJBELVERSIES\n• King James Version (KJV) — ingebouwd, werkt volledig offline\n• World English Bible (WEB) – modern, gemakkelijk te lezen Engels\n• American Standard Version (ASV) — klassieke, woord-voor-woord-nauwkeurigheid\n• Bijbel in Basis Engels (BBE) — eenvoudig Engels, ideaal voor nieuwe lezers en leerlingen van het Engels\n• Wissel direct van versie op elke pagina; versies die u opent, worden opgeslagen voor offline lezen\n• Alle 66 boeken van het Oude en Nieuwe Testament\n• Markeer verzen in 4 kleuren, maak een bladwijzer en deel\n• Instelbare tekstgrootte, dag- en nachtmodus (donker).\n\n🎧AUDIO BIJBEL\n• Luister naar een hoofdstuk dat voorgelezen wordt\n• Kies je verteller: Klassiek, Diep, Zacht, Verhalenverteller en meer\n• Instelbare leessnelheid\n\n✨ VRAAG DE BIJBEL (AI)\n• Stel een vraag: 'Wat betekent Jeremia 29:11?'\n• Uitleg van verzen, boeken en Bijbelfiguren\n• Elk antwoord citeert echte Bijbelteksten met verwijzingen\n• Hulp bij zorgen, angst, verdriet, vergeving, trouwen en meer\n\n🎤 PREESCHRIJVER\n• Maak binnen enkele seconden volledige preken en bijbelstudieschema's\n• Actuele, verklarende of evangelische stijlen\n• Illustraties, toepassings-, gebeds- en discussievragen\n\n📅 BIJBELLEESPLANNEN\n• 34 plannen: Bijbel in een jaar, Nieuwe Testament in 90 dagen, Psalmen, Spreuken, Evangelie van Johannes en onderwerpen als vrede, hoop en gebed\n• Maak je eigen leesplan\n• Houd uw voortgang bij en behoud uw dagelijkse streak\n\n🔔VERS VAN DE DAG & DAGELIJKSE HERINNERING\n• Elke dag een nieuw Bijbelvers\n• Zachte dagelijkse herinnering om Gods Woord te lezen\nPerfect voor dagelijkse devoties, Bijbelstudie, kerk, gebed en preekvoorbereiding. Of je nu nieuw bent in het geloof of al jaren de Bijbel leest, deze Bijbel-app helpt je elke dag dichter bij God te komen.\n\nDownload nu de gratis Heilige Bijbel-app en begin vandaag nog met lezen!",
+    "releaseNotes": "Wat is er nieuw:\r\n• Nieuw perkamentontwerp en donkere modus\r\n• Aangepaste Bijbelaudiostemmen en afspeelsnelheid\r\n• Dagelijkse herinneringen en leesplanstrepen\r\n• Stel vragen of tik op Uitleggen voor versinzichten\r\n• Geen advertenties tijdens het lezen of audio\r\n• Verbeterde gebaren en ondersteuning van rand tot rand\r\n• Snellere, stabielere prestaties"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

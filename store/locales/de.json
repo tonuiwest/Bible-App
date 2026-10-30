@@ -1,0 +1,23 @@
+{
+  "locale": "de",
+  "language": "German",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Die Heilige Bibel",
+    "shortDescription": "Die Heilige Bibel · KJV · Kapitel anhören · Lesepläne",
+    "fullDescription": "Lesen, hören und verstehen Sie die Heilige Bibel – kostenlos und wunderschön gestaltet wie eine echte Papierbibel.\n\n📖 MEHRERE BIBELVERSIONEN\n• King James Version (KJV) – integriert, funktioniert vollständig offline\n• World English Bible (WEB) – modernes, leicht lesbares Englisch\n• American Standard Version (ASV) – klassisch, Wort-für-Wort-Genauigkeit\n• Bible in Basic English (BBE) – einfaches Englisch, ideal für neue Leser und Englischlerner\n• Wechseln Sie sofort auf jeder Seite zwischen Versionen. Von Ihnen geöffnete Versionen werden zum Offline-Lesen gespeichert\n• Alle 66 Bücher des Alten und Neuen Testaments\n• Markieren Sie Verse in 4 Farben, setzen Sie Lesezeichen und teilen Sie sie\n• Anpassbare Textgröße, Tag- und Nachtmodus (Dunkelmodus).\n\n🎧 AUDIO-BIBEL\n• Hören Sie sich jedes Kapitel laut vorlesen an\n• Wählen Sie Ihren Erzähler: Klassisch, Tiefgründig, Sanft, Geschichtenerzähler und mehr\n• Einstellbare Lesegeschwindigkeit\n\n✨ FRAGEN SIE DIE BIBEL (KI)\n• Stellen Sie eine beliebige Frage: „Was bedeutet Jeremia 29:11?“\n• Erklärungen zu Versen, Büchern und Bibelfiguren\n• Jede Antwort zitiert echte Bibelstellen mit Referenzen\n• Hilfe bei Angst, Furcht, Trauer, Vergebung, Ehe und mehr\n\n🎤 PREDIGTSCHREIBER\n• Erstellen Sie in Sekundenschnelle vollständige Predigten und Bibelstudienpläne\n• Thematische, erläuternde oder evangelistische Stile\n• Illustrationen, Bewerbungs-, Gebets- und Diskussionsfragen\n\n📅 BIBELLESEPLÄNE\n• 34 Pläne: Bibel in einem Jahr, Neues Testament in 90 Tagen, Psalmen, Sprichwörter, Johannesevangelium und Themen wie Frieden, Hoffnung und Gebet\n• Erstellen Sie Ihren eigenen Leseplan\n• Verfolgen Sie den Fortschritt und halten Sie Ihre tägliche Erfolgsserie aufrecht\n\n🔔 VERS DES TAGES & TÄGLICHE ERINNERUNG\n• Jeden Tag ein neuer Bibelvers\n• Sanfte tägliche Erinnerung, Gottes Wort zu lesen\nPerfekt für tägliche Andachten, Bibelstudium, Kirche, Gebet und Predigtvorbereitung. Egal, ob Sie neu im Glauben sind oder die Heiligen Schriften schon seit Jahren lesen, diese Bibel-App hilft Ihnen, Gott jeden Tag näher zu kommen.\n\nLaden Sie jetzt die kostenlose Bibel-App herunter und beginnen Sie noch heute mit dem Lesen!",
+    "releaseNotes": "Was ist neu:\r\n• Neues Pergamentdesign und dunkler Modus\r\n• Benutzerdefinierte Bibel-Audiostimmen und Wiedergabegeschwindigkeit\r\n• Tägliche Erinnerungen und Leseplan-Streifen\r\n• Stellen Sie Fragen oder tippen Sie auf „Erklären“, um Einblicke in Verse zu erhalten\r\n• Keine Werbung beim Lesen oder Audio\r\n• Verbesserte Gesten- und Edge-to-Edge-Unterstützung\r\n• Schnellere, stabilere Leistung"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "locale": "tr",
+  "language": "Turkish",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Kutsal İncil",
+    "shortDescription": "Kutsal İncil · KJV · Bölümü dinle · Planları okuma",
+    "fullDescription": "Kutsal İncil'i okuyun, dinleyin ve anlayın; ücretsiz ve gerçek bir kağıt İncil gibi güzel bir şekilde tasarlanmış.\n\n📖 ÇOKLU İNCELEME VERSİYONLARI\n• King James Sürümü (KJV) — yerleşiktir, tamamen çevrimdışı çalışır\n• World English Bible (WEB) — modern, okunması kolay İngilizce\n• Amerikan Standart Versiyonu (ASV) — klasik, kelimesi kelimesine doğruluk\n• Temel İngilizce İncil (BBE) — basit İngilizce, yeni okuyucular ve İngilizce öğrenenler için ideal\n• Sürümleri herhangi bir sayfada anında değiştirin; açtığınız sürümler çevrimdışı okuma için kaydedilir\n• Eski ve Yeni Ahit'teki 66 kitabın tamamı\n• Ayetleri 4 renkte vurgulayın, yer imlerine ekleyin ve paylaşın\n• Ayarlanabilir metin boyutu, gündüz ve gece (karanlık) modu\n\n🎧 SESLİ KUTSAL KİTAP\n• Yüksek sesle okunan herhangi bir bölümü dinleyin\n• Anlatıcınızı seçin: Klasik, Derin, Nazik, Hikaye Anlatıcı ve daha fazlası\n• Ayarlanabilir okuma hızı\n\n✨ KUTSAL KİTABA SORUN (AI)\n• Herhangi bir soru sorun: \"Yeremya 29:11 ne anlama geliyor?\"\n• Ayetlerin, kitapların ve İncil karakterlerinin açıklamaları\n• Her yanıtta gerçek Kutsal Yazılardan alıntılar ve referanslar bulunur\n• Kaygı, korku, keder, bağışlama, evlilik ve daha fazlası için yardım\n\n🎤VAAZ YAZARI\n• Saniyeler içinde tam vaazlar ve İncil çalışma taslakları oluşturun\n• Güncel, açıklayıcı veya müjdeci tarzlar\n• Çizimler, uygulama, dua ve tartışma soruları\n\n📅 KUTSAL KİTAP OKUMA PLANLARI\n• 34 plan: Bir Yılda İncil, 90 Günde Yeni Ahit, Mezmurlar, Atasözleri, Yuhanna İncili ve barış, umut ve dua gibi konular\n• Kendi okuma planınızı oluşturun\n• İlerlemeyi takip edin ve günlük serinizi koruyun\n\n🔔GÜNÜN AYETİ & GÜNLÜK HATIRLATMA\n• Her gün yeni bir İncil ayeti\n• Tanrı'nın Sözünü okumak için nazik günlük hatırlatma\nGünlük ibadetler, İncil çalışması, kilise, dua ve vaaz hazırlığı için mükemmeldir. İster imanda yeni olun ister yıllardır Kutsal Yazıları okumuş olun, bu Kutsal Kitap uygulaması her gün Tanrı'ya daha da yakınlaşmanıza yardımcı olur.\n\nŞimdi ücretsiz Kutsal Kitap uygulamasını indirin ve bugün okumaya başlayın!",
+    "releaseNotes": "Yenilikler:\r\n• Yeni parşömen tasarımı ve Karanlık Mod\r\n• Özel İncil sesleri ve oynatma hızı\r\n• Günlük hatırlatmalar ve okuma planı serileri\r\n• Soru sorun veya ayetle ilgili bilgiler için Açıkla'ya dokunun\r\n• Okuma veya ses sırasında reklam yok\r\n• İyileştirilmiş hareket ve uçtan uca destek\r\n• Daha hızlı, daha istikrarlı performans"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "locale": "ca",
+  "language": "Catalan",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "La Santa Bíblia",
+    "shortDescription": "La Santa Bíblia · KJV · Escolta el capítol · Plans de lectura",
+    "fullDescription": "Llegiu, escolteu i entengueu la Sagrada Bíblia: gratuïta i bellament dissenyada com una Bíblia de paper real.\n\n📖 MÚLTIPLES VERSIONS DE LA BÍBLIA\n• Versió King James (KJV): integrada, funciona completament fora de línia\n• World English Bible (WEB): anglès modern i fàcil de llegir\n• Versió estàndard americana (ASV): clàssica precisió paraula per paraula\n• Bíblia en anglès bàsic (BBE): anglès senzill, ideal per a lectors nous i aprenents d'anglès\n• Canvia de versió a l'instant en qualsevol pàgina; les versions que obriu es guarden per llegir-les fora de línia\n• Els 66 llibres de l'Antic i del Nou Testament\n• Ressaltar versos en 4 colors, marcar i compartir\n• Mida de text ajustable, mode dia i nit (fosc).\n\n🎧 BIBLIA ÀUDIO\n• Escoltar qualsevol capítol llegit en veu alta\n• Tria el teu narrador: clàssic, profund, suau, narrador i molt més\n• Velocitat de lectura ajustable\n\n✨ PREGUNTA A LA BÍBLIA (AI)\n• Feu qualsevol pregunta: \"Què vol dir Jeremies 29:11?\"\n• Explicacions de versos, llibres i personatges de la Bíblia\n• Cada resposta cita les Escriptures reals amb referències\n• Ajuda per a l'ansietat, la por, el dolor, el perdó, el matrimoni i més\n\n🎤 ESCRITOR DE SERMONS\n• Crea sermons complets i esbossos d'estudi de la Bíblia en segons\n• Estils tòpics, expositius o evangelístics\n• Il·lustracions, aplicació, pregària i preguntes de discussió\n\n📅 PLANS DE LECTURA DE LA BÍBLIA\n• 34 plans: Bíblia en un any, Nou Testament en 90 dies, Salms, Proverbis, Evangeli de Joan i temes com la pau, l'esperança i l'oració\n• Crea el teu propi pla de lectura\n• Feu un seguiment del progrés i mantingueu la vostra ratxa diària\n\n🔔 VERSO DEL DIA I RECORDATORIO DIARI\n• Un nou verset de la Bíblia cada dia\n• Recordatori diari suau per llegir la Paraula de Déu\nPerfecte per a les devocions diàries, l'estudi de la Bíblia, l'església, l'oració i la preparació de sermons. Tant si sou nou a la fe com si heu llegit les Escriptures durant anys, aquesta aplicació de la Santa Bíblia us ajuda a acostar-vos a Déu cada dia.\n\nDescarrega l'aplicació gratuïta de la Bíblia ara i comença a llegir avui!",
+    "releaseNotes": "Què hi ha de nou:\r\n• Nou disseny de pergamí i Mode fosc\r\n• Veus personalitzades d'àudio de la Bíblia i velocitat de reproducció\r\n• Recordatoris diaris i ratlles del pla de lectura\r\n• Fes preguntes o toca Explicar per obtenir informació sobre el vers\r\n• No hi ha anuncis durant la lectura o l'àudio\r\n• Millora de gestos i suport de punta a punta\r\n• Rendiment més ràpid i estable"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Modal } from 'react-native';
+import { View, Text, TouchableOpacity, Modal } from './LocalizedReactNative';
 import { useTheme } from '../context/ThemeContext';
 import { useVersion } from '../context/VersionContext';
 

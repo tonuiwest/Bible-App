@@ -19,6 +19,7 @@ import { NavigationContainer, createNavigationContainerRef } from '@react-naviga
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { isRTLLocale, LocaleProvider, useLocale } from './context/LocaleContext';
 import { VersionProvider } from './context/VersionContext';
 import { PlannerProvider } from './context/PlannerContext';
 import { AdManager } from './ads/AdManager';
@@ -45,6 +46,7 @@ setupNotificationHandler();
 
 function RootNavigator() {
   const { isDark, colors } = useTheme();
+  const { locale } = useLocale();
   const [currentRoute, setCurrentRoute] = useState('Home');
 
   const syncRoute = () => {
@@ -67,7 +69,7 @@ function RootNavigator() {
   return (
     <NavigationContainer ref={navigationRef} onReady={syncRoute} onStateChange={syncRoute}>
       <StatusBar style={isDark ? 'light' : 'dark'} />
-      <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <View style={{ flex: 1, backgroundColor: colors.background, direction: isRTLLocale(locale) ? 'rtl' : 'ltr' }}>
         <View style={{ flex: 1 }}>
           <Stack.Navigator screenOptions={{ headerShown: false, animation: 'slide_from_right' }}>
             <Stack.Screen name="Home" component={HomeScreen} />
@@ -122,13 +124,15 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <View style={{ flex: 1 }} onLayout={onLayout}>
-        <ThemeProvider>
-          <VersionProvider>
-            <PlannerProvider>
-              <RootNavigator />
-            </PlannerProvider>
-          </VersionProvider>
-        </ThemeProvider>
+        <LocaleProvider>
+          <ThemeProvider>
+            <VersionProvider>
+              <PlannerProvider>
+                <RootNavigator />
+              </PlannerProvider>
+            </VersionProvider>
+          </ThemeProvider>
+        </LocaleProvider>
       </View>
     </SafeAreaProvider>
   );

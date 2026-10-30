@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Alert } from '../components/LocalizedReactNative';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
@@ -7,12 +7,14 @@ import ScreenHeader from '../components/ScreenHeader';
 import ProgressBar from '../components/ProgressBar';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import { usePlanner } from '../context/PlannerContext';
+import { useLocale } from '../context/LocaleContext';
 import { getBookById } from '../data/books';
 
 const nameOf = (r) => `${getBookById(r.b)?.name || r.b} ${r.c}`;
 
 export default function PlannerDetailScreen({ navigation, route }) {
   const { colors, fonts } = useTheme();
+  const { translate } = useLocale();
   const {
     getPlan, isDayDone, isReadingRead, addProgress, removeProgress, getProgress, getDoneCount,
     renewPlan, resetPlan, nextDayIndex, deleteCustomPlan,
@@ -29,9 +31,9 @@ export default function PlannerDetailScreen({ navigation, route }) {
 
   const celebrate = () => {
     Alert.alert(
-      'Reading Plan Complete! 🎉',
-      `You finished “${plan.label}”. Well done! Start it again whenever you like.`,
-      [{ text: 'Later', style: 'cancel' }, { text: 'Restart Plan', onPress: () => renewPlan(plan.id) }]
+      translate('Reading Plan Complete! 🎉'),
+      translate('You finished “{{plan}}”. Well done! Start it again whenever you like.').replace('{{plan}}', plan.label),
+      [{ text: translate('Later'), style: 'cancel' }, { text: translate('Restart Plan'), onPress: () => renewPlan(plan.id) }]
     );
   };
 
@@ -60,13 +62,13 @@ export default function PlannerDetailScreen({ navigation, route }) {
 
   const showMenu = () => {
     const buttons = [
-      { text: 'Reset progress', onPress: () => resetPlan(plan.id) },
+      { text: translate('Reset progress'), onPress: () => resetPlan(plan.id) },
     ];
     if (plan.custom) {
-      buttons.push({ text: 'Delete plan', style: 'destructive', onPress: async () => { await deleteCustomPlan(plan.id); navigation.goBack(); } });
+      buttons.push({ text: translate('Delete plan'), style: 'destructive', onPress: async () => { await deleteCustomPlan(plan.id); navigation.goBack(); } });
     }
-    buttons.push({ text: 'Cancel', style: 'cancel' });
-    Alert.alert(plan.label, 'Plan options', buttons);
+    buttons.push({ text: translate('Cancel'), style: 'cancel' });
+    Alert.alert(plan.label, translate('Plan options'), buttons);
   };
 
   const Header = (
@@ -82,7 +84,7 @@ export default function PlannerDetailScreen({ navigation, route }) {
       </View>
       <ProgressBar percent={prog} height={10} style={{ marginTop: 14 }} />
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 }}>
-        <Text style={{ color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansMedium }}>{doneCount} of {plan.days.length} days complete</Text>
+        <Text style={{ color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansMedium }}>{doneCount} {translate('of')} {plan.days.length} {translate('days complete')}</Text>
         <Text style={{ color: colors.success, fontSize: 12, fontFamily: fonts.sansBold }}>{prog}%</Text>
       </View>
       {!complete ? (
@@ -96,13 +98,13 @@ export default function PlannerDetailScreen({ navigation, route }) {
         >
           <Ionicons name="play" size={16} color="#fff" />
           <Text style={{ color: '#fff', fontSize: 14, fontFamily: fonts.sansBold }}>
-            {doneCount === 0 ? 'Start' : 'Continue'} · Day {nextIdx + 1}
+            {doneCount === 0 ? translate('Start') : translate('Continue')} · {translate('Day')} {nextIdx + 1}
           </Text>
         </TouchableOpacity>
       ) : (
         <TouchableOpacity onPress={() => renewPlan(plan.id)}
           style={{ marginTop: 14, backgroundColor: colors.success, borderRadius: 12, paddingVertical: 12, alignItems: 'center' }}>
-          <Text style={{ color: '#fff', fontSize: 14, fontFamily: fonts.sansBold }}>Restart Plan</Text>
+          <Text style={{ color: '#fff', fontSize: 14, fontFamily: fonts.sansBold }}>{translate('Restart Plan')}</Text>
         </TouchableOpacity>
       )}
     </View>
@@ -112,7 +114,7 @@ export default function PlannerDetailScreen({ navigation, route }) {
     <ParchmentBackground>
       <ScreenHeader
         title={plan.label.toUpperCase()}
-        subtitle={`${plan.days.length} days · ${prog}% complete`}
+        subtitle={`${plan.days.length} ${translate('days')} · ${prog}% ${translate('complete')}`}
         onBack={() => navigation.goBack()}
         right={<TouchableOpacity onPress={showMenu} hitSlop={8}><Ionicons name="ellipsis-horizontal" size={20} color={colors.textPrimary} /></TouchableOpacity>}
       />
@@ -135,10 +137,10 @@ export default function PlannerDetailScreen({ navigation, route }) {
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={{ color: colors.textPrimary, fontSize: 13, fontFamily: fonts.sansBold }}>
-                    Day {index + 1}{isNext ? '  ·  Up next' : ''}
+                    {translate('Day')} {index + 1}{isNext ? `  ·  ${translate('Up next')}` : ''}
                   </Text>
                   <Text style={{ color: colors.textSecondary, fontSize: 11, marginTop: 1, fontFamily: fonts.sans }}>
-                    {day.length} {day.length === 1 ? 'chapter' : 'chapters'}
+                    {day.length} {day.length === 1 ? translate('chapter') : translate('chapters')}
                   </Text>
                 </View>
                 <TouchableOpacity
@@ -152,7 +154,7 @@ export default function PlannerDetailScreen({ navigation, route }) {
                   }}
                 >
                   <Ionicons name={done ? 'checkmark-circle' : 'ellipse-outline'} size={14} color={done ? colors.success : colors.textSecondary} />
-                  <Text style={{ fontSize: 11, color: done ? colors.success : colors.textSecondary, fontFamily: fonts.sansBold }}>{done ? 'Done' : 'Mark done'}</Text>
+                  <Text style={{ fontSize: 11, color: done ? colors.success : colors.textSecondary, fontFamily: fonts.sansBold }}>{done ? translate('Done') : translate('Mark done')}</Text>
                 </TouchableOpacity>
               </View>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 10 }}>

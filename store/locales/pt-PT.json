@@ -1,0 +1,23 @@
+{
+  "locale": "pt-PT",
+  "language": "Portuguese (Portugal)",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "A Bíblia Sagrada",
+    "shortDescription": "A Bíblia Sagrada · KJV · Ouça o capítulo · Planos de leitura",
+    "fullDescription": "Leia, ouça e entenda a Bíblia Sagrada - gratuitamente e lindamente projetada como uma Bíblia de papel real.\n\n📖 MÚLTIPLAS VERSÕES DA BÍBLIA\n• Versão King James (KJV) — integrada, funciona totalmente offline\n• Bíblia em Inglês Mundial (WEB) — inglês moderno e fácil de ler\n• Versão Padrão Americana (ASV) — precisão clássica, palavra por palavra\n• Bíblia em Inglês Básico (BBE) — inglês simples, ideal para novos leitores e alunos de inglês\n• Troque de versão instantaneamente em qualquer página; as versões que você abre são salvas para leitura offline\n• Todos os 66 livros do Antigo e do Novo Testamento\n• Destaque versículos em 4 cores, marque e compartilhe\n• Tamanho de texto ajustável, modo diurno e noturno (escuro)\n\n🎧 BÍBLIA EM ÁUDIO\n• Ouça qualquer capítulo lido em voz alta\n• Escolha seu narrador: Clássico, Profundo, Suave, Contador de Histórias e muito mais\n• Velocidade de leitura ajustável\n\n✨ PERGUNTE À BÍBLIA (AI)\n• Faça qualquer pergunta: \"O que significa Jeremias 29:11?\"\n• Explicações de versículos, livros e personagens bíblicos\n• Cada resposta cita Escrituras reais com referências\n• Ajuda para ansiedade, medo, tristeza, perdão, casamento e muito mais\n\n🎤 ESCRITOR DE SERMÕES\n• Crie sermões completos e esboços de estudos bíblicos em segundos\n• Estilos tópicos, expositivos ou evangelísticos\n• Ilustrações, aplicação, perguntas para oração e discussão\n\n📅 PLANOS DE LEITURA DA BÍBLIA\n• 34 planos: Bíblia em um Ano, Novo Testamento em 90 Dias, Salmos, Provérbios, Evangelho de João e tópicos como paz, esperança e oração\n• Crie seu próprio plano de leitura\n• Acompanhe o progresso e mantenha sua sequência diária\n\n🔔 VERSÍCULO DO DIA E LEMBRETE DIÁRIO\n• Um novo versículo bíblico todos os dias\n• Lembrete diário gentil para ler a Palavra de Deus\nPerfeito para devoções diárias, estudo bíblico, igreja, oração e preparação de sermões. Quer você seja novo na fé ou já leia as Escrituras há anos, este aplicativo da Bíblia Sagrada ajuda você a se aproximar de Deus todos os dias.\n\nBaixe agora o aplicativo gratuito da Bíblia Sagrada e comece a ler hoje mesmo!",
+    "releaseNotes": "O que há de novo:\r\n• Novo design de pergaminho e Modo Escuro\r\n• Vozes de áudio da Bíblia personalizadas e velocidade de reprodução\r\n• Lembretes diários e sequências de planos de leitura\r\n• Faça perguntas ou toque em Explicar para obter informações sobre os versículos\r\n• Sem anúncios durante a leitura ou áudio\r\n• Gestos aprimorados e suporte de ponta a ponta\r\n• Desempenho mais rápido e estável"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

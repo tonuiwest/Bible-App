@@ -1,0 +1,23 @@
+{
+  "locale": "sq",
+  "language": "Albanian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Bibla e Shenjtë",
+    "shortDescription": "Bibla e Shenjtë · KJV · Dëgjoni kapitullin · Planet e leximit",
+    "fullDescription": "Lexoni, dëgjoni dhe kuptoni Biblën e Shenjtë - falas dhe e dizajnuar bukur si një Bibël e vërtetë letre.\n\n📖 VERSIONET E SHUMËFISHTA TË BIBLËS\n• Versioni i King James (KJV) — i integruar, funksionon plotësisht jashtë linje\n• Bibla në anglisht botërore (WEB) — Anglisht moderne, e lehtë për t'u lexuar\n• Versioni standard amerikan (ASV) — klasik, saktësi fjalë për fjalë\n• Bibla në anglishten bazë (BBE) — anglisht e thjeshtë, ideale për lexuesit e rinj dhe nxënësit e anglishtes\n• Ndërroni versionet në çast në çdo faqe; versionet që hapni ruhen për lexim jashtë linje\n• Të 66 librat e Dhiatës së Vjetër dhe të Re\n• Theksoni vargjet me 4 ngjyra, shënoni faqerojtës dhe ndajini\n• Madhësia e rregullueshme e tekstit, modaliteti i ditës dhe i natës (e errët).\n\n🎧 BIBLË AUDIO\n• Dëgjoni çdo kapitull të lexuar me zë të lartë\n• Zgjidhni transmetuesin tuaj: klasik, i thellë, i butë, rrëfimtar dhe më shumë\n• Shpejtësia e rregullueshme e leximit\n\n✨ PYETNI BIBLËN (AI)\n• Bëni çdo pyetje: \"Çfarë do të thotë Jeremia 29:11?\"\n• Shpjegime të vargjeve, librave dhe personazheve të Biblës\n• Çdo përgjigje citon Shkrimin e vërtetë me referenca\n• Ndihmë për ankthin, frikën, pikëllimin, faljen, martesën dhe më shumë\n\n🎤 SHKRUES HUMBJE\n• Krijoni predikime të plota dhe skica të studimit të Biblës në sekonda\n• Stilet aktuale, shpjeguese ose ungjillore\n• Ilustrime, aplikim, lutje dhe pyetje diskutimi\n\n📅 PLANET E LEXIMIT TË BIBLËS\n• 34 plane: Bibla në një vit, Dhiata e Re në 90 ditë, Psalme, Fjalë të Urta, Ungjilli sipas Gjonit dhe tema si paqja, shpresa dhe lutja\n• Krijoni planin tuaj të leximit\n• Ndiqni përparimin dhe mbani brezin tuaj të përditshëm\n\n🔔 VARGU I DITËS & KUJTESA DITOR\n• Një varg i ri biblik çdo ditë\n• Përkujtues i butë i përditshëm për të lexuar Fjalën e Perëndisë\nE përkryer për përkushtimet e përditshme, studimin e Biblës, kishën, lutjet dhe përgatitjen e predikimit. Pavarësisht nëse jeni i ri në besim ose keni lexuar Shkrimet për vite me radhë, ky aplikacion i Biblës së Shenjtë ju ndihmon të afroheni më pranë Perëndisë çdo ditë.\n\nShkarkoni aplikacionin falas të Biblës së Shenjtë tani dhe filloni të lexoni sot!",
+    "releaseNotes": "Çfarë ka të re:\r\n• Dizajn i ri pergamenë dhe modaliteti i errët\r\n• Zërat audio të personalizuar të Biblës dhe shpejtësia e riprodhimit\r\n• Përkujtuesit ditore dhe vijat e planit të leximit\r\n• Bëni pyetje ose prekni Shpjegoni për njohuritë e vargjeve\r\n• Nuk ka reklama gjatë leximit ose audios\r\n• Gjeste dhe mbështetje e përmirësuar nga skaji në skaj\r\n• Performancë më e shpejtë dhe më e qëndrueshme"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

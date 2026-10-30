@@ -1,0 +1,23 @@
+{
+  "locale": "az",
+  "language": "Azerbaijani",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Müqəddəs İncil",
+    "shortDescription": "Müqəddəs İncil · KJV · Bölməyə qulaq asın · Oxu planları",
+    "fullDescription": "Müqəddəs Kitabı oxuyun, dinləyin və anlayın - pulsuz və əsl kağız İncil kimi gözəl tərtib edilmişdir.\n\n📖 MÜQƏDDƏS KİTABIN BİRDƏN ÇOX ÇIXIŞLARI\n• King James Version (KJV) — daxili, tam oflayn işləyir\n• World English Bible (WEB) — müasir, asan oxunan ingilis dili\n• American Standard Version (ASV) — klassik, sözbəsöz dəqiqlik\n• Əsas İngilis dilində Müqəddəs Kitab (BBE) — sadə ingilis dili, yeni oxucular və ingilis dili öyrənənlər üçün idealdır\n• İstənilən səhifədə versiyaları dərhal dəyişdirin; açdığınız versiyalar oflayn oxumaq üçün saxlanılır\n• Əhdi və Əhdi-Cədidin bütün 66 kitabı\n• 4 rəngdə ayələri vurğulayın, əlfəcin edin və paylaşın\n• Tənzimlənən mətn ölçüsü, gündüz və gecə (qaranlıq) rejimi\n\n🎧 AUDİO KİTAB\n• Ucadan oxunan istənilən fəsli dinləyin\n• Danışçınızı seçin: Klassik, Dərin, Zərif, Hekayəçi və s\n• Tənzimlənən oxu sürəti\n\n✨ MÜQƏDDƏS KİTABDA SORUŞUN (AI)\n• İstənilən sual verin: \"Yeremya 29:11 nə deməkdir?\"\n• Ayələrin, kitabların və Müqəddəs Kitab personajlarının izahları\n• Hər bir cavab istinadlarla həqiqi Müqəddəs Yazılardan sitat gətirir\n• Narahatlıq, qorxu, kədər, bağışlanma, evlilik və s. üçün kömək\n\n🎤 MÜZİB YAZICI\n• Saniyədə tam xütbələr və Müqəddəs Kitabı öyrənmə konturlarını yaradın\n• Aktual, izahedici və ya evangelistik üslublar\n• İllüstrasiyalar, tətbiq, dua və müzakirə sualları\n\n📅 MÜQƏDDƏS KİTAB OXUMA PLANLARI\n• 34 plan: İldə İncil, 90 Gündə Əhdi-Cədid, Zəbur, Süleymanın məsəlləri, Yəhyanın İncili və sülh, ümid və dua kimi mövzular\n• Öz oxu planınızı yaradın\n• Tərəqqi izləyin və gündəlik ardıcıllığınızı qoruyun\n\n🔔 GÜNÜN AYƏSİ VƏ GÜNLÜK XATIRLATMA\n• Hər gün yeni Müqəddəs Kitab ayəsi\n• Allahın Kəlamını oxumaq üçün incə gündəlik xatırlatma\nGündəlik ibadətlər, Müqəddəs Kitabı öyrənmək, kilsə, dua və xütbə hazırlamaq üçün mükəmməldir. İmanda yeni olmağınızdan və ya illərlə Müqəddəs Yazıları oxumağınızdan asılı olmayaraq, bu Müqəddəs Kitab proqramı sizə hər gün Allaha yaxınlaşmağa kömək edir.\n\nPulsuz Müqəddəs Kitab proqramını indi yükləyin və bu gün oxumağa başlayın!",
+    "releaseNotes": "Yeniliklər:\r\n• Yeni perqament dizaynı və Qaranlıq Rejim\r\n• Xüsusi İncil audio səsləri və oxutma sürəti\r\n• Gündəlik xatırlatmalar və oxu planı xətləri\r\n• Suallar verin və ya ayənin fikirləri üçün İzah et seçiminə toxunun\r\n• Oxu və ya audio zamanı reklam yoxdur\r\n• Təkmilləşdirilmiş jest və kənardan kənara dəstək\r\n• Daha sürətli, daha sabit performans"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

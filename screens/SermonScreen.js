@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, Modal, Share, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, ActivityIndicator, Modal, Share, Alert } from '../components/LocalizedReactNative';
 import { useNavigation, useRoute, useFocusEffect } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -12,6 +12,7 @@ import AIAnswer, { TextSizeButton } from '../components/AIAnswer';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import { generateSermon, toPlainText } from '../utils/aiBible';
 import { getBookById } from '../data/books';
+import { useLocale } from '../context/LocaleContext';
 import { AdManager } from '../ads/AdManager';
 
 const SAVED_KEY = 'saved_sermons_v1';
@@ -48,6 +49,7 @@ function Chip({ on, label, sub, icon, onPress, colors, fonts }) {
 
 export default function SermonScreen() {
   const { colors, fonts } = useTheme();
+  const { translate } = useLocale();
   const navigation = useNavigation();
   const route = useRoute();
   const insets = useSafeAreaInsets();
@@ -98,7 +100,7 @@ export default function SermonScreen() {
     const wait = Math.max(0, 1400 - (Date.now() - started));
     setTimeout(async () => {
       setLoading(false);
-      if (!res) { Alert.alert('Could not write that sermon', 'Please try a different topic or passage.'); return; }
+      if (!res) { Alert.alert(translate('Could not write that sermon'), translate('Please try a different topic or passage.')); return; }
       setSermon({ ...res, input: text, style, length, audience, createdAt: Date.now() });
       setTimeout(() => scrollRef.current?.scrollTo({ y: 0, animated: true }), 50);
       const ok = await refreshUnlock();
@@ -128,7 +130,7 @@ export default function SermonScreen() {
     const next = [entry, ...saved.filter((s) => s.id !== entry.id)].slice(0, 30);
     setSaved(next);
     try { await AsyncStorage.setItem(SAVED_KEY, JSON.stringify(next)); } catch {}
-    Alert.alert('Saved', 'You can find this sermon under “My sermons”.');
+    Alert.alert(translate('Saved'), translate('You can find this sermon under “My sermons”.'));
   };
 
   const deleteSaved = async (id) => {
@@ -153,15 +155,15 @@ export default function SermonScreen() {
 
   return (
     <ParchmentBackground>
-      <ScreenHeader title="SERMON WRITER" subtitle="Biblically grounded, ready to preach" onBack={() => navigation.goBack()} right={<><TextSizeButton /><ThemeToggle size={14} /></>} />
+      <ScreenHeader title={translate('SERMON WRITER')} subtitle={translate('Biblically grounded, ready to preach')} onBack={() => navigation.goBack()} right={<><TextSizeButton /><ThemeToggle size={14} /></>} />
       <ScrollView ref={scrollRef} style={{ flex: 1 }} contentContainerStyle={{ padding: 16, paddingBottom: bottomPad }} keyboardShouldPersistTaps="handled">
         {!sermon && !loading && (
           <View style={{ backgroundColor: colors.card, borderRadius: 18, borderWidth: 1, borderColor: colors.border, padding: 16 }}>
-            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, fontFamily: fonts.sansBold }}>TOPIC OR PASSAGE</Text>
+            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, fontFamily: fonts.sansBold }}>{translate('TOPIC OR PASSAGE')}</Text>
             <TextInput
               value={topic}
               onChangeText={setTopic}
-              placeholder="e.g. Finding peace in anxiety  ·  Romans 8:28-39"
+              placeholder={translate('e.g. Finding peace in anxiety  ·  Romans 8:28-39')}
               placeholderTextColor={colors.textSecondary}
               style={{ marginTop: 8, borderWidth: 1, borderColor: colors.border, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 11, color: colors.textPrimary, backgroundColor: colors.background, fontFamily: fonts.sans, fontSize: 14 }}
               returnKeyType="go"
@@ -170,28 +172,28 @@ export default function SermonScreen() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 6, paddingTop: 10 }}>
               {IDEAS.map((i) => (
                 <TouchableOpacity key={i} onPress={() => setTopic(i)} style={{ paddingHorizontal: 10, paddingVertical: 6, borderRadius: 14, backgroundColor: colors.background2 }}>
-                  <Text style={{ color: colors.textPrimary, fontSize: 11.5, fontFamily: fonts.sansMedium }}>{i}</Text>
+                  <Text style={{ color: colors.textPrimary, fontSize: 11.5, fontFamily: fonts.sansMedium }}>{translate(i)}</Text>
                 </TouchableOpacity>
               ))}
             </ScrollView>
 
-            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, marginTop: 16, marginBottom: 8, fontFamily: fonts.sansBold }}>STYLE</Text>
+            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, marginTop: 16, marginBottom: 8, fontFamily: fonts.sansBold }}>{translate('STYLE')}</Text>
             <View style={{ flexDirection: 'row', gap: 8 }}>
-              {STYLES.map((s) => <Chip key={s.id} on={style === s.id} label={s.label} icon={s.icon} onPress={() => setStyle(s.id)} colors={colors} fonts={fonts} />)}
+              {STYLES.map((s) => <Chip key={s.id} on={style === s.id} label={translate(s.label)} icon={s.icon} onPress={() => setStyle(s.id)} colors={colors} fonts={fonts} />)}
             </View>
-            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, marginTop: 14, marginBottom: 8, fontFamily: fonts.sansBold }}>LENGTH</Text>
+            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, marginTop: 14, marginBottom: 8, fontFamily: fonts.sansBold }}>{translate('LENGTH')}</Text>
             <View style={{ flexDirection: 'row', gap: 8 }}>
-              {LENGTHS.map((s) => <Chip key={s.id} on={length === s.id} label={s.label} sub={s.sub} onPress={() => setLength(s.id)} colors={colors} fonts={fonts} />)}
+              {LENGTHS.map((s) => <Chip key={s.id} on={length === s.id} label={translate(s.label)} sub={translate(s.sub)} onPress={() => setLength(s.id)} colors={colors} fonts={fonts} />)}
             </View>
-            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, marginTop: 14, marginBottom: 8, fontFamily: fonts.sansBold }}>AUDIENCE</Text>
+            <Text style={{ color: colors.gold, fontSize: 10, letterSpacing: 1.5, marginTop: 14, marginBottom: 8, fontFamily: fonts.sansBold }}>{translate('AUDIENCE')}</Text>
             <View style={{ flexDirection: 'row', gap: 8 }}>
-              {AUDIENCES.map((s) => <Chip key={s.id} on={audience === s.id} label={s.label} onPress={() => setAudience(s.id)} colors={colors} fonts={fonts} />)}
+              {AUDIENCES.map((s) => <Chip key={s.id} on={audience === s.id} label={translate(s.label)} onPress={() => setAudience(s.id)} colors={colors} fonts={fonts} />)}
             </View>
 
             <TouchableOpacity onPress={() => generate()} disabled={!topic.trim()}
               style={{ marginTop: 18, paddingVertical: 15, borderRadius: 14, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 8, backgroundColor: topic.trim() ? colors.primary : colors.border }}>
               <Ionicons name="sparkles" size={16} color={colors.onPrimary} />
-              <Text style={{ color: colors.onPrimary, fontSize: 15, fontFamily: fonts.sansBold }}>Write my sermon</Text>
+              <Text style={{ color: colors.onPrimary, fontSize: 15, fontFamily: fonts.sansBold }}>{translate('Write my sermon')}</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -199,8 +201,8 @@ export default function SermonScreen() {
         {loading && (
           <View style={{ alignItems: 'center', paddingVertical: 60 }}>
             <ActivityIndicator color={colors.gold} size="large" />
-            <Text style={{ color: colors.textPrimary, marginTop: 14, fontSize: 15, fontFamily: fonts.serifBold }}>Preparing your sermon…</Text>
-            <Text style={{ color: colors.textSecondary, marginTop: 4, fontSize: 12, fontFamily: fonts.sans }}>Studying the text, outlining points and gathering illustrations</Text>
+            <Text style={{ color: colors.textPrimary, marginTop: 14, fontSize: 15, fontFamily: fonts.serifBold }}>{translate('Preparing your sermon…')}</Text>
+            <Text style={{ color: colors.textSecondary, marginTop: 4, fontSize: 12, fontFamily: fonts.sans }}>{translate('Studying the text, outlining points and gathering illustrations')}</Text>
           </View>
         )}
 
@@ -209,17 +211,17 @@ export default function SermonScreen() {
             <View style={{ flexDirection: 'row', gap: 8, marginBottom: 12 }}>
               <TouchableOpacity onPress={() => setSermon(null)} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 18, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.card }}>
                 <Ionicons name="add" size={14} color={colors.textPrimary} />
-                <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansMedium }}>New</Text>
+                <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansMedium }}>{translate('New')}</Text>
               </TouchableOpacity>
               {!locked && (
                 <>
                   <TouchableOpacity onPress={saveSermon} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 18, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.card }}>
                     <Ionicons name={isSaved ? 'bookmark' : 'bookmark-outline'} size={14} color={colors.gold} />
-                    <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansMedium }}>{isSaved ? 'Saved' : 'Save'}</Text>
+                    <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansMedium }}>{isSaved ? translate('Saved') : translate('Save')}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={shareSermon} style={{ flexDirection: 'row', alignItems: 'center', gap: 5, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 18, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.card }}>
                     <Ionicons name="share-social-outline" size={14} color={colors.textPrimary} />
-                    <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansMedium }}>Share</Text>
+                    <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansMedium }}>{translate('Share')}</Text>
                   </TouchableOpacity>
                 </>
               )}
@@ -232,17 +234,17 @@ export default function SermonScreen() {
                 footer={locked ? (
                   <View style={{ marginTop: 18, padding: 16, borderRadius: 14, backgroundColor: colors.goldLight, alignItems: 'center' }}>
                     <View style={{ alignSelf: 'stretch', marginBottom: 12 }}>
-                      <Text style={{ color: colors.textSecondary, fontSize: 10, letterSpacing: 1.5, marginBottom: 6, fontFamily: fonts.sansBold }}>OUTLINE</Text>
+                      <Text style={{ color: colors.textSecondary, fontSize: 10, letterSpacing: 1.5, marginBottom: 6, fontFamily: fonts.sansBold }}>{translate('OUTLINE')}</Text>
                       {sermon.sections.filter((s) => /^(I|II|III|IV|V)\. /.test(s.heading)).map((s) => (
                         <Text key={s.heading} style={{ color: colors.textPrimary, fontSize: 14, lineHeight: 22, fontFamily: fonts.serifSemi }}>{s.heading}</Text>
                       ))}
                     </View>
                     <Ionicons name="lock-closed" size={20} color={colors.gold} />
                     <Text style={{ color: colors.textPrimary, marginTop: 6, fontSize: 14, textAlign: 'center', fontFamily: fonts.sansBold }}>
-                      {sermon.sections.length - 3} more sections: introduction, every point with illustrations, gospel connection, conclusion, prayer and questions
+                      {sermon.sections.length - 3} {translate('more sections: introduction, every point with illustrations, gospel connection, conclusion, prayer and questions')}
                     </Text>
                     <TouchableOpacity onPress={() => setGate(true)} style={{ marginTop: 12, paddingVertical: 11, paddingHorizontal: 18, borderRadius: 12, backgroundColor: colors.gold }}>
-                      <Text style={{ color: '#fff', fontFamily: fonts.sansBold }}>Unlock full sermon</Text>
+                      <Text style={{ color: '#fff', fontFamily: fonts.sansBold }}>{translate('Unlock full sermon')}</Text>
                     </TouchableOpacity>
                   </View>
                 ) : null}
@@ -253,10 +255,10 @@ export default function SermonScreen() {
 
         {!sermon && !loading && saved.length > 0 && (
           <View style={{ marginTop: 18 }}>
-            <Text style={{ color: colors.textSecondary, fontSize: 11, letterSpacing: 1.5, marginBottom: 8, fontFamily: fonts.sansBold }}>MY SERMONS</Text>
+            <Text style={{ color: colors.textSecondary, fontSize: 11, letterSpacing: 1.5, marginBottom: 8, fontFamily: fonts.sansBold }}>{translate('MY SERMONS')}</Text>
             {saved.map((s) => (
               <TouchableOpacity key={s.id} onPress={() => { setSermon(s.data); refreshUnlock().then((ok) => { if (!ok) setUnlocked(true); }); }}
-                onLongPress={() => Alert.alert('Delete sermon?', s.title, [{ text: 'Cancel', style: 'cancel' }, { text: 'Delete', style: 'destructive', onPress: () => deleteSaved(s.id) }])}
+                onLongPress={() => Alert.alert(translate('Delete sermon?'), s.title, [{ text: translate('Cancel'), style: 'cancel' }, { text: translate('Delete'), style: 'destructive', onPress: () => deleteSaved(s.id) }])}
                 style={{ flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, marginBottom: 8, borderRadius: 14, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border }}>
                 <Ionicons name="document-text-outline" size={20} color={colors.gold} />
                 <View style={{ flex: 1 }}>

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from '../components/LocalizedReactNative';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
@@ -8,10 +8,12 @@ import ScreenHeader from '../components/ScreenHeader';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useLocale } from '../context/LocaleContext';
 
 export default function BookmarksScreen() {
   const navigation = useNavigation();
   const theme = useTheme();
+  const { translate } = useLocale();
   const colors = theme?.colors;
   const fonts = theme?.fonts || { serif: 'serif', sans: 'sans-serif', serifBold: 'serif', sansBold: 'sans-serif' };
   const bottomPad = useContentBottomPad();
@@ -29,7 +31,7 @@ export default function BookmarksScreen() {
 
   return (
     <ParchmentBackground>
-      <ScreenHeader title="BOOKMARKS" onBack={() => navigation.goBack()} right={<ThemeToggle size={14} />} />
+      <ScreenHeader title={translate('BOOKMARKS')} onBack={() => navigation.goBack()} right={<ThemeToggle size={14} />} />
       <View style={[styles.page, { backgroundColor: colors.card, borderColor: colors.border }]}>
         <FlatList
           data={items}
@@ -38,8 +40,8 @@ export default function BookmarksScreen() {
           ListEmptyComponent={
             <View style={{ alignItems: 'center', marginTop: 60, paddingHorizontal: 24 }}>
               <Ionicons name="bookmark-outline" size={34} color={colors.gold} />
-              <Text style={{ textAlign: 'center', marginTop: 10, color: colors.textPrimary, fontFamily: fonts.sansBold }}>No saved verses yet</Text>
-              <Text style={{ textAlign: 'center', marginTop: 4, color: colors.textSecondary, fontFamily: fonts.sans, fontSize: 12 }}>Tap any verse while reading, then choose Save.</Text>
+              <Text style={{ textAlign: 'center', marginTop: 10, color: colors.textPrimary, fontFamily: fonts.sansBold }}>{translate('No saved verses yet')}</Text>
+              <Text style={{ textAlign: 'center', marginTop: 4, color: colors.textSecondary, fontFamily: fonts.sans, fontSize: 12 }}>{translate('Tap any verse while reading, then choose Save.')}</Text>
             </View>
           }
           renderItem={({ item }) => (

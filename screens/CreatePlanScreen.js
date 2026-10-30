@@ -1,11 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Modal, FlatList, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Modal, FlatList, Alert } from '../components/LocalizedReactNative';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTheme } from '../context/ThemeContext';
 import ParchmentBackground from '../components/ParchmentBackground';
 import ScreenHeader from '../components/ScreenHeader';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import { usePlanner } from '../context/PlannerContext';
+import { useLocale } from '../context/LocaleContext';
 import { BOOKS } from '../data/books';
 import { BOOK_GROUPS, PLAN_ICONS } from '../data/readingPlans';
 
@@ -43,6 +44,7 @@ function Section({ title, children, right, colors, fonts }) {
 
 export default function CreatePlanScreen({ navigation }) {
   const { colors, fonts } = useTheme();
+  const { translate } = useLocale();
   const { createCustomPlan } = usePlanner();
   const bottomPad = useContentBottomPad(20);
 
@@ -100,7 +102,7 @@ export default function CreatePlanScreen({ navigation }) {
 
   const create = async () => {
     if (!canCreate || saving) {
-      if (!name.trim()) Alert.alert('Name your plan', 'Give your reading plan a name first.');
+      if (!name.trim()) Alert.alert(translate('Name your plan'), translate('Give your reading plan a name first.'));
       return;
     }
     setSaving(true);
@@ -119,7 +121,7 @@ export default function CreatePlanScreen({ navigation }) {
           });
       navigation.replace('PlannerDetail', { topicId: plan.id });
     } catch (e) {
-      Alert.alert('Could not create plan', e?.message || 'Please try again.');
+      Alert.alert(translate('Could not create plan'), e?.message || translate('Please try again.'));
     }
     setSaving(false);
   };
@@ -133,13 +135,13 @@ export default function CreatePlanScreen({ navigation }) {
 
   return (
     <ParchmentBackground>
-      <ScreenHeader title="CREATE A PLAN" onBack={() => navigation.goBack()} />
+      <ScreenHeader title={translate('CREATE A PLAN')} onBack={() => navigation.goBack()} />
       <ScrollView contentContainerStyle={{ padding: 14, paddingBottom: bottomPad }} keyboardShouldPersistTaps="handled">
-        <Section colors={colors} fonts={fonts} title="PLAN NAME">
+        <Section colors={colors} fonts={fonts} title={translate('PLAN NAME')}>
           <TextInput
             value={name}
             onChangeText={setName}
-            placeholder="e.g. Morning Psalms, Gospels before Easter…"
+            placeholder={translate('e.g. Morning Psalms, Gospels before Easter…')}
             placeholderTextColor={colors.textSecondary}
             maxLength={40}
             style={{ borderWidth: 1, borderColor: colors.border, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, color: colors.textPrimary, backgroundColor: colors.background, fontFamily: fonts.sans, fontSize: 14 }}
@@ -155,7 +157,7 @@ export default function CreatePlanScreen({ navigation }) {
         </Section>
 
         <View style={{ flexDirection: 'row', gap: 8, marginBottom: 12 }}>
-          {[['books', 'Books & chapters', 'library-outline'], ['passages', 'Pick passages', 'list-outline']].map(([id, label, ic]) => {
+          {[['books', translate('Books & chapters'), 'library-outline'], ['passages', translate('Pick passages'), 'list-outline']].map(([id, label, ic]) => {
             const on = mode === id;
             return (
               <TouchableOpacity key={id} onPress={() => setMode(id)}
@@ -169,41 +171,41 @@ export default function CreatePlanScreen({ navigation }) {
 
         {mode === 'books' ? (
           <>
-            <Section colors={colors} fonts={fonts} title="QUICK SELECT">
+            <Section colors={colors} fonts={fonts} title={translate('QUICK SELECT')}>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
                 {BOOK_GROUPS.map((g) => chip(g.books.every((id) => selected.includes(id)), g.label, () => applyGroup(g), g.id))}
               </View>
             </Section>
 
-            <Section colors={colors} fonts={fonts} title={`BOOKS · ${selected.length} SELECTED`} right={selected.length ? (
-              <TouchableOpacity onPress={() => setSelected([])}><Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: fonts.sansMedium }}>Clear</Text></TouchableOpacity>
+            <Section colors={colors} fonts={fonts} title={`${translate('BOOKS')} · ${selected.length} ${translate('SELECTED')}`} right={selected.length ? (
+              <TouchableOpacity onPress={() => setSelected([])}><Text style={{ color: colors.textSecondary, fontSize: 11, fontFamily: fonts.sansMedium }}>{translate('Clear')}</Text></TouchableOpacity>
             ) : null}>
-              <Text style={{ color: colors.textSecondary, fontSize: 10, letterSpacing: 1, marginBottom: 6, fontFamily: fonts.sansBold }}>OLD TESTAMENT</Text>
+              <Text style={{ color: colors.textSecondary, fontSize: 10, letterSpacing: 1, marginBottom: 6, fontFamily: fonts.sansBold }}>{translate('OLD TESTAMENT')}</Text>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
                 {BOOKS.filter((b) => b.num <= 39).map((b) => chip(selected.includes(b.id), b.name, () => toggleBook(b.id), b.id))}
               </View>
-              <Text style={{ color: colors.textSecondary, fontSize: 10, letterSpacing: 1, marginTop: 12, marginBottom: 6, fontFamily: fonts.sansBold }}>NEW TESTAMENT</Text>
+              <Text style={{ color: colors.textSecondary, fontSize: 10, letterSpacing: 1, marginTop: 12, marginBottom: 6, fontFamily: fonts.sansBold }}>{translate('NEW TESTAMENT')}</Text>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
                 {BOOKS.filter((b) => b.num > 39).map((b) => chip(selected.includes(b.id), b.name, () => toggleBook(b.id), b.id))}
               </View>
             </Section>
 
             {single && (
-              <Section colors={colors} fonts={fonts} title={`${single.name.toUpperCase()} · CHAPTERS`}>
+              <Section colors={colors} fonts={fonts} title={`${single.name.toUpperCase()} · ${translate('CHAPTERS')}`}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
                   <View style={{ alignItems: 'center' }}>
-                    <Text style={{ color: colors.textSecondary, fontSize: 11, marginBottom: 6, fontFamily: fonts.sans }}>From</Text>
+                    <Text style={{ color: colors.textSecondary, fontSize: 11, marginBottom: 6, fontFamily: fonts.sans }}>{translate('From')}</Text>
                     <Stepper value={fromCh} onChange={(v) => { setFromCh(v); if (v > toCh) setToCh(v); }} min={1} max={single.chapters} colors={colors} fonts={fonts} />
                   </View>
                   <View style={{ alignItems: 'center' }}>
-                    <Text style={{ color: colors.textSecondary, fontSize: 11, marginBottom: 6, fontFamily: fonts.sans }}>To</Text>
+                    <Text style={{ color: colors.textSecondary, fontSize: 11, marginBottom: 6, fontFamily: fonts.sans }}>{translate('To')}</Text>
                     <Stepper value={toCh} onChange={(v) => { setToCh(v); if (v < fromCh) setFromCh(v); }} min={1} max={single.chapters} colors={colors} fonts={fonts} />
                   </View>
                 </View>
               </Section>
             )}
 
-            <Section colors={colors} fonts={fonts} title="HOW MANY DAYS?">
+            <Section colors={colors} fonts={fonts} title={translate('HOW MANY DAYS?')}>
               <View style={{ alignItems: 'center' }}>
                 <Stepper value={days} onChange={setDays} min={1} max={730} colors={colors} fonts={fonts} />
               </View>
@@ -213,17 +215,17 @@ export default function CreatePlanScreen({ navigation }) {
               {totalChapters > 0 && (
                 <View style={{ marginTop: 14, padding: 12, borderRadius: 12, backgroundColor: colors.successLight }}>
                   <Text style={{ color: colors.textPrimary, fontSize: 13, fontFamily: fonts.sansBold }}>
-                    {totalChapters} chapters · about {perDay < 1.05 ? '1 chapter' : `${perDay.toFixed(1)} chapters`} a day
+                    {totalChapters} {translate('chapters')} · {translate('about')} {perDay < 1.05 ? translate('1 chapter') : `${perDay.toFixed(1)} ${translate('chapters')}`} {translate('a day')}
                   </Text>
                   <Text style={{ color: colors.textSecondary, fontSize: 12, marginTop: 3, fontFamily: fonts.sans }}>
-                    {effectiveDays} days{effectiveDays < days ? ' (one chapter per day max)' : ''} · finish around {finish.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}
+                    {effectiveDays} {translate('days')}{effectiveDays < days ? ` (${translate('one chapter per day max')})` : ''} · {translate('finish around')} {finish.toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' })}
                   </Text>
                 </View>
               )}
             </Section>
           </>
         ) : (
-          <Section colors={colors} fonts={fonts} title={`READINGS · ${passages.length} DAYS`}>
+          <Section colors={colors} fonts={fonts} title={`${translate('READINGS')} · ${passages.length} ${translate('DAYS')}`}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
               <TouchableOpacity onPress={() => setPickerOpen(true)}
                 style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderWidth: 1, borderColor: colors.border, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 10, backgroundColor: colors.background }}>
@@ -235,11 +237,11 @@ export default function CreatePlanScreen({ navigation }) {
             <TouchableOpacity onPress={addPassage}
               style={{ marginTop: 10, flexDirection: 'row', gap: 6, alignItems: 'center', justifyContent: 'center', paddingVertical: 10, borderRadius: 10, backgroundColor: colors.success }}>
               <Ionicons name="add" size={16} color="#fff" />
-              <Text style={{ color: '#fff', fontFamily: fonts.sansBold }}>Add {pickBook.name} {pickCh} as Day {passages.length + 1}</Text>
+              <Text style={{ color: '#fff', fontFamily: fonts.sansBold }}>{translate('Add')} {pickBook.name} {pickCh} {translate('as Day')} {passages.length + 1}</Text>
             </TouchableOpacity>
             {passages.map((p, i) => (
               <View key={`${p.b}-${p.c}-${i}`} style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 9, borderBottomWidth: i === passages.length - 1 ? 0 : 1, borderBottomColor: colors.border, marginTop: i === 0 ? 10 : 0 }}>
-                <Text style={{ width: 54, color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansBold }}>Day {i + 1}</Text>
+                <Text style={{ width: 54, color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansBold }}>{translate('Day')} {i + 1}</Text>
                 <Text style={{ flex: 1, color: colors.textPrimary, fontFamily: fonts.sansMedium }}>{BOOKS.find((b) => b.id === p.b)?.name} {p.c}</Text>
                 <TouchableOpacity hitSlop={8} onPress={() => setPassages((cur) => cur.filter((_, j) => j !== i))}>
                   <Ionicons name="close-circle" size={18} color={colors.textSecondary} />
@@ -252,7 +254,7 @@ export default function CreatePlanScreen({ navigation }) {
         <TouchableOpacity onPress={create} disabled={saving}
           style={{ marginTop: 4, paddingVertical: 15, borderRadius: 14, alignItems: 'center', backgroundColor: canCreate ? colors.success : colors.border, flexDirection: 'row', justifyContent: 'center', gap: 8 }}>
           <Ionicons name="checkmark-circle" size={18} color="#fff" />
-          <Text style={{ color: '#fff', fontSize: 15, fontFamily: fonts.sansBold }}>{saving ? 'Creating…' : 'Create Plan'}</Text>
+          <Text style={{ color: '#fff', fontSize: 15, fontFamily: fonts.sansBold }}>{saving ? translate('Creating…') : translate('Create Plan')}</Text>
         </TouchableOpacity>
       </ScrollView>
 

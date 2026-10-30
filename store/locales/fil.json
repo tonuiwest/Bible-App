@@ -1,0 +1,23 @@
+{
+  "locale": "fil",
+  "language": "Filipino",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Ang Banal na Bibliya",
+    "shortDescription": "Ang Banal na Bibliya · KJV · Pakinggan ang kabanata · Pagbasa ng mga plano",
+    "fullDescription": "Basahin, pakinggan at unawain ang Banal na Bibliya — libre, at maganda ang disenyo tulad ng isang totoong papel na Bibliya.\n\n📖 MARAMING VERSION NG BIBLIYA\n• King James Version (KJV) — built in, ganap na gumagana offline\n• World English Bible (WEB) — moderno, madaling basahin na English\n• American Standard Version (ASV) — classic, word-for-word na katumpakan\n• Bible in Basic English (BBE) — simpleng English, perpekto para sa mga bagong mambabasa at nag-aaral ng English\n• Lumipat kaagad ng mga bersyon sa anumang pahina; ang mga bersyon na iyong binuksan ay nai-save para sa offline na pagbabasa\n• Lahat ng 66 na aklat ng Luma at Bagong Tipan\n• I-highlight ang mga bersikulo sa 4 na kulay, bookmark at ibahagi\n• Naaayos na laki ng teksto, araw at gabi (madilim) na mode\n\n🎧 AUDIO BIBLE\nMakinig sa anumang kabanata na binabasa nang malakas\n• Piliin ang iyong tagapagsalaysay: Classic, Deep, Gentle, Storyteller at higit pa\n• Madaling iakma ang bilis ng pagbasa\n\n✨ MAGTANONG SA BIBLIYA (AI)\n• Magtanong ng anumang tanong: \"Ano ang ibig sabihin ng Jeremias 29:11?\"\n• Mga paliwanag ng mga talata, aklat at mga tauhan sa Bibliya\n• Bawat sagot ay sumipi ng tunay na Kasulatan na may mga sanggunian\n• Tulong para sa pagkabalisa, takot, kalungkutan, pagpapatawad, kasal at higit pa\n\n🎤 SERMON WRITER\n• Gumawa ng buong mga sermon at mga balangkas sa pag-aaral ng Bibliya sa ilang segundo\n• Mga istilong topical, expository o evangelistic\n• Mga ilustrasyon, aplikasyon, panalangin at mga tanong sa talakayan\n\n📅 MGA PLANO SA PAGBASA NG BIBLIYA\n• 34 na plano: Bibliya sa isang Taon, Bagong Tipan sa 90 Araw, Mga Awit, Kawikaan, Ebanghelyo ni Juan at mga paksa tulad ng kapayapaan, pag-asa at panalangin\n• Gumawa ng sarili mong plano sa pagbabasa\n• Subaybayan ang pag-unlad at panatilihin ang iyong pang-araw-araw na streak\n\n🔔 VERSE OF THE DAY & DAILY REMINDER\n• Isang bagong talata sa Bibliya araw-araw\n• Magiliw na paalala araw-araw na basahin ang Salita ng Diyos\nPerpekto para sa pang-araw-araw na debosyon, pag-aaral ng Bibliya, simbahan, panalangin at paghahanda ng sermon. Baguhan ka man sa pananampalataya o maraming taon nang nagbasa ng Kasulatan, tinutulungan ka nitong Holy Bible app na maging mas malapit sa Diyos araw-araw.\n\nI-download ang libreng Holy Bible app ngayon at simulang magbasa ngayon!",
+    "releaseNotes": "Ano ang bago:\r\n• Bagong disenyo ng parchment at Dark Mode\r\n• Mga custom na boses ng audio ng Bibliya at bilis ng pag-playback\r\n• Pang-araw-araw na mga paalala at mga streak ng plano sa pagbasa\r\n• Magtanong o i-tap ang Ipaliwanag para sa mga verse insight\r\n• Walang mga ad sa panahon ng pagbabasa o audio\r\n• Pinahusay na kilos at suporta mula sa gilid-sa-gilid\r\n• Mas mabilis, mas matatag na pagganap"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

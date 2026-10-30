@@ -1,0 +1,23 @@
+{
+  "locale": "lv",
+  "language": "Latvian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Svētā Bībele",
+    "shortDescription": "Svētā Bībele · KJV · Klausieties nodaļu · Lasīšanas plāni",
+    "fullDescription": "Lasiet, klausieties un izprotiet Svēto Bībeli — bez maksas un skaisti veidota kā īsta papīra Bībele.\n\n📖 VAIRĀKAS BĪBELES VERSIJAS\n• King James Version (KJV) — iebūvēta, darbojas pilnībā bezsaistē\n• Pasaules angļu Bībele (WEB) — mūsdienīga, viegli lasāma angļu valoda\n• Amerikas standarta versija (ASV) — klasiska, precizitāte vārds vārdā\n• Bībele pamata angļu valodā (BBE) — vienkārša angļu valoda, ideāli piemērota jauniem lasītājiem un angļu valodas apguvējiem\n• Nekavējoties pārslēdziet versijas jebkurā lapā; atvērtās versijas tiek saglabātas lasīšanai bezsaistē\n• Visas 66 Vecās un Jaunās Derības grāmatas\n• Izceliet pantus 4 krāsās, atzīmējiet tos ar grāmatzīmēm un kopīgojiet tos\n• Regulējams teksta izmērs, dienas un nakts (tumšais) režīms\n\n🎧 AUDIO BĪBELE\n• Klausieties skaļi nolasītu jebkuru nodaļu\n• Izvēlieties savu stāstītāju: klasisks, dziļš, maigs, stāstnieks un citi\n• Regulējams lasīšanas ātrums\n\n✨ JAUTĀT BĪBELEI (AI)\n• Uzdodiet jebkuru jautājumu: \"Ko nozīmē Jeremijas 29:11?\"\n• Pantu, grāmatu un Bībeles varoņu skaidrojumi\n• Katra atbilde citē patiesos Rakstus ar atsaucēm\n• Palīdzība trauksmei, bailēm, bēdām, piedošana, laulība un daudz kas cits\n\n🎤 SPREDIEKA RAKSTNIEKS\n• Sekunžu laikā izveidojiet pilnus sprediķus un Bībeles studiju izklāstus\n• Aktuāli, skaidrojoši vai evaņģelizācijas stili\n• Ilustrācijas, aplikācijas, lūgšanas un diskusiju jautājumi\n\n📅 BĪBELES LASĪŠANAS PLĀNI\n• 34 plāni: Bībele gadā, Jaunā Derība 90 dienās, psalmi, sakāmvārdi, Jāņa evaņģēlijs un tādas tēmas kā miers, cerība un lūgšana\n• Izveidojiet savu lasīšanas plānu\n• Sekojiet progresam un saglabājiet savu ikdienas sēriju\n\n🔔 DIENAS PANTS UN DIENAS ATGĀDINĀJUMS\n• Katru dienu jauns Bībeles pants\n• Maigs ikdienas atgādinājums lasīt Dieva Vārdu\nLieliski piemērots ikdienas dievkalpojumiem, Bībeles studijām, baznīcai, lūgšanām un sprediķu sagatavošanai. Neatkarīgi no tā, vai esat iesācējs ticībā vai jau gadiem ilgi esat lasījis Svētos Rakstus, šī Svētās Bībeles lietotne palīdz jums katru dienu tuvināties Dievam.\n\nLejupielādējiet bezmaksas lietotni Holy Bible tūlīt un sāciet lasīt jau šodien!",
+    "releaseNotes": "Kas jauns:\r\n• Jauns pergamenta dizains un Dark Mode\r\n• Pielāgotas Bībeles audio balsis un atskaņošanas ātrums\r\n• Ikdienas atgādinājumi un lasīšanas plāna svītras\r\n• Uzdodiet jautājumus vai pieskarieties pie Paskaidrot, lai iegūtu ieskatu pantā\r\n• Nav reklāmu lasīšanas vai audio atskaņošanas laikā\r\n• Uzlabots žests un atbalsts no malas līdz malai\r\n• Ātrāka, stabilāka veiktspēja"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

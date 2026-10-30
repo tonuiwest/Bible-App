@@ -1,0 +1,23 @@
+{
+  "locale": "eu",
+  "language": "Basque",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Biblia Santua",
+    "shortDescription": "Biblia Santua · KJV · Entzun kapitulua · Irakurketa planak",
+    "fullDescription": "Irakurri, entzun eta ulertu Biblia Santua: doakoa eta ederki diseinatuta, benetako paperezko Biblia bat bezala.\n\n📖 BIBLIA BERTSIO ANITZA\n• King James bertsioa (KJV) — integratua, guztiz lineaz kanpo funtzionatzen du\n• World English Bible (WEB) — ingeles modernoa eta irakurterraza\n• American Standard Version (ASV) — hitzez hitzaren zehaztasuna klasikoa\n• Biblia oinarrizko ingelesez (BBE) — ingeles sinplea, irakurle berrientzat eta ingelesa ikasten dutenentzat aproposa\n• Aldatu bertsioak berehala edozein orrialdetan; irekitzen dituzun bertsioak lineaz kanpo irakurtzeko gordetzen dira\n• Itun Zaharreko eta Berriko 66 liburu guztiak\n• Nabarmendu bertsoak 4 koloretan, laster-markatu eta partekatu\n• Testu-tamaina erregulagarria, eguneko eta gaueko modua (iluna).\n\n🎧 AUDIO BIBLIA\n• Entzun ozen irakurritako edozein kapitulu\n• Aukeratu zure narratzailea: Klasikoa, Sakona, Leuna, Ipuin kontalaria eta gehiago\n• Irakurtzeko abiadura erregulagarria\n\n✨ GALDETU BIBLIA (AI)\n• Egin edozein galdera: \"Zer esan nahi du Jeremias 29:11?\"\n• Bertso, liburu eta Bibliako pertsonaien azalpenak\n• Erantzun bakoitzak benetako Liburu Santuak aipatzen ditu erreferentziaekin\n• Antsietatea, beldurra, atsekabea, barkamena, ezkontza eta gehiagorako laguntza\n\n🎤 SERMOI IDAZLE\n• Sortu sermoi osoak eta Biblia aztertzeko eskema segundotan\n• Estilo topikoak, erakusgarri edo ebanjelizatzaileak\n• Ilustrazioak, aplikazioa, otoitza eta eztabaida galderak\n\n📅 BIBLIA IRAKURKETA PLANAK\n• 34 plan: Biblia Urte batean, Itun Berria 90 egunetan, Salmoak, Atsotitzak, Joanen Ebanjelioa eta bakea, itxaropena eta otoitza bezalako gaiak\n• Sortu zure irakurketa plana\n• Jarraitu aurrerapena eta mantendu zure eguneroko marra\n\n🔔 EGUNEKO BERTSOA ETA EGUNEROKO OHARRA\n• Bibliako bertso berri bat egunero\n• Eguneroko oroigarri leuna Jainkoaren Hitza irakurtzeko\nEguneroko debozioetarako, Bibliako azterketarako, elizarako, otoitzerako eta sermoien prestaketa ezin hobea. Fedean hasiberria zaren edo urtetan zehar Liburu Santuak irakurri dituzun ala ez, Biblia Santuaren aplikazio honek egunero Jainkoarengana hurbiltzen laguntzen zaitu.\n\nDeskargatu Holy Bible aplikazioa orain eta hasi gaur irakurtzen!",
+    "releaseNotes": "Zer berri:\r\n• Pergamino-diseinu berria eta Modu Iluna\r\n• Bibliako audio ahots pertsonalizatuak eta erreprodukzio abiadura\r\n• Eguneroko abisuak eta irakurketa-plan-marra\r\n• Egin galderak edo ukitu Azaldu bertsoak ezagutzeko\r\n• Ez dago iragarkirik irakurtzean edo audioan\r\n• Keinu eta ertzetik ertz euskarria hobetu\r\n• Errendimendu azkarragoa eta egonkorragoa"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

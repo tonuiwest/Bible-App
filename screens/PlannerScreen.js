@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, ScrollView, Alert } from '../components/LocalizedReactNative';
 import { LinearGradient } from 'expo-linear-gradient';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTheme } from '../context/ThemeContext';
@@ -10,6 +10,7 @@ import ProgressBar from '../components/ProgressBar';
 import NativeAdCard from '../components/NativeAdCard';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import { usePlanner } from '../context/PlannerContext';
+import { useLocale } from '../context/LocaleContext';
 import { CATEGORIES } from '../data/readingPlans';
 import { getBookById } from '../data/books';
 
@@ -26,6 +27,7 @@ function describeDay(day) {
 
 export default function PlannerScreen({ navigation }) {
   const { colors, fonts } = useTheme();
+  const { translate } = useLocale();
   const { plans, getProgress, getDoneCount, cycles, activePlans, nextDayIndex, deleteCustomPlan } = usePlanner();
   const bottomPad = useContentBottomPad();
   const [cat, setCat] = useState('topic');
@@ -34,9 +36,9 @@ export default function PlannerScreen({ navigation }) {
   const hero = activePlans[0];
 
   const confirmDelete = (plan) => {
-    Alert.alert('Delete plan?', `“${plan.label}” and its progress will be removed.`, [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Delete', style: 'destructive', onPress: () => deleteCustomPlan(plan.id) },
+    Alert.alert(translate('Delete plan?'), translate('“{{plan}}” and its progress will be removed.').replace('{{plan}}', plan.label), [
+      { text: translate('Cancel'), style: 'cancel' },
+      { text: translate('Delete'), style: 'destructive', onPress: () => deleteCustomPlan(plan.id) },
     ]);
   };
 
@@ -46,15 +48,15 @@ export default function PlannerScreen({ navigation }) {
         <TouchableOpacity activeOpacity={0.9} onPress={() => navigation.navigate('PlannerDetail', { topicId: hero.id })}>
           <LinearGradient colors={[colors.heroStart, colors.heroEnd]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
             style={{ borderRadius: 18, padding: 16, marginBottom: 14 }}>
-            <Text style={{ color: '#E9D8B4', fontSize: 10, letterSpacing: 2, fontFamily: fonts.sansBold }}>CONTINUE YOUR PLAN</Text>
+            <Text style={{ color: '#E9D8B4', fontSize: 10, letterSpacing: 2, fontFamily: fonts.sansBold }}>{translate('CONTINUE YOUR PLAN')}</Text>
             <Text style={{ color: '#FFF', fontSize: 20, marginTop: 6, fontFamily: fonts.serifBold }}>{hero.label}</Text>
             <Text style={{ color: 'rgba(255,255,255,0.75)', fontSize: 12, marginTop: 4, fontFamily: fonts.sans }}>
-              Day {nextDayIndex(hero.id) + 1} of {hero.days.length} · {describeDay(hero.days[nextDayIndex(hero.id)])}
+              {translate('Day')} {nextDayIndex(hero.id) + 1} {translate('of')} {hero.days.length} · {describeDay(hero.days[nextDayIndex(hero.id)])}
             </Text>
             <ProgressBar percent={getProgress(hero.id)} height={8} style={{ marginTop: 12 }} trackColor="rgba(255,255,255,0.18)" />
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 }}>
               <Text style={{ color: 'rgba(255,255,255,0.8)', fontSize: 11, fontFamily: fonts.sansMedium }}>
-                {getDoneCount(hero.id)} of {hero.days.length} days
+                {getDoneCount(hero.id)} {translate('of')} {hero.days.length} {translate('days')}
               </Text>
               <Text style={{ color: '#7BE0A5', fontSize: 11, fontFamily: fonts.sansBold }}>{getProgress(hero.id)}%</Text>
             </View>
@@ -70,8 +72,8 @@ export default function PlannerScreen({ navigation }) {
           <Ionicons name="add" size={22} color="#fff" />
         </View>
         <View style={{ flex: 1 }}>
-          <Text style={{ color: colors.textPrimary, fontFamily: fonts.sansBold, fontSize: 14 }}>Create your own plan</Text>
-          <Text style={{ color: colors.textSecondary, fontFamily: fonts.sans, fontSize: 11, marginTop: 2 }}>Pick any books or chapters and set your own pace</Text>
+          <Text style={{ color: colors.textPrimary, fontFamily: fonts.sansBold, fontSize: 14 }}>{translate('Create your own plan')}</Text>
+          <Text style={{ color: colors.textSecondary, fontFamily: fonts.sans, fontSize: 11, marginTop: 2 }}>{translate('Pick any books or chapters and set your own pace')}</Text>
         </View>
         <Ionicons name="chevron-forward" size={16} color={colors.success} />
       </TouchableOpacity>
@@ -95,7 +97,7 @@ export default function PlannerScreen({ navigation }) {
 
   return (
     <ParchmentBackground>
-      <ScreenHeader title="READING PLANS" subtitle={`${plans.length} plans`} onBack={() => navigation.goBack()} right={<ThemeToggle />} />
+      <ScreenHeader title={translate('READING PLANS')} subtitle={`${plans.length} ${translate('plans')}`} onBack={() => navigation.goBack()} right={<ThemeToggle />} />
       <FlatList
         data={list}
         keyExtractor={(i) => i.id}
@@ -105,7 +107,7 @@ export default function PlannerScreen({ navigation }) {
           <View style={{ alignItems: 'center', padding: 30 }}>
             <Ionicons name="create-outline" size={30} color={colors.textSecondary} />
             <Text style={{ color: colors.textSecondary, marginTop: 8, textAlign: 'center', fontFamily: fonts.sans }}>
-              You haven’t created a plan yet.{'\n'}Tap “Create your own plan” above.
+              {translate('You haven’t created a plan yet.')}{'\n'}{translate('Tap “Create your own plan” above.')}
             </Text>
           </View>
         }

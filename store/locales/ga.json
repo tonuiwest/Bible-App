@@ -1,0 +1,23 @@
+{
+  "locale": "ga",
+  "language": "Irish",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "An Bíobla Naofa",
+    "shortDescription": "An Bíobla Naofa · KJV · Éist le caibidil · Léamh pleananna",
+    "fullDescription": "Léigh, éist leis agus tuig an Bíobla Naofa — saor in aisce, agus deartha go hálainn cosúil le Bíobla fíorpháipéir.\n\n📖 ILTREACHAS AN Bhíobla\n• Leagan an Rí Séamas (KJV) — ionsuite, oibríonn sé go hiomlán as líne\n• Bíobla Béarla an Domhain (WEB) — Béarla nua-aimseartha, éasca le léamh\n• Leagan Caighdeánach Meiriceánach (ASV) — cruinneas clasaiceach, focal ar fhocal\n• An Bíobla i mBun-Bhéarla (BBE) — Béarla simplí, atá oiriúnach do léitheoirí nua agus foghlaimeoirí Béarla\n• Athraigh leaganacha láithreach ar aon leathanach; déantar na leaganacha a osclaíonn tú a shábháil lena léamh as líne\n• Gach ceann de na 66 leabhar den Sean-Tiomna agus den Tiomna Nua\n• Aibhsigh véarsaí i 4 dhath, leabharmharc agus roinn\n• Méid téacs inchoigeartaithe, mód lae agus oíche (dorcha).\n\n🎧 AN Bhíobla AUDIO\n• Éist le haon chaibidil léite os ard\n• Roghnaigh do scéalaí: Clasaiceach, Doimhne, Mín, Scéalaí agus go leor eile\n• Luas léitheoireachta inchoigeartaithe\n\n✨ CEIST AN Bhíobla (AI)\n• Cuir ceist ar bith: \"Cad is brí le Jeremiah 29:11?\"\n• Mínithe ar véarsaí, leabhair agus carachtair Bhíobla\n• Luann gach freagra an fíor-Scriopt le tagairtí\n• Cabhair le haghaidh imní, eagla, brón, maithiúnas, pósadh agus go leor eile\n\n🎤 SCRÍBHNEOIR SEARMON\n• Cruthaigh seanmóirí iomlána agus imlíne ar staidéar an Bhíobla i soicindí\n• Stíleanna tráthúla, nochta nó soiscéalacha\n• Léaráidí, feidhmiú, paidir agus ceisteanna plé\n\n📅 PLEANANNA Léamh an Bhíobla\n• 34 plean: Bíobla sa Bhliain, Tiomna Nua i 90 Lá, Sailm, Seanfhocal, Soiscéal Eoin agus ábhair mar shíocháin, dóchas agus urnaí\n• Cruthaigh do phlean léitheoireachta féin\n• Rianaigh dul chun cinn agus coinnigh do stríoc laethúil\n\n🔔 VÍSE AN LÁ & MEABHRÁN Laethúil\n• véarsa Bíobla nua gach lá\n• Meabhrúchán milis laethúil chun Briathar Dé a léamh\nFoirfe do dheabhóidí laethúla, staidéar Bíobla, eaglais, paidir agus ullmhú seanmóirí. Cibé an bhfuil creideamh nua agat nó an bhfuil na Scrioptúir léite agat le blianta anuas, cabhraíonn an aip Bíobla Naofa seo leat fás níos gaire do Dhia gach lá.\n\nÍoslódáil aip saor in aisce an Bhíobla Naofa anois agus tosaigh ag léamh inniu!",
+    "releaseNotes": "Cad atá nua:\r\n• Dearadh pár nua agus Mód Dorcha\r\n• Guthanna fuaime Bíobla an Chustaim agus luas athsheinm\r\n• Meabhrúcháin laethúla agus stríoca plean léitheoireachta\r\n• Cuir ceisteanna nó tapáil Mínigh le haghaidh léargais véarsaíochta\r\n• Gan fógraí le linn léitheoireachta nó fuaime\r\n• Gothaí feabhsaithe agus tacaíocht chiumhais tosaigh\r\n• Feidhmíocht níos tapúla, níos cobhsaí"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

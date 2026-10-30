@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Share, Animated } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, Share, Animated } from '../components/LocalizedReactNative';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,6 +11,7 @@ import AIAnswer, { TextSizeButton } from '../components/AIAnswer';
 import { useContentBottomPad } from '../components/useContentBottomPad';
 import { askBibleQuestion, toPlainText } from '../utils/aiBible';
 import { getBookById } from '../data/books';
+import { useLocale } from '../context/LocaleContext';
 import { AdManager } from '../ads/AdManager';
 
 const HISTORY_KEY = 'ai_recent_questions_v1';
@@ -24,10 +25,9 @@ const STARTERS = [
   { icon: 'heart-outline', label: 'Forgiveness', q: 'How do I forgive someone who hurt me?' },
 ];
 
-function Thinking({ colors, fonts }) {
+function Thinking({ colors, fonts, phases }) {
   const dots = [useRef(new Animated.Value(0.3)).current, useRef(new Animated.Value(0.3)).current, useRef(new Animated.Value(0.3)).current];
   const [phase, setPhase] = useState(0);
-  const phases = ['Reading your question…', 'Searching Scripture…', 'Checking the context…'];
   useEffect(() => {
     const anims = dots.map((d, i) => Animated.loop(Animated.sequence([
       Animated.delay(i * 160),
@@ -50,6 +50,7 @@ function Thinking({ colors, fonts }) {
 
 export default function AIQAScreen() {
   const { colors, fonts } = useTheme();
+  const { translate } = useLocale();
   const navigation = useNavigation();
   const route = useRoute();
   const bottomPad = useContentBottomPad(8);
@@ -91,7 +92,7 @@ export default function AIQAScreen() {
     try {
       result = await askBibleQuestion(question);
     } catch (e) {
-      result = { title: 'Something went wrong', lead: 'Please try asking again in a moment.', sections: [], followUps: [] };
+      result = { title: translate('Something went wrong'), lead: translate('Please try asking again in a moment.'), sections: [], followUps: [] };
     }
     // A short, natural "thinking" beat so answers don't pop in jarringly.
     const wait = Math.max(0, 900 - (Date.now() - started));
@@ -116,12 +117,13 @@ export default function AIQAScreen() {
   };
 
   const empty = thread.length === 0;
+  const thinkingPhases = [translate('Reading your question…'), translate('Searching Scripture…'), translate('Checking the context…')];
 
   return (
     <ParchmentBackground>
       <ScreenHeader
-        title="ASK THE BIBLE"
-        subtitle="Answers grounded in Scripture"
+        title={translate('ASK THE BIBLE')}
+        subtitle={translate('Answers grounded in Scripture')}
         onBack={() => navigation.goBack()}
         right={<>
           {thread.length > 0 && (
@@ -141,9 +143,9 @@ export default function AIQAScreen() {
                 <View style={{ width: 62, height: 62, borderRadius: 31, backgroundColor: colors.goldLight, alignItems: 'center', justifyContent: 'center' }}>
                   <Ionicons name="sparkles" size={28} color={colors.gold} />
                 </View>
-                <Text style={{ color: colors.textPrimary, fontSize: 22, marginTop: 12, fontFamily: fonts.serifBold }}>What’s on your heart?</Text>
+                <Text style={{ color: colors.textPrimary, fontSize: 22, marginTop: 12, fontFamily: fonts.serifBold }}>{translate('What’s on your heart?')}</Text>
                 <Text style={{ color: colors.textSecondary, fontSize: 13, marginTop: 6, textAlign: 'center', lineHeight: 19, fontFamily: fonts.sans, paddingHorizontal: 10 }}>
-                  Ask about any verse, book, person or life question. Every answer quotes the actual text of Scripture with its reference.
+                  {translate('Ask about any verse, book, person or life question. Every answer quotes the actual text of Scripture with its reference.')}
                 </Text>
               </View>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 10, marginTop: 6 }}>
@@ -151,14 +153,14 @@ export default function AIQAScreen() {
                   <TouchableOpacity key={s.label} onPress={() => ask(s.q)}
                     style={{ width: '48.5%', padding: 12, borderRadius: 14, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border }}>
                     <Ionicons name={s.icon} size={18} color={colors.gold} />
-                    <Text style={{ color: colors.textPrimary, fontSize: 13, marginTop: 6, fontFamily: fonts.sansBold }}>{s.label}</Text>
-                    <Text numberOfLines={2} style={{ color: colors.textSecondary, fontSize: 11.5, marginTop: 2, fontFamily: fonts.sans }}>{s.q}</Text>
+                    <Text style={{ color: colors.textPrimary, fontSize: 13, marginTop: 6, fontFamily: fonts.sansBold }}>{translate(s.label)}</Text>
+                    <Text numberOfLines={2} style={{ color: colors.textSecondary, fontSize: 11.5, marginTop: 2, fontFamily: fonts.sans }}>{translate(s.q)}</Text>
                   </TouchableOpacity>
                 ))}
               </View>
               {recent.length > 0 && (
                 <View style={{ marginTop: 18 }}>
-                  <Text style={{ color: colors.textSecondary, fontSize: 11, letterSpacing: 1.5, marginBottom: 8, fontFamily: fonts.sansBold }}>RECENT</Text>
+                  <Text style={{ color: colors.textSecondary, fontSize: 11, letterSpacing: 1.5, marginBottom: 8, fontFamily: fonts.sansBold }}>{translate('RECENT')}</Text>
                   {recent.map((r) => (
                     <TouchableOpacity key={r} onPress={() => ask(r)} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 9 }}>
                       <Ionicons name="time-outline" size={14} color={colors.textSecondary} />
@@ -186,18 +188,18 @@ export default function AIQAScreen() {
                           <View style={{ flexDirection: 'row', gap: 16, marginTop: 16, paddingTop: 12, borderTopWidth: 1, borderTopColor: colors.border }}>
                             <TouchableOpacity onPress={() => share(m)} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
                               <Ionicons name="share-social-outline" size={15} color={colors.textSecondary} />
-                              <Text style={{ color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansMedium }}>Share</Text>
+                              <Text style={{ color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansMedium }}>{translate('Share')}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => navigation.navigate('Sermon', { prefill: m.question })} style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
                               <Ionicons name="mic-outline" size={15} color={colors.textSecondary} />
-                              <Text style={{ color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansMedium }}>Turn into a sermon</Text>
+                              <Text style={{ color: colors.textSecondary, fontSize: 12, fontFamily: fonts.sansMedium }}>{translate('Turn into a sermon')}</Text>
                             </TouchableOpacity>
                           </View>
                         }
                       />
                     </View>
                   ) : (
-                    <Thinking colors={colors} fonts={fonts} />
+                    <Thinking colors={colors} fonts={fonts} phases={thinkingPhases} />
                   )}
                 </View>
               </View>
@@ -211,7 +213,7 @@ export default function AIQAScreen() {
             <TextInput
               value={q}
               onChangeText={setQ}
-              placeholder="Ask about a verse, topic or person…"
+              placeholder={translate('Ask about a verse, topic or person…')}
               placeholderTextColor={colors.textSecondary}
               multiline
               style={{ color: colors.textPrimary, fontFamily: fonts.sans, fontSize: 14, paddingVertical: 10 }}

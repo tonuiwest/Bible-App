@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, Share, Alert, Modal } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, Share, Alert, Modal } from '../components/LocalizedReactNative';
 import { useRoute, useNavigation, useFocusEffect } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
@@ -15,6 +15,7 @@ import { usePlanner } from '../context/PlannerContext';
 import { getChapter } from '../data/bibleData';
 import { BOOKS, getBookById } from '../data/books';
 import { AdManager } from '../ads/AdManager';
+import { useLocale } from '../context/LocaleContext';
 import { saveLastRead, recordReadingDay } from '../utils/storage';
 import * as Speech from 'expo-speech';
 import VoiceSheet from '../components/VoiceSheet';
@@ -51,6 +52,7 @@ export default function VerseScreen() {
   const route = useRoute();
   const insets = useSafeAreaInsets();
   const { colors, fonts, isDark } = useTheme();
+  const { translate } = useLocale();
   const { version } = useVersion();
   const { markReadingRead, getPlan, getProgress } = usePlanner();
   const bottomPad = useContentBottomPad();
@@ -142,9 +144,9 @@ export default function VerseScreen() {
     (async () => {
       const result = await markReadingRead(planId, dayIndex, readingIndex);
       if (result?.completedPlan) {
-        Alert.alert('Reading Plan Complete! 🎉', 'Nice work finishing this reading plan. You can restart it from Reading Plans any time.');
+        Alert.alert(translate('Reading Plan Complete! 🎉'), translate('Nice work finishing this reading plan. You can restart it from Reading Plans any time.'));
       } else if (result?.completedDay) {
-        setPlanNote('Day complete — great job!');
+        setPlanNote(translate('Day complete — great job!'));
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -242,7 +244,7 @@ export default function VerseScreen() {
     if (earned) {
       await refreshUnlockState();
       setSheet(false);
-      Alert.alert('Unlocked', 'Audio is unlocked for 1 hour — across every book and chapter.');
+      Alert.alert(translate('Unlocked'), translate('Audio is unlocked for 1 hour — across every book and chapter.'));
       if (pending) play(pending);
     } else if (!AdManager.lastRewardedShown) {
       // No ad could be loaded (no-fill / offline). Never lock the listener
@@ -254,9 +256,9 @@ export default function VerseScreen() {
     } else {
       // An ad was available but closed before the reward — let them retry.
       Alert.alert(
-        'Not unlocked',
-        'Watch the video to the end to unlock audio for 1 hour.',
-        [{ text: 'Cancel', style: 'cancel' }, { text: 'Try again', onPress: unlock }]
+        translate('Not unlocked'),
+        translate('Watch the video to the end to unlock audio for 1 hour.'),
+        [{ text: translate('Cancel'), style: 'cancel' }, { text: translate('Try again'), onPress: unlock }]
       );
     }
   };
@@ -340,7 +342,7 @@ export default function VerseScreen() {
           <TouchableOpacity onPress={goNextPlanReading}
             style={{ marginTop: 12, backgroundColor: colors.success, borderRadius: 10, paddingVertical: 11, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
             <Text style={{ color: '#fff', fontFamily: fonts.sansBold }}>
-              {readingIndex + 1 < planDay.length ? 'Next reading' : (plan.days[dayIndex + 1] ? `Continue to Day ${dayIndex + 2}` : 'Finish')}
+              {readingIndex + 1 < planDay.length ? translate('Next reading') : (plan.days[dayIndex + 1] ? `${translate('Continue to Day')} ${dayIndex + 2}` : translate('Finish'))}
             </Text>
             <Ionicons name="arrow-forward" size={15} color="#fff" />
           </TouchableOpacity>
@@ -412,7 +414,7 @@ export default function VerseScreen() {
                   style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 8, paddingHorizontal: 14, paddingVertical: 7, borderRadius: 18, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.background }}
                 >
                   <Ionicons name={playing !== null ? 'stop' : 'play'} size={13} color={colors.gold} />
-                  <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansBold }}>{playing !== null ? 'Stop' : 'Listen to chapter'}</Text>
+                  <Text style={{ color: colors.textPrimary, fontSize: 12, fontFamily: fonts.sansBold }}>{playing !== null ? translate('Stop') : translate('Listen to chapter')}</Text>
                 </TouchableOpacity>
               </View>
             }
@@ -496,7 +498,7 @@ export default function VerseScreen() {
           <View style={{ flexDirection: 'row', gap: 8 }}>
             <TouchableOpacity onPress={bookmarkSelected} style={{ flex: 1, flexDirection: 'row', gap: 6, justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 10, backgroundColor: colors.gold }}>
               <Ionicons name="bookmark" size={14} color="#fff" />
-              <Text style={{ color: '#fff', fontSize: 12, fontFamily: fonts.sansBold }}>Save</Text>
+              <Text style={{ color: '#fff', fontSize: 12, fontFamily: fonts.sansBold }}>{translate('Save')}</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={askAI} style={{ flex: 1, flexDirection: 'row', gap: 6, justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 10, backgroundColor: colors.success }}>
               <Ionicons name="sparkles" size={14} color="#fff" />
@@ -504,7 +506,7 @@ export default function VerseScreen() {
             </TouchableOpacity>
             <TouchableOpacity onPress={shareSelected} style={{ flex: 1, flexDirection: 'row', gap: 6, justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 10, backgroundColor: colors.primary }}>
               <Ionicons name="share-social" size={14} color={colors.onPrimary} />
-              <Text style={{ color: colors.onPrimary, fontSize: 12, fontFamily: fonts.sansBold }}>Share</Text>
+              <Text style={{ color: colors.onPrimary, fontSize: 12, fontFamily: fonts.sansBold }}>{translate('Share')}</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setSel(new Set())} style={{ paddingHorizontal: 12, justifyContent: 'center', alignItems: 'center', borderRadius: 10, borderWidth: 1, borderColor: colors.border }}>
               <Ionicons name="close" size={16} color={colors.textSecondary} />

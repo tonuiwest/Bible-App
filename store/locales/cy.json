@@ -1,0 +1,23 @@
+{
+  "locale": "cy",
+  "language": "Welsh",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Y Bibl Sanctaidd",
+    "shortDescription": "Y Bibl Sanctaidd · KJV · Gwrandewch ar y bennod · Darllen cynlluniau",
+    "fullDescription": "Darllen, gwrando ar a deall y Beibl Sanctaidd—am ddim, ac wedi’i ddylunio’n hyfryd fel Beibl papur go iawn.\n\n📖 FERSIWN LLUOSOG O'R BEIBL\n• Fersiwn y Brenin Iago (KJV) — wedi'i adeiladu i mewn, yn gweithio'n gyfan gwbl all-lein\n• Beibl Saesneg y Byd (WEB) — Saesneg modern, hawdd ei ddarllen\n• American Standard Version (ASV) — cywirdeb clasurol, gair-am-air\n• Beibl mewn Saesneg Sylfaenol (BBE) — Saesneg syml, yn ddelfrydol ar gyfer darllenwyr newydd a dysgwyr Saesneg\n• Newid fersiynau ar unwaith ar unrhyw dudalen; fersiynau rydych yn eu hagor yn cael eu cadw ar gyfer darllen all-lein\n• Pob un o 66 o lyfrau yr Hen Destament a'r Newydd\n• Amlygwch adnodau mewn 4 lliw, nod tudalen a rhannwch\n• Maint testun addasadwy, dydd a nos (tywyll) modd\n\n🎧 BEIBL SAIN\n• Gwrandewch ar unrhyw bennod sy'n cael ei darllen yn uchel\n• Dewiswch eich adroddwr: Classic, Deep, Gentle, Storïwr a mwy\n• Cyflymder darllen addasadwy\n\n✨ GOFYNNWCH Y BEIBL (AI)\n• Gofynnwch unrhyw gwestiwn: \"Beth mae Jeremeia 29:11 yn ei olygu?\"\n• Esboniadau o adnodau, llyfrau a chymeriadau'r Beibl\n• Mae pob ateb yn dyfynnu'r Ysgrythur go iawn gyda chyfeiriadau\n• Cymorth ar gyfer pryder, ofn, galar, maddeuant, priodas a mwy\n\n🎤 AWDUR PREGETH\n• Creu pregethau llawn ac amlinelliadau astudiaeth Feiblaidd mewn eiliadau\n• Arddulliau cyfoes, datguddiadol neu efengylaidd\n• Darluniau, cymhwysiad, gweddi a chwestiynau trafod\n\n📅 CYNLLUNIAU DARLLEN Y BEIBL\n• 34 cynllun: Beibl mewn Blwyddyn, Testament Newydd mewn 90 Diwrnod, Salmau, Diarhebion, Efengyl Ioan a phynciau fel heddwch, gobaith a gweddi\n• Creu eich cynllun darllen eich hun\n• Traciwch eich cynnydd a chadwch eich rhediad dyddiol\n\n🔔 ADNOD Y DYDD A'R ATGOFFA DYDDIOL\n• Adnod newydd o’r Beibl bob dydd\n• Atgoffa dyddiol ysgafn i ddarllen Gair Duw\nPerffaith ar gyfer defosiynau dyddiol, astudiaeth Feiblaidd, eglwys, gweddi a pharatoi pregeth. P'un a ydych chi'n newydd i ffydd neu wedi darllen yr Ysgrythurau ers blynyddoedd, mae'r ap Beibl Sanctaidd hwn yn eich helpu i ddod yn agosach at Dduw bob dydd.\n\nDadlwythwch ap rhad ac am ddim y Beibl Sanctaidd nawr a dechreuwch ddarllen heddiw!",
+    "releaseNotes": "Beth sy'n newydd:\r\n• Dyluniad memrwn newydd a Modd Tywyll\r\n• Lleisiau sain Beiblaidd wedi'u teilwra a chyflymder chwarae\r\n• Nodiadau atgoffa dyddiol a rhediadau cynllun darllen\r\n• Gofynnwch gwestiynau neu tapiwch Eglurwch i gael cipolwg ar adnod\r\n• Dim hysbysebion yn ystod darllen neu sain\r\n• Gwell ystum a chefnogaeth ymyl-i-ymyl\r\n• Perfformiad cyflymach, mwy sefydlog"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

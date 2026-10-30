@@ -1,0 +1,22 @@
+{
+  "locale": "id",
+  "language": "Indonesian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Kitab Suci: Audio, AI & Paket",
+    "shortDescription": "Kitab Suci · KJV · Dengarkan bab · Rencana membaca",
+    "fullDescription": "Baca, dengarkan, dan pahami Kitab Suci — gratis, dan dirancang dengan indah seperti Alkitab kertas asli.\n\n📖 BEBERAPA VERSI ALKITAB\n• Versi King James (KJV) — bawaan, berfungsi sepenuhnya offline\n• World English Bible (WEB) — bahasa Inggris modern dan mudah dibaca\n• American Standard Version (ASV) — klasik, keakuratan kata demi kata\n• Alkitab dalam Bahasa Inggris Dasar (BBE) — bahasa Inggris sederhana, ideal untuk pembaca baru dan pembelajar bahasa Inggris\n• Beralih versi secara instan di halaman mana pun; versi yang Anda buka disimpan untuk dibaca secara offline\n• Seluruh 66 kitab Perjanjian Lama dan Baru\n• Sorot ayat dalam 4 warna, tandai dan bagikan\n• Ukuran teks yang dapat disesuaikan, mode siang dan malam (gelap).\n\n🎧 ALKITAB AUDIO\n• Dengarkan setiap bab yang dibacakan\n• Pilih narator Anda: Klasik, Mendalam, Lembut, Pendongeng, dan banyak lagi\n• Kecepatan membaca yang dapat disesuaikan\n\n✨ TANYAKAN ALKITAB (AI)\n• Ajukan pertanyaan apa pun: \"Apa maksud Yeremia 29:11?\"\n• Penjelasan ayat, buku dan karakter Alkitab\n• Setiap jawaban mengutip Kitab Suci yang asli dan referensinya\n• Bantuan untuk kecemasan, ketakutan, kesedihan, pengampunan, pernikahan dan banyak lagi\n\n🎤 PENULIS KHOTBAH\n• Buat khotbah lengkap dan garis besar pelajaran Alkitab dalam hitungan detik\n• Gaya topikal, ekspositori, atau penginjilan\n• Ilustrasi, aplikasi, doa dan pembahasan soal\n\n📅 RENCANA PEMBACAAN ALKITAB\n• 34 rencana: Alkitab dalam Setahun, Perjanjian Baru dalam 90 Hari, Mazmur, Amsal, Injil Yohanes dan topik-topik seperti perdamaian, harapan dan doa\n• Buatlah rencana bacaan Anda sendiri\n• Lacak kemajuan dan pertahankan rekor harian Anda\n\n🔔 AYAT HARI & PENGINGAT HARIAN\n• Sebuah ayat Alkitab baru setiap hari\n• Pengingat lembut setiap hari untuk membaca Firman Tuhan\nSempurna untuk renungan harian, belajar Alkitab, gereja, doa dan persiapan khotbah. Baik Anda baru mengenal iman atau sudah membaca Kitab Suci selama bertahun-tahun, aplikasi Kitab Suci ini membantu Anda bertumbuh lebih dekat dengan Tuhan setiap hari.\n\nUnduh aplikasi Kitab Suci gratis sekarang dan mulailah membaca hari ini!",
+    "releaseNotes": "Apa yang baru:\r\n• Desain perkamen baru dan Mode Gelap\r\n• Suara audio Alkitab khusus dan kecepatan pemutaran\r\n• Pengingat harian dan coretan rencana bacaan\r\n• Ajukan pertanyaan atau ketuk Jelaskan untuk mendapatkan wawasan ayat\r\n• Tidak ada iklan selama membaca atau audio\r\n• Peningkatan gestur dan dukungan edge-to-edge\r\n• Performa lebih cepat dan stabil"
+  },
+  "sourceAdaptations": {
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

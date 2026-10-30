@@ -1,0 +1,23 @@
+{
+  "locale": "no",
+  "language": "Norwegian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Den hellige bibel",
+    "shortDescription": "Den hellige bibel · KJV · Lytt til kapittel · Leseplaner",
+    "fullDescription": "Les, lytt til og forstå Bibelen – gratis og vakkert utformet som en ekte papirbibel.\n\n📖 FLERE BIBELVERSJONER\n• King James Version (KJV) — innebygd, fungerer helt offline\n• World English Bible (WEB) — moderne, lettlest engelsk\n• American Standard Version (ASV) — klassisk, ord-for-ord-nøyaktighet\n• Bibelen på grunnleggende engelsk (BBE) — enkel engelsk, ideell for nye lesere og engelske elever\n• Bytt versjon umiddelbart på hvilken som helst side; versjoner du åpner lagres for lesing uten nett\n• Alle 66 bøkene i Det gamle og Det nye testamente\n• Fremhev vers i 4 farger, bokmerk og del\n• Justerbar tekststørrelse, dag og natt (mørk) modus\n\n🎧 LYDBIBEL\n• Lytt til et hvilket som helst kapittel lest opp\n• Velg fortelleren din: Klassisk, Deep, Gentle, Storyteller og mer\n• Justerbar lesehastighet\n\n✨ SPØR BIBELEN (AI)\n• Still ethvert spørsmål: \"Hva betyr Jeremia 29:11?\"\n• Forklaringer av vers, bøker og bibelskikkelser\n• Hvert svar siterer ekte skriftsteder med referanser\n• Hjelp til angst, frykt, sorg, tilgivelse, ekteskap med mer\n\n🎤 PRÆKENSKRIFTVER\n• Lag fullstendige prekener og bibelstudiekonturer på sekunder\n• Aktuelle, ekspositoriske eller evangeliske stiler\n• Illustrasjoner, anvendelse, bønn og diskusjonsspørsmål\n\n📅 BIBELLESEPLANER\n• 34 planer: Bibelen på et år, Det nye testamente på 90 dager, salmer, ordspråk, Johannesevangeliet og emner som fred, håp og bønn\n• Lag din egen leseplan\n• Spor fremgang og hold din daglige serie\n\n🔔 DAGENS VERS OG DAGLIG PÅMINNELSE\n• Et nytt bibelvers hver dag\n• Mild daglig påminnelse om å lese Guds Ord\nPerfekt for daglige andakter, bibelstudier, kirke, bønn og prekenforberedelse. Enten du er ny i troen eller har lest Skriften i årevis, hjelper denne Bibelen-appen deg med å vokse nærmere Gud hver dag.\n\nLast ned den gratis Holy Bible-appen nå og begynn å lese i dag!",
+    "releaseNotes": "Hva er nytt:\r\n• Nytt pergamentdesign og mørk modus\r\n• Tilpassede bibellydstemmer og avspillingshastighet\r\n• Daglige påminnelser og leseplanstreker\r\n• Still spørsmål eller trykk på Forklar for versinnsikt\r\n• Ingen annonser under lesing eller lyd\r\n• Forbedret gest og kant-til-kant-støtte\r\n• Raskere, mer stabil ytelse"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

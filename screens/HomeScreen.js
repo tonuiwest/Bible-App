@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Share } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Share } from '../components/LocalizedReactNative';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -10,6 +10,7 @@ import { usePlanner } from '../context/PlannerContext';
 import ParchmentBackground from '../components/ParchmentBackground';
 import VersionSwitcher from '../components/VersionSwitcher';
 import ThemeToggle from '../components/ThemeToggle';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import ProgressBar from '../components/ProgressBar';
 import { getVerseOfTheDay } from '../data/bibleData';
 import { getBookById } from '../data/books';
@@ -17,6 +18,7 @@ import { getLastRead, getStreak } from '../utils/storage';
 import { AdManager } from '../ads/AdManager';
 import ReminderSheet from '../components/ReminderSheet';
 import { getReminder, formatReminderTime } from '../utils/reminders';
+import { useLocale } from '../context/LocaleContext';
 
 const FALLBACK_VERSE = { bookId: 'psa', bookName: 'Psalms', chapter: 23, verse: 1, text: 'The LORD is my shepherd; I shall not want.', ref: 'Psalms 23:1' };
 
@@ -24,6 +26,7 @@ const FALLBACK_VERSE = { bookId: 'psa', bookName: 'Psalms', chapter: 23, verse: 
 export default function HomeScreen({ navigation }) {
   const insets = useSafeAreaInsets();
   const { colors, fonts } = useTheme();
+  const { translate } = useLocale();
   const { activePlans, getProgress, getDoneCount, nextDayIndex } = usePlanner();
   const [daily, setDaily] = useState(FALLBACK_VERSE);
   const [lastRead, setLastRead] = useState(null);
@@ -54,14 +57,14 @@ export default function HomeScreen({ navigation }) {
   }, [daily]));
 
   const hour = new Date().getHours();
-  const greet = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  const greet = hour < 12 ? translate('Good morning') : hour < 18 ? translate('Good afternoon') : translate('Good evening');
   const greetIcon = hour < 12 ? 'partly-sunny' : hour < 18 ? 'sunny' : 'moon';
   const today = new Date().toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' });
   const plan = activePlans[0];
 
   const shareVotd = async () => {
     try {
-      await Share.share({ message: `“${daily.text}”\n— ${daily.ref} (KJV)\n\nVerse of the Day` });
+      await Share.share({ message: `“${daily.text}”\n— ${daily.ref} (KJV)\n\n${translate('Verse of the Day')}` });
     } catch {}
   };
 
@@ -122,9 +125,10 @@ export default function HomeScreen({ navigation }) {
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 4 }}>
             <Text numberOfLines={1} adjustsFontSizeToFit style={{ flex: 1, fontSize: 27, color: colors.textPrimary, fontFamily: fonts.serifBold, lineHeight: 33 }}>
-              The Holy Bible
+              {translate('The Holy Bible')}
             </Text>
             <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center', marginLeft: 8 }}>
+              <LanguageSwitcher />
               <ThemeToggle size={15} />
               <VersionSwitcher />
             </View>
@@ -143,34 +147,34 @@ export default function HomeScreen({ navigation }) {
           end={{ x: 1, y: 1 }}
           style={{ borderRadius: 18, paddingTop: 13, paddingBottom: 12, paddingHorizontal: 15, borderWidth: 1, borderColor: 'rgba(201,168,106,0.35)' }}
         >
-          <Text style={{ fontSize: 10, letterSpacing: 2.5, color: '#E9D8B4', fontFamily: fonts.sansBold }}>VERSE OF THE DAY</Text>
+          <Text style={{ fontSize: 10, letterSpacing: 2.5, color: '#E9D8B4', fontFamily: fonts.sansBold }}>{translate('VERSE OF THE DAY')}</Text>
           <Text numberOfLines={3} adjustsFontSizeToFit minimumFontScale={0.85} style={{ fontSize: 17, color: '#FFFDF7', lineHeight: 24, marginTop: 7, fontFamily: fonts.serif }}>
             “{daily.text}”
           </Text>
           <Text style={{ fontSize: 12, color: '#F2D48C', marginTop: 6, fontFamily: fonts.sansBold }}>{daily.ref} · KJV</Text>
           <View style={{ flexDirection: 'row', gap: 6, marginTop: 11 }}>
-            <Pill icon="book-outline" label="Read" onPress={() => navigation.navigate('Verse', { bookId: daily.bookId, bookName: daily.bookName, chapter: daily.chapter, highlightVerse: daily.verse })} />
-            <Pill icon="sparkles-outline" label="Explain" onPress={() => navigation.navigate('AIQA', { prefill: `Explain ${daily.ref}` })} />
-            <Pill icon={votdSaved ? 'bookmark' : 'bookmark-outline'} label={votdSaved ? 'Saved' : 'Save'} active={votdSaved} onPress={saveVotd} />
-            <Pill icon="share-social-outline" label="Share" onPress={shareVotd} />
+            <Pill icon="book-outline" label={translate('Read')} onPress={() => navigation.navigate('Verse', { bookId: daily.bookId, bookName: daily.bookName, chapter: daily.chapter, highlightVerse: daily.verse })} />
+            <Pill icon="sparkles-outline" label={translate('Explain')} onPress={() => navigation.navigate('AIQA', { prefill: `Explain ${daily.ref}` })} />
+            <Pill icon={votdSaved ? 'bookmark' : 'bookmark-outline'} label={votdSaved ? translate('Saved') : translate('Save')} active={votdSaved} onPress={saveVotd} />
+            <Pill icon="share-social-outline" label={translate('Share')} onPress={shareVotd} />
           </View>
         </LinearGradient>
 
         {/* ---------- Today: reading, plan, reminder in one paper card ---------- */}
         <View style={{ backgroundColor: colors.card, borderRadius: 18, borderWidth: 1, borderColor: colors.border, paddingHorizontal: 14, paddingTop: 10, paddingBottom: 2 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Text style={{ fontSize: 10, letterSpacing: 2.2, color: colors.gold, fontFamily: fonts.sansBold }}>TODAY</Text>
+            <Text style={{ fontSize: 10, letterSpacing: 2.2, color: colors.gold, fontFamily: fonts.sansBold }}>{translate('TODAY')}</Text>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4, paddingHorizontal: 9, paddingVertical: 3, borderRadius: 12, backgroundColor: colors.background2 }}>
               <Ionicons name="flame" size={12} color="#E8823A" />
               <Text style={{ color: colors.textPrimary, fontSize: 11, fontFamily: fonts.sansBold }}>
-                {streak.count} day{streak.count === 1 ? '' : 's'} streak
+                {streak.count} {translate('day')}{streak.count === 1 ? '' : ` ${translate('days')}`} {translate('streak')}
               </Text>
             </View>
           </View>
 
           <Row
             icon="book" iconColor={colors.gold} iconBg={colors.goldLight}
-            kicker={lastRead ? 'Continue reading' : 'Start reading'}
+            kicker={lastRead ? translate('Continue reading') : translate('Start reading')}
             title={`${continueTarget.bookName} ${continueTarget.chapter}`}
             onPress={() => navigation.navigate('Verse', continueTarget)}
             right={<Ionicons name="chevron-forward" size={18} color={colors.textSecondary} />}
@@ -178,8 +182,8 @@ export default function HomeScreen({ navigation }) {
 
           <Row
             icon={plan ? plan.icon : 'calendar-outline'} iconColor={colors.success} iconBg={colors.successLight}
-            kicker={plan ? `Reading plan · Day ${nextDayIndex(plan.id) + 1} of ${plan.days.length} · ${getDoneCount(plan.id)} done` : 'Reading plans'}
-            title={plan ? plan.label : 'Choose a plan or make your own'}
+            kicker={plan ? `${translate('Reading plan')} · ${translate('Day')} ${nextDayIndex(plan.id) + 1} ${translate('of')} ${plan.days.length} · ${getDoneCount(plan.id)} ${translate('done')}` : translate('Reading plans')}
+            title={plan ? plan.label : translate('Choose a plan or make your own')}
             onPress={() => (plan ? navigation.navigate('PlannerDetail', { topicId: plan.id }) : navigation.navigate('Planner'))}
             right={plan
               ? <Text style={{ color: colors.success, fontSize: 13, fontFamily: fonts.sansBold }}>{getProgress(plan.id)}%</Text>
@@ -195,18 +199,18 @@ export default function HomeScreen({ navigation }) {
           <Row
             last
             icon={reminder?.enabled ? 'notifications' : 'notifications-outline'} iconColor={colors.gold} iconBg={colors.goldLight}
-            kicker="Daily reminder"
-            title={reminder?.enabled ? `Every day at ${formatReminderTime(reminder)}` : 'Not set yet'}
+            kicker={translate('Daily reminder')}
+            title={reminder?.enabled ? `${translate('Every day at')} ${formatReminderTime(reminder)}` : translate('Not set yet')}
             onPress={() => setReminderOpen(true)}
-            right={<Text style={{ color: colors.gold, fontSize: 12, fontFamily: fonts.sansBold }}>{reminder?.enabled ? 'Change' : 'Turn on'}</Text>}
+            right={<Text style={{ color: colors.gold, fontSize: 12, fontFamily: fonts.sansBold }}>{reminder?.enabled ? translate('Change') : translate('Turn on')}</Text>}
           />
         </View>
 
         {/* ---------- Tools that aren't in the bottom bar ---------- */}
         <View style={{ flexDirection: 'row', gap: 12 }}>
           {[
-            { key: 'Search', icon: 'search', title: 'Search', sub: 'Find any word or verse' },
-            { key: 'Sermon', icon: 'mic-outline', title: 'Sermon Writer', sub: 'Outlines & full sermons' },
+            { key: 'Search', icon: 'search', title: translate('Search'), sub: translate('Find any word or verse') },
+            { key: 'Sermon', icon: 'mic-outline', title: translate('Sermon Writer'), sub: translate('Outlines & full sermons') },
           ].map((t) => (
             <TouchableOpacity key={t.key} onPress={() => navigation.navigate(t.key)} activeOpacity={0.75}
               style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 9, paddingVertical: 10, paddingHorizontal: 11, borderRadius: 16, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.card }}>
@@ -223,7 +227,7 @@ export default function HomeScreen({ navigation }) {
 
         {AdManager.isPrivacyOptionsRequired() ? (
           <TouchableOpacity onPress={() => AdManager.showPrivacyOptions()} style={{ alignSelf: 'center' }}>
-            <Text style={{ color: colors.textSecondary, fontSize: 11, textDecorationLine: 'underline', fontFamily: fonts.sans }}>Privacy choices</Text>
+            <Text style={{ color: colors.textSecondary, fontSize: 11, textDecorationLine: 'underline', fontFamily: fonts.sans }}>{translate('Privacy choices')}</Text>
           </TouchableOpacity>
         ) : null}
       </ScrollView>

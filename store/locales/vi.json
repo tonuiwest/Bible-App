@@ -1,0 +1,23 @@
+{
+  "locale": "vi",
+  "language": "Vietnamese",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Kinh Thánh",
+    "shortDescription": "Kinh Thánh · KJV · Nghe chương · kế hoạch đọc",
+    "fullDescription": "Đọc, nghe và hiểu Kinh thánh - miễn phí và được thiết kế đẹp mắt như một cuốn Kinh thánh giấy thật.\n\n📖 NHIỀU PHIÊN BẢN KINH THÁNH\n• Phiên bản King James (KJV) — được tích hợp sẵn, hoạt động hoàn toàn ngoại tuyến\n• Kinh thánh tiếng Anh thế giới (WEB) — tiếng Anh hiện đại, dễ đọc\n• Phiên bản tiêu chuẩn Mỹ (ASV) — cổ điển, độ chính xác từng từ\n• Kinh thánh bằng tiếng Anh cơ bản (BBE) — tiếng Anh đơn giản, lý tưởng cho người mới đọc và người học tiếng Anh\n• Chuyển đổi phiên bản ngay lập tức trên bất kỳ trang nào; phiên bản bạn mở sẽ được lưu để đọc ngoại tuyến\n• Tất cả 66 cuốn sách Cựu Ước và Tân Ước\n• Đánh dấu các câu thơ bằng 4 màu, đánh dấu và chia sẻ\n• Có thể điều chỉnh kích thước văn bản, chế độ ngày và đêm (tối)\n\n🎧 KINH THÁNH ÂM THANH\n• Nghe đọc to bất kỳ chương nào\n• Chọn người kể chuyện: Cổ điển, Sâu lắng, Nhẹ nhàng, Người kể chuyện và hơn thế nữa\n• Có thể điều chỉnh tốc độ đọc\n\n✨ HỎI KINH THÁNH (AI)\n• Đặt bất kỳ câu hỏi nào: \"Giê-rê-mi 29:11 có nghĩa là gì?\"\n• Giải thích các câu thơ, sách và các nhân vật trong Kinh thánh\n• Mỗi câu trả lời đều trích dẫn Kinh thánh thực tế kèm theo tài liệu tham khảo\n• Giúp giải tỏa lo lắng, sợ hãi, đau buồn, tha thứ, hôn nhân và hơn thế nữa\n\n🎤 NGƯỜI VIẾT BÀI GIẢNG GIÁO\n• Tạo đầy đủ các bài giảng và dàn ý nghiên cứu Kinh Thánh trong vài giây\n• Phong cách đề tài, giải thích hoặc truyền giáo\n• Minh họa, ứng dụng, cầu nguyện và câu hỏi thảo luận\n\n📅 KẾ HOẠCH ĐỌC KINH THÁNH\n• 34 kế hoạch: Kinh thánh trong một năm, Tân Ước trong 90 ngày, Thi thiên, Châm ngôn, Phúc âm Giăng và các chủ đề như hòa bình, hy vọng và cầu nguyện\n• Tạo kế hoạch đọc của riêng bạn\n• Theo dõi tiến độ và giữ thành tích hàng ngày của bạn\n\n🔔 VERSE TRONG NGÀY & NHẮC NHỞ HÀNG NGÀY\n• Một câu Kinh Thánh mới mỗi ngày\n• Nhẹ nhàng nhắc nhở đọc Lời Chúa hàng ngày\nHoàn hảo cho việc sùng kính hàng ngày, nghiên cứu Kinh Thánh, nhà thờ, cầu nguyện và chuẩn bị bài giảng. Cho dù bạn là người mới tin Chúa hay đã đọc Kinh thánh nhiều năm, ứng dụng Kinh thánh này sẽ giúp bạn đến gần Chúa hơn mỗi ngày.\n\nTải xuống ứng dụng Holy Bible miễn phí ngay bây giờ và bắt đầu đọc ngay hôm nay!",
+    "releaseNotes": "Có gì mới:\r\n• Thiết kế giấy da mới và Chế độ tối\r\n• Tùy chỉnh giọng nói và tốc độ phát lại của Kinh Thánh\r\n• Lời nhắc hàng ngày và chuỗi kế hoạch đọc\r\n• Đặt câu hỏi hoặc nhấn Giải thích để biết thông tin chi tiết về câu thơ\r\n• Không có quảng cáo trong khi đọc hoặc nghe âm thanh\r\n• Cải thiện cử chỉ và hỗ trợ từ cạnh này sang cạnh khác\r\n• Hiệu suất nhanh hơn, ổn định hơn"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

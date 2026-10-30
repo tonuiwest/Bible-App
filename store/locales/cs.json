@@ -1,0 +1,22 @@
+{
+  "locale": "cs",
+  "language": "Czech",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Holy Bible: Audio, AI a plány",
+    "shortDescription": "Bible svatá · KJV · Poslechněte si kapitolu · Plány čtení",
+    "fullDescription": "Čtěte, poslouchejte a pochopte Bibli svatou – zdarma a krásně navržená jako skutečná papírová Bible.\n\n📖 VÍCE VERZÍ BIBLIE\n• King James Version (KJV) – vestavěná, funguje plně offline\n• World English Bible (WEB) — moderní, snadno čitelná angličtina\n• Americká standardní verze (ASV) — klasická, slovo od slova přesnost\n• Bible in Basic English (BBE) — jednoduchá angličtina, ideální pro nové čtenáře a studenty angličtiny\n• Okamžité přepínání verzí na jakékoli stránce; verze, které otevřete, se uloží pro čtení offline\n• Všech 66 knih Starého a Nového zákona\n• Zvýrazněte verše ve 4 barvách, přidejte do záložek a sdílejte\n• Nastavitelná velikost textu, denní a noční (tmavý) režim\n\n🎧 ZVUKOVÁ BIBLE\n• Poslouchejte libovolnou kapitolu přečtenou nahlas\n• Vyberte si svého vypravěče: klasický, hluboký, jemný, vypravěč a další\n• Nastavitelná rychlost čtení\n\n✨ ZEPTEJTE SE BIBLE (AI)\n• Zeptejte se na jakoukoli otázku: \"Co znamená Jeremiáš 29:11?\"\n• Vysvětlení veršů, knih a biblických postav\n• Každá odpověď cituje skutečné Písmo s odkazy\n• Pomoc při úzkosti, strachu, smutku, odpuštění, manželství a dalších\n\n🎤 Spisovatel kázání\n• Vytvářejte kompletní kázání a osnovy studia Bible během několika sekund\n• Aktuální, výkladové nebo evangelizační styly\n• Ilustrace, aplikace, modlitební a diskusní otázky\n\n📅 PLÁNY ČTENÍ BIBLIE\n• 34 plánů: Bible za rok, Nový zákon za 90 dní, Žalmy, Přísloví, Janovo evangelium a témata jako pokoj, naděje a modlitba\n• Vytvořte si vlastní plán čtení\n• Sledujte pokrok a udržujte si svůj denní cyklus\n\n🔔 VERŠ DNE A DENNÍ PŘIPOMÍNKA\n• Každý den nový biblický verš\n• Jemné každodenní připomenutí čtení Božího slova\nIdeální pro každodenní pobožnosti, studium Bible, kostel, modlitbu a přípravu na kázání. Ať už jste ve víře nováčci nebo jste četli Písmo už léta, tato aplikace Holy Bible vám pomůže přiblížit se Bohu každý den.\n\nStáhněte si bezplatnou aplikaci Holy Bible a začněte číst ještě dnes!",
+    "releaseNotes": "Co je nového:\r\n• Nový design pergamenu a tmavý režim\r\n• Vlastní biblické zvukové hlasy a rychlost přehrávání\r\n• Denní připomenutí a pruhy plánu čtení\r\n• Ptejte se nebo klepněte na Vysvětlit pro postřehy veršů\r\n• Žádné reklamy během čtení nebo zvuku\r\n• Vylepšená podpora gest a od okraje k okraji\r\n• Rychlejší a stabilnější výkon"
+  },
+  "sourceAdaptations": {
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

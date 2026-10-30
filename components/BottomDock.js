@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Keyboard, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, Keyboard, Platform } from './LocalizedReactNative';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { CommonActions, StackActions } from '@react-navigation/native';
 import { useTheme } from '../context/ThemeContext';
+import { useLocale } from '../context/LocaleContext';
 import PersistentBanner from './PersistentBanner';
 import { AdManager } from '../ads/AdManager';
 
@@ -18,15 +19,6 @@ const ROUTE_TO_TAB = {
   Bookmarks: 'Bookmarks',
 };
 
-const LEFT = [
-  { key: 'Books', label: 'Bible', icon: 'book-outline', active: 'book' },
-  { key: 'Planner', label: 'Plans', icon: 'calendar-outline', active: 'calendar' },
-];
-const RIGHT = [
-  { key: 'AIQA', label: 'Ask AI', icon: 'sparkles-outline', active: 'sparkles' },
-  { key: 'Bookmarks', label: 'Saved', icon: 'bookmark-outline', active: 'bookmark' },
-];
-
 /**
  * App-wide bottom area, mounted once under the navigation stack:
  *
@@ -39,8 +31,17 @@ const RIGHT = [
  */
 export default function BottomDock({ navigationRef, currentRoute }) {
   const { colors, fonts, isDark } = useTheme();
+  const { translate } = useLocale();
   const insets = useSafeAreaInsets();
   const [kbVisible, setKbVisible] = useState(false);
+  const LEFT = [
+    { key: 'Books', label: translate('Bible'), icon: 'book-outline', active: 'book' },
+    { key: 'Planner', label: translate('Plans'), icon: 'calendar-outline', active: 'calendar' },
+  ];
+  const RIGHT = [
+    { key: 'AIQA', label: translate('Ask AI'), icon: 'sparkles-outline', active: 'sparkles' },
+    { key: 'Bookmarks', label: translate('Saved'), icon: 'bookmark-outline', active: 'bookmark' },
+  ];
 
   useEffect(() => {
     const showEvt = Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow';
@@ -111,7 +112,7 @@ export default function BottomDock({ navigationRef, currentRoute }) {
           <TouchableOpacity
             onPress={goHome}
             accessibilityRole="button"
-            accessibilityLabel="Home"
+            accessibilityLabel={translate('Home')}
             activeOpacity={0.85}
             style={{
               marginTop: -26,
@@ -137,7 +138,7 @@ export default function BottomDock({ navigationRef, currentRoute }) {
             </LinearGradient>
           </TouchableOpacity>
           <Text style={{ fontSize: 10, marginTop: 1, color: homeOn ? colors.gold : colors.textSecondary, fontFamily: homeOn ? fonts.sansBold : fonts.sansMedium }}>
-            Home
+            {translate('Home')}
           </Text>
         </View>
 

@@ -1,0 +1,23 @@
+{
+  "locale": "is",
+  "language": "Icelandic",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Heilaga Biblían",
+    "shortDescription": "Heilaga Biblían · KJV · Hlustaðu á kafla · Lestraráætlanir",
+    "fullDescription": "Lestu, hlustaðu á og skildu Biblíuna – ókeypis og fallega hönnuð eins og alvöru pappírsbiblía.\n\n📖 MARGAR BIBLÍU ÚTGÁFA\n• King James Version (KJV) — innbyggð, virkar að fullu án nettengingar\n• World English Bible (WEB) — nútímaleg, auðlesin enska\n• American Standard Version (ASV) — klassísk, orð fyrir orð nákvæmni\n• Biblían á grunnensku (BBE) — einföld enska, tilvalin fyrir nýja lesendur og enskunema\n• Skiptu um útgáfur samstundis á hvaða síðu sem er; útgáfur sem þú opnar eru vistaðar til að lesa án nettengingar\n• Allar 66 bækur Gamla og Nýja testamentisins\n• Auðkenndu vísur í 4 litum, bókamerki og deila\n• Stillanleg textastærð, dag og nótt (dökk) stilling\n\n🎧 HJÓÐBIBLÍA\n• Hlustaðu á hvaða kafla sem er lesinn upphátt\n• Veldu sögumann þinn: Klassískt, Djúpt, Hógvært, Sögumaður og fleira\n• Stillanlegur lestrarhraði\n\n✨ SPURÐU BIBLÍAN (AI)\n• Spyrðu hvaða spurningar sem er: \"Hvað þýðir Jeremía 29:11?\"\n• Útskýringar á versum, bókum og biblíupersónum\n• Í hverju svari er vitnað í alvöru Ritninguna með tilvísunum\n• Hjálp við kvíða, ótta, sorg, fyrirgefningu, hjónaband og fleira\n\n🎤 Prédikunarhöfundur\n• Búðu til heilar prédikanir og biblíunámskeið á nokkrum sekúndum\n• Málefnaleg, útskýrandi eða trúboðsstíll\n• Myndskreytingar, umsókn, bæn og umræðuspurningar\n\n📅 BIBLÍULESTRAR\n• 34 áætlanir: Biblían á ári, Nýja testamentið á 90 dögum, Sálmar, Orðskviðir, Jóhannesarguðspjall og efni eins og friður, von og bæn\n• Búðu til þína eigin lestraráætlun\n• Fylgstu með framförum og haltu þinni daglegu röð\n\n🔔 VERS DAGSINS OG DAGLEGA ÁMINNING\n• Nýtt biblíuvers á hverjum degi\n• Mjúk dagleg áminning um að lesa orð Guðs\nFullkomið fyrir daglega helgistund, biblíunám, kirkju, bænir og prédikunarundirbúning. Hvort sem þú ert nýr í trú eða hefur lesið Ritninguna í mörg ár, þá hjálpar þetta Biblíuforrit þér að vaxa nær Guði á hverjum degi.\n\nSæktu ókeypis Holy Bible appið núna og byrjaðu að lesa í dag!",
+    "releaseNotes": "Hvað er nýtt:\r\n• Ný skinnhönnun og Dark Mode\r\n• Sérsniðnar biblíuhljóðraddir og spilunarhraði\r\n• Daglegar áminningar og lestraráætlunarstrokur\r\n• Spyrðu spurninga eða pikkaðu á Útskýrðu til að fá innsýn í vers\r\n• Engar auglýsingar við lestur eða hljóð\r\n• Bætt látbragð og stuðning frá brún til brún\r\n• Hraðari, stöðugri árangur"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

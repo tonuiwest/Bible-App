@@ -1,0 +1,22 @@
+{
+  "locale": "gl",
+  "language": "Galician",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Holy Bible: Audio, AI & Plans",
+    "shortDescription": "A Santa Biblia · KJV · Escoita o capítulo · Plans de lectura",
+    "fullDescription": "Le, escoita e comprende a Santa Biblia, gratuíta e ben deseñada como unha Biblia de papel real.\n\n📖 MÚLTIPLES VERSIÓNS DA BIBLIA\n• Versión King James (KJV): integrada, funciona totalmente sen conexión\n• World English Bible (WEB): inglés moderno e fácil de ler\n• Versión estándar americana (ASV): clásica precisión palabra por palabra\n• Biblia en inglés básico (BBE): inglés sinxelo, ideal para novos lectores e estudantes de inglés\n• Cambia de versión ao instante en calquera páxina; as versións que abras gárdanse para a lectura sen conexión\n• Os 66 libros do Antigo e Novo Testamento\n• Resaltar versos en 4 cores, marcar e compartir\n• Tamaño de texto axustable, modo día e noite (escuro).\n\n🎧 BIBLIA DE AUDIO\n• Escoitar calquera capítulo lido en voz alta\n• Escolle o teu narrador: clásico, profundo, amable, contacontos e moito máis\n• Velocidade de lectura axustable\n\n✨ PREGUNTA Á BIBLIA (AI)\n• Fai calquera pregunta: \"Que quere dicir Xeremías 29:11?\"\n• Explicacións de versos, libros e personaxes da Biblia\n• Cada resposta cita escritura real con referencias\n• Axuda para a ansiedade, o medo, a dor, o perdón, o matrimonio e moito máis\n\n🎤 ESCRITOR DE SERMÓNS\n• Crea sermóns completos e esquemas de estudo da Biblia en segundos\n• Estilos tópicos, expositivos ou evanxelizadores\n• Ilustracións, aplicación, oración e preguntas de discusión\n\n📅 PLANS DE LECTURA DA BIBLIA\n• 34 plans: Biblia nun ano, Novo Testamento en 90 días, Salmos, Proverbios, Evanxeo de Xoán e temas como a paz, a esperanza e a oración\n• Crea o teu propio plan lector\n• Fai un seguimento do progreso e mantén a túa racha diaria\n\n🔔 VERSO DO DÍA E RECORDATORIO DIARIO\n• Un novo verso da Biblia todos os días\n• Recordatorio amable diario para ler a Palabra de Deus\nPerfecto para devocións diarias, estudo da Biblia, igrexa, oración e preparación de sermóns. Se es novo na fe ou se le as Escrituras durante anos, esta aplicación da Santa Biblia axúdache a achegarte cada día máis a Deus.\n\nDescarga a aplicación gratuíta Holy Bible agora e comeza a ler hoxe.",
+    "releaseNotes": "Que hai de novo:\r\n• Novo deseño de pergamiño e Modo Escuro\r\n• Voces de audio da Biblia personalizadas e velocidade de reprodución\r\n• Recordatorios diarios e raias de plan de lectura\r\n• Fai preguntas ou toca Explicar para obter información sobre o verso\r\n• Non hai anuncios durante a lectura ou o audio\r\n• Mellora o xesto e o apoio de bordo a bordo\r\n• Rendemento máis rápido e estable"
+  },
+  "sourceAdaptations": {
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

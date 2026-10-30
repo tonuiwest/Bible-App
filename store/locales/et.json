@@ -1,0 +1,23 @@
+{
+  "locale": "et",
+  "language": "Estonian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Püha Piibel",
+    "shortDescription": "Püha Piibel · KJV · Kuulake peatükki · Kavade lugemine",
+    "fullDescription": "Lugege, kuulake ja mõistke Püha Piiblit – tasuta ja kaunilt kujundatud nagu tõeline paberpiibel.\n\n📖 MITU PIIBLI VERSIOONI\n• King Jamesi versioon (KJV) – sisseehitatud, töötab täielikult võrguühenduseta\n• World English Bible (WEB) — kaasaegne ja hõlpsasti loetav inglise keel\n• American Standard Version (ASV) – klassikaline, sõna-sõna täpsus\n• Bible in Basic English (BBE) — lihtne inglise keel, ideaalne uutele lugejatele ja inglise keele õppijatele\n• Vahetage igal lehel koheselt versioone; avatud versioonid salvestatakse võrguühenduseta lugemiseks\n• Kõik 66 Vana ja Uue Testamendi raamatut\n• Tõstke salmid esile neljas värvitoonis, lisage järjehoidjatesse ja jagage\n• Reguleeritav teksti suurus, päevane ja öö (tume) režiim\n\n🎧 AUDIO PIIBEL\n• Kuulake mis tahes peatükki ette loetud\n• Valige oma jutustaja: klassikaline, sügav, õrn, jutuvestja ja palju muud\n• Reguleeritav lugemiskiirus\n\n✨ KÜSI PIIBILT (AI)\n• Esitage mis tahes küsimus: \"Mida tähendab Jeremija 29:11?\"\n• Salmide, raamatute ja piiblitegelaste selgitused\n• Igas vastuses tsiteeritakse tõelist Pühakirja koos viidetega\n• Abi ärevuse, hirmu, leina, andestuse, abielu ja muu puhul\n\n🎤 Jutluse KIRJUTAJA\n• Looge sekunditega täielikke jutlusi ja piibliuurimise konspekte\n• Aktuaalsed, tutvustavad või evangeelsed stiilid\n• Illustratsioonid, rakendused, palve- ja aruteluküsimused\n\n📅 PIIBLILUGEMISE PLAANID\n• 34 plaani: Piibel aastaga, Uus Testament 90 päevaga, Psalmid, Õpetussõnad, Johannese evangeelium ja sellised teemad nagu rahu, lootus ja palve\n• Koostage oma lugemisplaan\n• Jälgige edusamme ja hoidke oma igapäevast seeriat\n\n🔔 PÄEVASALM JA PÄEVANE MEELDETULETUS\n• Iga päev uus piiblisalm\n• Õrn igapäevane meeldetuletus Jumala Sõna lugemiseks\nIdeaalne igapäevasteks jumalateenistusteks, piibliõppeks, kirikuks, palveteks ja jutluste ettevalmistamiseks. Olenemata sellest, kas olete usus uus või olete aastaid Pühakirja lugenud, aitab see Püha Piibli rakendus teil iga päevaga Jumalale lähedasemaks saada.\n\nLaadige kohe alla tasuta Püha Piibli rakendus ja alustage lugemist juba täna!",
+    "releaseNotes": "Mis on uut:\r\n• Uus pärgamendidisain ja Dark Mode\r\n• Kohandatud Piibli helihääled ja taasesituse kiirus\r\n• Igapäevased meeldetuletused ja lugemisplaani jadad\r\n• Esitage küsimusi või puudutage Salmi ülevaate saamiseks valikut Selgita\r\n• Lugemise või heli esitamise ajal pole reklaame\r\n• Täiustatud žest ja servast servani tugi\r\n• Kiirem ja stabiilsem jõudlus"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

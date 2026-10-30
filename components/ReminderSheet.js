@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, Modal, Switch, Alert, Linking, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, Modal, Switch, Alert, Linking, ActivityIndicator } from './LocalizedReactNative';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useTheme } from '../context/ThemeContext';
 import { usePlanner } from '../context/PlannerContext';
+import { useLocale } from '../context/LocaleContext';
 import { getBookById } from '../data/books';
 import {
   getReminder, enableReminder, disableReminder, formatReminderTime, remindersSupported,
@@ -45,6 +46,7 @@ function Stepper({ value, onChange, min, max, step = 1, render, colors, fonts })
 
 export default function ReminderSheet({ visible, onClose, onChanged }) {
   const { colors, fonts } = useTheme();
+  const { translate } = useLocale();
   const insets = useSafeAreaInsets();
   const planHint = usePlanHint();
   const [enabled, setEnabled] = useState(false);
@@ -69,28 +71,28 @@ export default function ReminderSheet({ visible, onClose, onChanged }) {
         const res = await enableReminder(hour, minute, planHint);
         if (!res.ok) {
           if (res.reason === 'denied') {
-            Alert.alert('Notifications are off', 'Allow notifications for Bible App in your phone settings to get a daily reminder.', [
-              { text: 'Not now', style: 'cancel' },
-              { text: 'Open settings', onPress: () => Linking.openSettings() },
+            Alert.alert(translate('Notifications are off'), translate('Allow notifications for Bible App in your phone settings to get a daily reminder.'), [
+              { text: translate('Not now'), style: 'cancel' },
+              { text: translate('Open settings'), onPress: () => Linking.openSettings() },
             ]);
           } else if (res.reason === 'unsupported') {
-            Alert.alert('Reminders unavailable', 'Daily reminders need the latest version of the app.');
+            Alert.alert(translate('Reminders unavailable'), translate('Daily reminders need the latest version of the app.'));
           } else {
-            Alert.alert('Couldn’t set reminder', 'Something went wrong scheduling your reminder. Please try again.');
+            Alert.alert(translate('Couldn’t set reminder'), translate('Something went wrong scheduling your reminder. Please try again.'));
           }
           return;
         }
         r = res.reminder;
       }
     } catch (e) {
-      Alert.alert('Couldn’t set reminder', 'Please try again.');
+      Alert.alert(translate('Couldn’t set reminder'), translate('Please try again.'));
       return;
     } finally {
       setBusy(false);
     }
     onChanged && onChanged(r);
     onClose();
-    if (r.enabled) setTimeout(() => Alert.alert('Reminder set 🔔', `We’ll remind you to read every day at ${formatReminderTime(r)}.`), 350);
+    if (r.enabled) setTimeout(() => Alert.alert(translate('Reminder set 🔔'), translate('We’ll remind you to read every day at {{time}}').replace('{{time}}', formatReminderTime(r))), 350);
   };
 
   const h12 = (h) => String(((h + 11) % 12) + 1);
@@ -105,9 +107,9 @@ export default function ReminderSheet({ visible, onClose, onChanged }) {
               <Ionicons name="notifications" size={22} color={colors.gold} />
             </View>
             <View style={{ flex: 1 }}>
-              <Text style={{ color: colors.textPrimary, fontSize: 17, fontFamily: fonts.serifBold }}>Daily reading reminder</Text>
+              <Text style={{ color: colors.textPrimary, fontSize: 17, fontFamily: fonts.serifBold }}>{translate('Daily reading reminder')}</Text>
               <Text style={{ color: colors.textSecondary, fontSize: 12, marginTop: 2, fontFamily: fonts.sans }}>
-                {planHint ? `Includes today’s reading from “${planHint.label}”` : 'A gentle nudge with a verse preview'}
+                {planHint ? translate('Includes today’s reading from “{{plan}}”').replace('{{plan}}', planHint.label) : translate('A gentle nudge with a verse preview')}
               </Text>
             </View>
             <Switch
@@ -120,7 +122,7 @@ export default function ReminderSheet({ visible, onClose, onChanged }) {
 
           {!remindersSupported() && (
             <Text style={{ color: colors.danger, fontSize: 12, marginTop: 12, fontFamily: fonts.sans }}>
-              Reminders need an updated build of the app.
+              {translate('Reminders need an updated build of the app.')}
             </Text>
           )}
 
@@ -131,7 +133,7 @@ export default function ReminderSheet({ visible, onClose, onChanged }) {
               <Stepper value={minute} onChange={setMinute} min={0} max={55} step={5} render={(m) => String(m).padStart(2, '0')} colors={colors} fonts={fonts} />
               <TouchableOpacity onPress={() => setHour((hour + 12) % 24)}
                 style={{ marginLeft: 10, paddingHorizontal: 12, paddingVertical: 8, borderRadius: 10, backgroundColor: colors.goldLight }}>
-                <Text style={{ color: colors.textPrimary, fontSize: 15, fontFamily: fonts.sansBold }}>{hour < 12 ? 'AM' : 'PM'}</Text>
+                <Text style={{ color: colors.textPrimary, fontSize: 15, fontFamily: fonts.sansBold }}>{hour < 12 ? translate('AM') : translate('PM')}</Text>
               </TouchableOpacity>
             </View>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 6, marginTop: 14 }}>
@@ -141,7 +143,7 @@ export default function ReminderSheet({ visible, onClose, onChanged }) {
                   <TouchableOpacity key={p.label} onPress={() => { setHour(p.hour); setMinute(p.minute); }}
                     style={{ paddingHorizontal: 11, paddingVertical: 7, borderRadius: 16, borderWidth: 1, borderColor: on ? colors.success : colors.border, backgroundColor: on ? colors.successLight : colors.background }}>
                     <Text style={{ fontSize: 12, color: colors.textPrimary, fontFamily: on ? fonts.sansBold : fonts.sansMedium }}>
-                      {p.label} · {formatReminderTime(p)}
+                      {translate(p.label)} · {formatReminderTime(p)}
                     </Text>
                   </TouchableOpacity>
                 );
@@ -151,7 +153,7 @@ export default function ReminderSheet({ visible, onClose, onChanged }) {
 
           <View style={{ flexDirection: 'row', gap: 10, marginTop: 20 }}>
             <TouchableOpacity onPress={onClose} style={{ flex: 1, paddingVertical: 13, borderRadius: 12, borderWidth: 1, borderColor: colors.border, alignItems: 'center' }}>
-              <Text style={{ color: colors.textPrimary, fontFamily: fonts.sansMedium }}>Cancel</Text>
+              <Text style={{ color: colors.textPrimary, fontFamily: fonts.sansMedium }}>{translate('Cancel')}</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={save} disabled={busy}
               style={{ flex: 1.4, paddingVertical: 13, borderRadius: 12, backgroundColor: colors.success, alignItems: 'center', flexDirection: 'row', justifyContent: 'center', gap: 8 }}>

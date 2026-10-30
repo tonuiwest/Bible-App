@@ -1,0 +1,23 @@
+{
+  "locale": "fr-FR",
+  "language": "French (France)",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "La Sainte Bible",
+    "shortDescription": "La Sainte Bible · KJV · Écouter le chapitre · Plans de lecture",
+    "fullDescription": "Lisez, écoutez et comprenez la Sainte Bible - gratuite et magnifiquement conçue comme une vraie Bible papier.\n\n📖 PLUSIEURS VERSIONS DE LA BIBLE\n• Version King James (KJV) : intégrée, fonctionne entièrement hors ligne\n• World English Bible (WEB) : anglais moderne et facile à lire.\n• American Standard Version (ASV) : classique, précision mot à mot\n• Bible en anglais de base (BBE) : anglais simple, idéal pour les nouveaux lecteurs et les apprenants d'anglais.\n• Changez de version instantanément sur n'importe quelle page ; les versions que vous ouvrez sont enregistrées pour une lecture hors ligne\n• Les 66 livres de l'Ancien et du Nouveau Testament\n• Mettez en surbrillance les versets en 4 couleurs, ajoutez-les à vos favoris et partagez-les.\n• Taille du texte réglable, mode jour et nuit (sombre)\n\n🎧 BIBLE AUDIO\n• Écoutez n'importe quel chapitre lu à haute voix\n• Choisissez votre narrateur : Classique, Profond, Doux, Conteur et plus\n• Vitesse de lecture réglable\n\n✨ DEMANDEZ À LA BIBLE (AI)\n• Posez n'importe quelle question : « Que signifie Jérémie 29 :11 ?\n• Explications de versets, de livres et de personnages bibliques\n• Chaque réponse cite de vraies Écritures avec des références\n• Aide en cas d'anxiété, de peur, de chagrin, de pardon, de mariage et plus encore\n\n🎤 ÉCRIVAIN DE SERMON\n• Créez des sermons complets et des plans d'études bibliques en quelques secondes\n• Styles thématiques, explicatifs ou évangéliques\n• Illustrations, questions d'application, de prière et de discussion\n\n📅 PLANS DE LECTURE DE LA BIBLE\n• 34 plans : Bible en un an, Nouveau Testament en 90 jours, Psaumes, Proverbes, Évangile de Jean et des sujets comme la paix, l'espérance et la prière.\n• Créez votre propre plan de lecture\n• Suivez vos progrès et gardez votre séquence quotidienne\n\n🔔 VERSET DU JOUR & RAPPEL QUOTIDIEN\n• Un nouveau verset biblique chaque jour\n• Un doux rappel quotidien de lire la Parole de Dieu\nParfait pour les dévotions quotidiennes, l'étude biblique, l'église, la prière et la préparation des sermons. Que vous soyez nouveau dans la foi ou que vous lisiez les Écritures depuis des années, cette application Holy Bible vous aide à vous rapprocher de Dieu chaque jour.\n\nTéléchargez l'application gratuite Holy Bible maintenant et commencez à lire dès aujourd'hui !",
+    "releaseNotes": "Quoi de neuf :\r\n• Nouveau design parchemin et mode sombre\r\n• Voix audio bibliques personnalisées et vitesse de lecture\r\n• Rappels quotidiens et séries de plans de lecture\r\n• Posez des questions ou appuyez sur Expliquer pour obtenir des informations sur les versets.\r\n• Aucune publicité pendant la lecture ou l'audio\r\n• Geste amélioré et support bord à bord\r\n• Performances plus rapides et plus stables"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

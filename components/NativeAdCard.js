@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, Text, Image, Platform, Animated } from 'react-native';
+import { View, Text, Image, Platform, Animated } from './LocalizedReactNative';
 import { useTheme } from '../context/ThemeContext';
 import { AdManager, getNativeId } from '../ads/AdManager';
 import { getRequestOptions } from '../constants/ads';

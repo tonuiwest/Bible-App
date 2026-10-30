@@ -1,0 +1,23 @@
+{
+  "locale": "hr",
+  "language": "Croatian",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Sveto pismo",
+    "shortDescription": "Sveto pismo · KJV · Poslušajte poglavlje · Planovi čitanja",
+    "fullDescription": "Čitajte, slušajte i razumite Sveto pismo — besplatno i lijepo dizajnirano poput prave papirnate Biblije.\n\n📖 VIŠE VERZIJA BIBLIJE\n• Verzija kralja Jamesa (KJV) — ugrađena, radi u potpunosti izvan mreže\n• World English Bible (WEB) — moderan engleski jezik koji se lako čita\n• Američka standardna verzija (ASV) — klasična, točnost od riječi do riječi\n• Biblija na osnovnom engleskom (BBE) — jednostavan engleski, idealan za nove čitatelje i učenike engleskog\n• Trenutačno mijenjajte verzije na bilo kojoj stranici; verzije koje otvorite spremaju se za izvanmrežno čitanje\n• Svih 66 knjiga Starog i Novog zavjeta\n• Istaknite stihove u 4 boje, označite i podijelite\n• Podesiva veličina teksta, dnevni i noćni (tamni) način rada\n\n🎧 AUDIO BIBLIJA\n• Slušajte bilo koje poglavlje pročitano naglas\n• Odaberite svog pripovjedača: Classic, Deep, Gentle, Storyteller i više\n• Podesiva brzina čitanja\n\n✨ PITAJ BIBLIJA (AI)\n• Postavite bilo koje pitanje: \"Što znači Jeremija 29:11?\"\n• Objašnjenja stihova, knjiga i biblijskih likova\n• Svaki odgovor citira pravo Sveto pismo s referencama\n• Pomoć za tjeskobu, strah, tugu, oprost, brak i više\n\n🎤 PISAC PROPOVIJEDI\n• Stvorite potpune propovijedi i nacrte proučavanja Biblije u nekoliko sekundi\n• Tematski, ekspozitorni ili evangelizacijski stilovi\n• Ilustracije, primjena, molitva i pitanja za raspravu\n\n📅 PLANOVI ČITANJA BIBLIJE\n• 34 plana: Biblija u jednoj godini, Novi zavjet u 90 dana, Psalmi, Izreke, Evanđelje po Ivanu i teme poput mira, nade i molitve\n• Izradite vlastiti plan čitanja\n• Pratite napredak i zadržite svoj dnevni niz\n\n🔔 STIH DANA & DNEVNI PODSJETNIK\n• Svaki dan novi biblijski stih\n• Blagi dnevni podsjetnik za čitanje Božje riječi\nSavršeno za dnevne pobožnosti, proučavanje Biblije, crkve, molitve i pripreme za propovijedi. Bilo da ste novi u vjeri ili ste godinama čitali Sveto pismo, ova Sveta Biblija aplikacija pomaže vam da se svaki dan približite Bogu.\n\nPreuzmite besplatnu aplikaciju Holy Bible sada i počnite čitati već danas!",
+    "releaseNotes": "Što je novo:\r\n• Novi dizajn pergamenta i tamni način rada\r\n• Prilagođeni biblijski audio glasovi i brzina reprodukcije\r\n• Dnevni podsjetnici i nizovi planova čitanja\r\n• Postavljajte pitanja ili dodirnite Objasni za uvid u stihove\r\n• Nema oglasa tijekom čitanja ili zvuka\r\n• Poboljšana gesta i podrška od ruba do ruba\r\n• Brži, stabilniji rad"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}

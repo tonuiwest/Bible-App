@@ -1,0 +1,23 @@
+{
+  "locale": "fi",
+  "language": "Finnish",
+  "sourceLocale": "en-US",
+  "machineTranslated": true,
+  "humanReviewed": false,
+  "listing": {
+    "title": "Pyhä Raamattu",
+    "shortDescription": "Pyhä Raamattu · KJV · Kuuntele luku · Suunnitelmien lukeminen",
+    "fullDescription": "Lue, kuuntele ja ymmärrä Pyhä Raamattu – ilmainen ja kauniisti muotoiltu kuin todellinen paperiraamattu.\n\n📖 USEITA RAAMATTUVERSIOITA\n• King James Version (KJV) – sisäänrakennettu, toimii täysin offline-tilassa\n• World English Bible (WEB) – moderni, helppolukuinen englanti\n• American Standard Version (ASV) – klassinen, sana sanalle tarkkuus\n• Bible in Basic English (BBE) – yksinkertainen englanti, ihanteellinen uusille lukijoille ja englannin oppijoille\n• Vaihda versiota välittömästi millä tahansa sivulla; avaamasi versiot tallennetaan offline-lukemista varten\n• Kaikki 66 Vanhan ja Uuden testamentin kirjaa\n• Korosta jakeita neljällä värillä, lisää kirjanmerkkeihin ja jaa\n• Säädettävä tekstikoko, päivä- ja yötila (tumma).\n\n🎧 AUDIO BIBLE\n• Kuuntele mitä tahansa lukua ääneen luettuna\n• Valitse kertojasi: Classic, Deep, Gentle, Storyteller ja paljon muuta\n• Säädettävä lukunopeus\n\n✨ KYSY RAAMATTUA (AI)\n• Esitä mikä tahansa kysymys: \"Mitä Jeremia 29:11 tarkoittaa?\"\n• Jakeiden, kirjojen ja Raamatun henkilöiden selitykset\n• Jokainen vastaus lainaa todellista Raamattua viitteineen\n• Apua ahdistukseen, pelkoon, suruun, anteeksiantoon, avioliittoon ja muihin\n\n🎤 SAARNAN KIRJOITTAJA\n• Luo täydellisiä saarnoja ja raamatuntutkistelun pääpiirteitä sekunneissa\n• Ajankohtaiset, esittelevät tai evankelioivat tyylit\n• Kuvitukset, sovellukset, rukous- ja keskustelukysymykset\n\n📅 RAAMATUN LUKEMINEN\n• 34 suunnitelmaa: Raamattu vuodessa, Uusi Testamentti 90 päivässä, Psalmit, Sananlaskut, Johanneksen evankeliumi ja aiheet, kuten rauha, toivo ja rukous\n• Luo oma lukusuunnitelmasi\n• Seuraa edistymistä ja pidä päivittäinen sarjasi\n\n🔔 PÄIVÄN JAE JA PÄIVITTÄINEN MUISTUTUS\n• Uusi Raamatun jae joka päivä\n• Lempeä päivittäinen muistutus Jumalan sanan lukemisesta\nTäydellinen päivittäisiin hartauksiin, raamatuntutkimiseen, kirkkoon, rukoukseen ja saarnan valmisteluun. Olitpa uusi uskossa tai lukenut Raamattua vuosia, tämä Holy Bible -sovellus auttaa sinua kasvamaan lähemmäksi Jumalaa joka päivä.\n\nLataa ilmainen Holy Bible -sovellus nyt ja aloita lukeminen jo tänään!",
+    "releaseNotes": "Mitä uutta:\r\n• Uusi pergamenttimuotoilu ja Dark Mode\r\n• Mukautetut Raamatun ääniäänet ja toistonopeus\r\n• Päivittäiset muistutukset ja lukusuunnitelmat\r\n• Esitä kysymyksiä tai napauta Selitä saadaksesi oivalluksia säkeistä\r\n• Ei mainoksia lukemisen tai äänen aikana\r\n• Parannettu ele ja reunasta reunaan ulottuva tuki\r\n• Nopeampi, vakaampi suorituskyky"
+  },
+  "sourceAdaptations": {
+    "title": "The Holy Bible",
+    "shortDescription": "Localized app labels: The Holy Bible · KJV · Listen to chapter · Reading plans"
+  },
+  "limits": {
+    "title": true,
+    "shortDescription": true,
+    "fullDescription": true,
+    "releaseNotes": true
+  }
+}
