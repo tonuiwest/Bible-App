@@ -1,0 +1,916 @@
+# Google Play release notes ? translations
+
+Machine-translated drafts for the 83 supported store locales. Each locale uses Google Play's XML-style locale tags. Every translation is within Google Play's 500-character limit; review before publishing. Release notes are attached to an app release, and these drafts have not been submitted or published.
+
+<af>
+Wat is nuut:
+• Nuwe perkamentontwerp en Donkermodus
+• Pasgemaakte Bybel-oudiostemme en afspeelspoed
+• Daaglikse aanmanings en leesplan-strepe
+• Vra vrae of tik op Verduidelik vir versinsigte
+• Geen advertensies tydens lees of oudio nie
+• Verbeterde gebare en rand-tot-rand ondersteuning
+• Vinniger, meer stabiele werkverrigting
+</af>
+
+<am>
+ምን አዲስ ነገር አለ፡
+• አዲስ የብራና ንድፍ እና የጨለማ ሁነታ
+• ብጁ የመጽሐፍ ቅዱስ የድምጽ ድምፆች እና የመልሶ ማጫወት ፍጥነት
+• ዕለታዊ አስታዋሾች እና የንባብ-ዕቅድ ርዝራዦች
+• ጥያቄዎችን ይጠይቁ ወይም ለቁጥር ግንዛቤዎች አብራራ የሚለውን ይንኩ።
+• በማንበብ ወይም በድምጽ ጊዜ ምንም ማስታወቂያ የለም።
+• የተሻሻለ የእጅ ምልክት እና ከዳር እስከ ዳር ድጋፍ
+• ፈጣን፣ የተረጋጋ አፈጻጸም
+</am>
+
+<ar>
+ما هو الجديد:
+• تصميم جديد للرق والوضع الداكن
+• أصوات الكتاب المقدس الصوتية المخصصة وسرعة التشغيل
+• تذكيرات يومية وشرائط خطة القراءة
+• اطرح أسئلة أو اضغط على "شرح" للحصول على رؤى حول الآية
+• لا توجد إعلانات أثناء القراءة أو الصوت
+• تحسين الإيماءات والدعم الشامل
+• أداء أسرع وأكثر استقرارا
+</ar>
+
+<as>
+নতুন কি আছে:
+• নতুন পাৰ্চমেণ্ট ডিজাইন আৰু ডাৰ্ক মোড
+• কাষ্টম বাইবেল অডিঅ' কণ্ঠ আৰু প্লেবেক গতি
+• দৈনিক সোঁৱৰাই দিয়া আৰু পঢ়া-পৰিকল্পনাৰ ধাৰা
+• পদৰ অন্তৰ্দৃষ্টিৰ বাবে প্ৰশ্ন কৰক বা ব্যাখ্যা কৰক টেপ কৰক
+• পঢ়া বা অডিঅ’ৰ সময়ত কোনো বিজ্ঞাপন নাই
+• উন্নত ইংগিত আৰু প্ৰান্তৰ পৰা প্ৰান্তলৈ সমৰ্থন
+• দ্ৰুত, অধিক সুস্থিৰ পৰিৱেশন
+</as>
+
+<az>
+Yeniliklər:
+• Yeni perqament dizaynı və Qaranlıq Rejim
+• Xüsusi İncil audio səsləri və oxutma sürəti
+• Gündəlik xatırlatmalar və oxu planı xətləri
+• Suallar verin və ya ayənin fikirləri üçün İzah et seçiminə toxunun
+• Oxu və ya audio zamanı reklam yoxdur
+• Təkmilləşdirilmiş jest və kənardan kənara dəstək
+• Daha sürətli, daha sabit performans
+</az>
+
+<be>
+Што новага:
+• Новы дызайн пергамента і цёмны рэжым
+• Карыстальніцкія галасы Бібліі і хуткасць прайгравання
+• Штодзённыя напаміны і паласы плана чытання
+• Задавайце пытанні ці націскайце "Растлумачыць", каб даведацца пра вершы
+• Няма рэкламы падчас чытання або гуку
+• Палепшаная падтрымка жэстаў і ад краю да краю
+• Больш хуткая і стабільная праца
+</be>
+
+<bg>
+Какво е новото:
+• Нов дизайн на пергамент и тъмен режим
+• Персонализирани библейски аудио гласове и скорост на възпроизвеждане
+• Ежедневни напомняния и планове за четене
+• Задавайте въпроси или докоснете Обяснение за стихове
+• Без реклами по време на четене или аудио
+• Подобрени жестове и поддръжка от край до край
+• По-бързо, по-стабилно представяне
+</bg>
+
+<bn>
+নতুন কি:
+• নতুন পার্চমেন্ট ডিজাইন এবং ডার্ক মোড
+• কাস্টম বাইবেল অডিও ভয়েস এবং প্লেব্যাক গতি
+• দৈনিক অনুস্মারক এবং পঠন-পরিকল্পনা স্ট্রীক
+• প্রশ্ন জিজ্ঞাসা করুন বা আয়াত অন্তর্দৃষ্টির জন্য ব্যাখ্যা করুন আলতো চাপুন
+• পড়া বা অডিও সময় কোন বিজ্ঞাপন
+• উন্নত অঙ্গভঙ্গি এবং প্রান্ত থেকে প্রান্ত সমর্থন
+• দ্রুত, আরো স্থিতিশীল কর্মক্ষমতা
+</bn>
+
+<bs>
+Šta ima novo:
+• Novi dizajn pergamenta i Dark Mode
+• Prilagođeni biblijski audio glasovi i brzina reprodukcije
+• Dnevni podsjetnici i nizovi planova čitanja
+• Postavljajte pitanja ili dodirnite Objasni za uvid u stih
+• Nema oglasa tokom čitanja ili zvuka
+• Poboljšani pokreti i podrška od ivice do ivice
+• Brže, stabilnije performanse
+</bs>
+
+<ca>
+Què hi ha de nou:
+• Nou disseny de pergamí i Mode fosc
+• Veus personalitzades d'àudio de la Bíblia i velocitat de reproducció
+• Recordatoris diaris i ratlles del pla de lectura
+• Fes preguntes o toca Explicar per obtenir informació sobre el vers
+• No hi ha anuncis durant la lectura o l'àudio
+• Millora de gestos i suport de punta a punta
+• Rendiment més ràpid i estable
+</ca>
+
+<cs>
+Co je nového:
+• Nový design pergamenu a tmavý režim
+• Vlastní biblické zvukové hlasy a rychlost přehrávání
+• Denní připomenutí a pruhy plánu čtení
+• Ptejte se nebo klepněte na Vysvětlit pro postřehy veršů
+• Žádné reklamy během čtení nebo zvuku
+• Vylepšená podpora gest a od okraje k okraji
+• Rychlejší a stabilnější výkon
+</cs>
+
+<cy>
+Beth sy'n newydd:
+• Dyluniad memrwn newydd a Modd Tywyll
+• Lleisiau sain Beiblaidd wedi'u teilwra a chyflymder chwarae
+• Nodiadau atgoffa dyddiol a rhediadau cynllun darllen
+• Gofynnwch gwestiynau neu tapiwch Eglurwch i gael cipolwg ar adnod
+• Dim hysbysebion yn ystod darllen neu sain
+• Gwell ystum a chefnogaeth ymyl-i-ymyl
+• Perfformiad cyflymach, mwy sefydlog
+</cy>
+
+<da>
+Hvad er nyt:
+• Nyt pergamentdesign og mørk tilstand
+• Brugerdefinerede bibellydstemmer og afspilningshastighed
+• Daglige påmindelser og læseplaner
+• Stil spørgsmål, eller tryk på Forklar for at få indsigt i vers
+• Ingen annoncer under læsning eller lyd
+• Forbedret gestus og kant-til-kant-støtte
+• Hurtigere og mere stabil ydeevne
+</da>
+
+<de>
+Was ist neu:
+• Neues Pergamentdesign und dunkler Modus
+• Benutzerdefinierte Bibel-Audiostimmen und Wiedergabegeschwindigkeit
+• Tägliche Erinnerungen und Leseplan-Streifen
+• Stellen Sie Fragen oder tippen Sie auf „Erklären“, um Einblicke in Verse zu erhalten
+• Keine Werbung beim Lesen oder Audio
+• Verbesserte Gesten- und Edge-to-Edge-Unterstützung
+• Schnellere, stabilere Leistung
+</de>
+
+<el>
+Τι νέο υπάρχει:
+• Νέο σχέδιο περγαμηνής και Dark Mode
+• Προσαρμοσμένες φωνές ήχου της Βίβλου και ταχύτητα αναπαραγωγής
+• Καθημερινές υπενθυμίσεις και ραβδώσεις σχεδίου ανάγνωσης
+• Κάντε ερωτήσεις ή πατήστε Εξήγηση για πληροφορίες στίχων
+• Δεν υπάρχουν διαφημίσεις κατά την ανάγνωση ή τον ήχο
+• Βελτιωμένη χειρονομία και υποστήριξη από άκρη σε άκρη
+• Ταχύτερη, πιο σταθερή απόδοση
+</el>
+
+<en-GB>
+What's new:
+• New parchment design and Dark Mode
+• Custom Bible audio voices and playback speed
+• Daily reminders and reading-plan streaks
+• Ask questions or tap Explain for verse insights
+• No ads during reading or audio
+• Improved gesture and edge-to-edge support
+• Faster, more stable performance
+</en-GB>
+
+<en-US>
+What's new:
+• New parchment design and Dark Mode
+• Custom Bible audio voices and playback speed
+• Daily reminders and reading-plan streaks
+• Ask questions or tap Explain for verse insights
+• No ads during reading or audio
+• Improved gesture and edge-to-edge support
+• Faster, more stable performance
+</en-US>
+
+<es-419>
+Qué hay de nuevo:
+• Nuevo diseño de pergamino y modo oscuro
+• Voces de audio de la Biblia personalizadas y velocidad de reproducción
+• Recordatorios diarios y rachas de planes de lectura
+• Haga preguntas o toque Explicar para obtener información sobre los versos.
+• Sin anuncios durante la lectura o el audio
+• Gestos mejorados y soporte de borde a borde
+• Rendimiento más rápido y estable
+</es-419>
+
+<es-ES>
+Qué hay de nuevo:
+• Nuevo diseño de pergamino y modo oscuro
+• Voces de audio de la Biblia personalizadas y velocidad de reproducción
+• Recordatorios diarios y rachas de planes de lectura
+• Haga preguntas o toque Explicar para obtener información sobre los versos.
+• Sin anuncios durante la lectura o el audio
+• Gestos mejorados y soporte de borde a borde
+• Rendimiento más rápido y estable
+</es-ES>
+
+<et>
+Mis on uut:
+• Uus pärgamendidisain ja Dark Mode
+• Kohandatud Piibli helihääled ja taasesituse kiirus
+• Igapäevased meeldetuletused ja lugemisplaani jadad
+• Esitage küsimusi või puudutage Salmi ülevaate saamiseks valikut Selgita
+• Lugemise või heli esitamise ajal pole reklaame
+• Täiustatud žest ja servast servani tugi
+• Kiirem ja stabiilsem jõudlus
+</et>
+
+<eu>
+Zer berri:
+• Pergamino-diseinu berria eta Modu Iluna
+• Bibliako audio ahots pertsonalizatuak eta erreprodukzio abiadura
+• Eguneroko abisuak eta irakurketa-plan-marra
+• Egin galderak edo ukitu Azaldu bertsoak ezagutzeko
+• Ez dago iragarkirik irakurtzean edo audioan
+• Keinu eta ertzetik ertz euskarria hobetu
+• Errendimendu azkarragoa eta egonkorragoa
+</eu>
+
+<fa>
+چه خبر:
+• طراحی پوستی جدید و حالت تاریک
+• صدای سفارشی کتاب مقدس و سرعت پخش
+• یادآوری های روزانه و رگه های برنامه خواندن
+• سؤال بپرسید یا برای اطلاعات مربوط به آیه روی توضیح ضربه بزنید
+• بدون تبلیغات در هنگام خواندن یا صدا
+• بهبود ژست و پشتیبانی لبه به لبه
+• عملکرد سریعتر و پایدارتر
+</fa>
+
+<fi>
+Mitä uutta:
+• Uusi pergamenttimuotoilu ja Dark Mode
+• Mukautetut Raamatun ääniäänet ja toistonopeus
+• Päivittäiset muistutukset ja lukusuunnitelmat
+• Esitä kysymyksiä tai napauta Selitä saadaksesi oivalluksia säkeistä
+• Ei mainoksia lukemisen tai äänen aikana
+• Parannettu ele ja reunasta reunaan ulottuva tuki
+• Nopeampi, vakaampi suorituskyky
+</fi>
+
+<fil>
+Ano ang bago:
+• Bagong disenyo ng parchment at Dark Mode
+• Mga custom na boses ng audio ng Bibliya at bilis ng pag-playback
+• Pang-araw-araw na mga paalala at mga streak ng plano sa pagbasa
+• Magtanong o i-tap ang Ipaliwanag para sa mga verse insight
+• Walang mga ad sa panahon ng pagbabasa o audio
+• Pinahusay na kilos at suporta mula sa gilid-sa-gilid
+• Mas mabilis, mas matatag na pagganap
+</fil>
+
+<fr-CA>
+Quoi de neuf :
+• Nouveau design parchemin et mode sombre
+• Voix audio bibliques personnalisées et vitesse de lecture
+• Rappels quotidiens et séries de plans de lecture
+• Posez des questions ou appuyez sur Expliquer pour obtenir des informations sur les versets.
+• Aucune publicité pendant la lecture ou l'audio
+• Geste amélioré et support bord à bord
+• Performances plus rapides et plus stables
+</fr-CA>
+
+<fr-FR>
+Quoi de neuf :
+• Nouveau design parchemin et mode sombre
+• Voix audio bibliques personnalisées et vitesse de lecture
+• Rappels quotidiens et séries de plans de lecture
+• Posez des questions ou appuyez sur Expliquer pour obtenir des informations sur les versets.
+• Aucune publicité pendant la lecture ou l'audio
+• Geste amélioré et support bord à bord
+• Performances plus rapides et plus stables
+</fr-FR>
+
+<ga>
+Cad atá nua:
+• Dearadh pár nua agus Mód Dorcha
+• Guthanna fuaime Bíobla an Chustaim agus luas athsheinm
+• Meabhrúcháin laethúla agus stríoca plean léitheoireachta
+• Cuir ceisteanna nó tapáil Mínigh le haghaidh léargais véarsaíochta
+• Gan fógraí le linn léitheoireachta nó fuaime
+• Gothaí feabhsaithe agus tacaíocht chiumhais tosaigh
+• Feidhmíocht níos tapúla, níos cobhsaí
+</ga>
+
+<gl>
+Que hai de novo:
+• Novo deseño de pergamiño e Modo Escuro
+• Voces de audio da Biblia personalizadas e velocidade de reprodución
+• Recordatorios diarios e raias de plan de lectura
+• Fai preguntas ou toca Explicar para obter información sobre o verso
+• Non hai anuncios durante a lectura ou o audio
+• Mellora o xesto e o apoio de bordo a bordo
+• Rendemento máis rápido e estable
+</gl>
+
+<gu>
+નવું શું છે:
+• નવી ચર્મપત્ર ડિઝાઇન અને ડાર્ક મોડ
+• કસ્ટમ બાઇબલ ઑડિયો વૉઇસ અને પ્લેબેક સ્પીડ
+• દૈનિક રીમાઇન્ડર્સ અને વાંચન-યોજનાની છટાઓ
+• પ્રશ્નો પૂછો અથવા શ્લોક આંતરદૃષ્ટિ માટે સમજાવો પર ટૅપ કરો
+• વાંચન અથવા ઑડિયો દરમિયાન કોઈ જાહેરાતો નહીં
+• સુધારેલ હાવભાવ અને ધારથી ધાર સપોર્ટ
+• ઝડપી, વધુ સ્થિર કામગીરી
+</gu>
+
+<he>
+מה חדש:
+• עיצוב קלף חדש ומצב כהה
+• קולות אודיו תנ"ך מותאמים אישית ומהירות השמעה
+• תזכורות יומיות ופסי תוכנית קריאה
+• שאל שאלות או הקש על הסבר לקבלת תובנות פסוקים
+• אין פרסומות במהלך קריאה או שמע
+• מחוות משופרות ותמיכה מקצה לקצה
+• ביצועים מהירים ויציבים יותר
+</he>
+
+<hi>
+नया क्या है:
+• नया चर्मपत्र डिज़ाइन और डार्क मोड
+• कस्टम बाइबिल ऑडियो आवाजें और प्लेबैक गति
+• दैनिक अनुस्मारक और पढ़ने की योजना की श्रृंखला
+• प्रश्न पूछें या पद्य अंतर्दृष्टि के लिए व्याख्या करें पर टैप करें
+• पढ़ने या ऑडियो के दौरान कोई विज्ञापन नहीं
+• बेहतर हावभाव और किनारे से किनारे तक समर्थन
+• तेज़, अधिक स्थिर प्रदर्शन
+</hi>
+
+<hr>
+Što je novo:
+• Novi dizajn pergamenta i tamni način rada
+• Prilagođeni biblijski audio glasovi i brzina reprodukcije
+• Dnevni podsjetnici i nizovi planova čitanja
+• Postavljajte pitanja ili dodirnite Objasni za uvid u stihove
+• Nema oglasa tijekom čitanja ili zvuka
+• Poboljšana gesta i podrška od ruba do ruba
+• Brži, stabilniji rad
+</hr>
+
+<hu>
+Újdonságok:
+• Új pergamen dizájn és sötét mód
+• Egyedi bibliai hangok és lejátszási sebesség
+• Napi emlékeztetők és olvasási tervsorozatok
+• Tegyen fel kérdéseket, vagy koppintson a Magyarázat elemre a versbetekintésért
+• Nincsenek hirdetések olvasás vagy hang közben
+• Továbbfejlesztett kézmozdulat és széltől szélig támogatás
+• Gyorsabb, stabilabb teljesítmény
+</hu>
+
+<hy>
+Ինչ նորություն կա.
+• Նոր մագաղաթյա դիզայն և Dark Mode
+• Աստվածաշնչի հատուկ ձայնային ձայներ և նվագարկման արագություն
+• Ամենօրյա հիշեցումներ և ընթերցանության պլանի շերտեր
+• Հարցեր տվեք կամ հպեք «Բացատրել» հատվածի պատկերացումների համար
+• Ընթերցանության կամ աուդիո ժամանակ գովազդ չկա
+• Բարելավված ժեստերի և եզրից ծայր աջակցություն
+• Ավելի արագ, ավելի կայուն կատարում
+</hy>
+
+<id>
+Apa yang baru:
+• Desain perkamen baru dan Mode Gelap
+• Suara audio Alkitab khusus dan kecepatan pemutaran
+• Pengingat harian dan coretan rencana bacaan
+• Ajukan pertanyaan atau ketuk Jelaskan untuk mendapatkan wawasan ayat
+• Tidak ada iklan selama membaca atau audio
+• Peningkatan gestur dan dukungan edge-to-edge
+• Performa lebih cepat dan stabil
+</id>
+
+<is>
+Hvað er nýtt:
+• Ný skinnhönnun og Dark Mode
+• Sérsniðnar biblíuhljóðraddir og spilunarhraði
+• Daglegar áminningar og lestraráætlunarstrokur
+• Spyrðu spurninga eða pikkaðu á Útskýrðu til að fá innsýn í vers
+• Engar auglýsingar við lestur eða hljóð
+• Bætt látbragð og stuðning frá brún til brún
+• Hraðari, stöðugri árangur
+</is>
+
+<it>
+Novità:
+• Nuovo design della pergamena e modalità oscura
+• Voci audio bibliche personalizzate e velocità di riproduzione
+• Promemoria giornalieri e sequenze di piani di lettura
+• Fai domande o tocca Spiega per approfondimenti sui versetti
+• Nessuna pubblicità durante la lettura o l'audio
+• Gesti migliorati e supporto da bordo a bordo
+• Prestazioni più veloci e più stabili
+</it>
+
+<ja>
+新機能:
+• 新しい羊皮紙のデザインとダークモード
+• カスタム聖書音声と再生速度
+• 毎日のリマインダーと連続読書計画
+• 質問するか、「説明」をタップして詩の洞察を得る
+• 読書中または音声中に広告はありません
+• ジェスチャーとエッジツーエッジのサポートの改善
+• より高速で安定したパフォーマンス
+</ja>
+
+<ka>
+რა არის ახალი:
+• ახალი პერგამენტის დიზაინი და მუქი რეჟიმი
+• მორგებული ბიბლიური აუდიო ხმები და დაკვრის სიჩქარე
+• ყოველდღიური შეხსენებები და კითხვის გეგმის ზოლები
+• დასვით კითხვები ან შეეხეთ ახსნას ლექსის აზრებისთვის
+• არ არის რეკლამა კითხვის ან აუდიოს დროს
+• გაუმჯობესებული ჟესტიკულაცია და გვერდიდან კიდემდე მხარდაჭერა
+• უფრო სწრაფი, უფრო სტაბილური შესრულება
+</ka>
+
+<kk>
+Не жаңалық:
+• Жаңа пергамент дизайны және қараңғы режим
+• Арнаулы Киелі кітап аудио дауыстары және ойнату жылдамдығы
+• Күнделікті еске салғыштар және оқу жоспарының жолақтары
+• Өлең туралы түсінік алу үшін сұрақтар қойыңыз немесе Түсіндіру түймесін түртіңіз
+• Оқу немесе аудио кезінде жарнамалар жоқ
+• Жақсартылған қимыл және шетінен шетке қолдау
+• Жылдамырақ, тұрақтырақ өнімділік
+</kk>
+
+<km>
+តើមានអ្វីថ្មី៖
+• ការរចនា parchment ថ្មី និង Dark Mode
+• សំឡេងព្រះគម្ពីរផ្ទាល់ខ្លួន និងល្បឿនចាក់ឡើងវិញ
+• ការរំលឹកប្រចាំថ្ងៃ និងការអានផែនការ
+• សួរសំណួរ ឬប៉ះ ពន្យល់សម្រាប់ការយល់ដឹងអំពីខ
+• គ្មានការផ្សាយពាណិជ្ជកម្មកំឡុងពេលអាន ឬសំឡេង
+• ធ្វើឱ្យប្រសើរឡើងនូវកាយវិការ និងការគាំទ្រពីគែមទៅគែម
+• ដំណើរការលឿនជាងមុន និងមានស្ថេរភាពជាងមុន
+</km>
+
+<kn>
+ಹೊಸದೇನಿದೆ:
+• ಹೊಸ ಚರ್ಮಕಾಗದದ ವಿನ್ಯಾಸ ಮತ್ತು ಡಾರ್ಕ್ ಮೋಡ್
+• ಕಸ್ಟಮ್ ಬೈಬಲ್ ಆಡಿಯೊ ಧ್ವನಿಗಳು ಮತ್ತು ಪ್ಲೇಬ್ಯಾಕ್ ವೇಗ
+• ದೈನಂದಿನ ಜ್ಞಾಪನೆಗಳು ಮತ್ತು ಓದುವಿಕೆ-ಯೋಜನೆಯ ಗೆರೆಗಳು
+• ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಿ ಅಥವಾ ಪದ್ಯದ ಒಳನೋಟಗಳಿಗಾಗಿ ವಿವರಿಸು ಟ್ಯಾಪ್ ಮಾಡಿ
+• ಓದುವ ಅಥವಾ ಆಡಿಯೋ ಸಮಯದಲ್ಲಿ ಯಾವುದೇ ಜಾಹೀರಾತುಗಳಿಲ್ಲ
+• ಸುಧಾರಿತ ಗೆಸ್ಚರ್ ಮತ್ತು ಎಡ್ಜ್-ಟು-ಎಡ್ಜ್ ಬೆಂಬಲ
+• ವೇಗವಾದ, ಹೆಚ್ಚು ಸ್ಥಿರವಾದ ಕಾರ್ಯಕ್ಷಮತೆ
+</kn>
+
+<ko>
+새로운 기능:
+• 새로운 양피지 디자인과 다크 모드
+• 맞춤형 성경 오디오 음성 및 재생 속도
+• 일일 알림 및 연속 읽기 계획
+• 질문을 하거나 설명을 탭하여 구절 통찰력을 얻으세요
+• 책을 읽거나 오디오를 듣는 동안에는 광고가 없습니다.
+• 개선된 동작 및 전폭 지원
+• 더 빠르고 안정적인 성능
+</ko>
+
+<ky>
+Эмне жаңылык:
+• Жаңы пергамент дизайны жана Караңгы режим
+• Ыңгайлаштырылган Библия аудио үндөрү жана ойнотуу ылдамдыгы
+• Күнүмдүк эскертүүлөр жана окуу планы
+• Аяттарды түшүнүү үчүн суроолорду бериңиз же Түшүндүрүү баскычын таптаңыз
+• Окуу же аудио учурунда эч кандай жарнамалар жок
+• Жакшыртылган жаңсоо жана четинен четине колдоо
+• Тезирээк, туруктуураак аткаруу
+</ky>
+
+<lo>
+ມີຫຍັງໃໝ່:
+• ການອອກແບບ parchment ໃໝ່ ແລະ Dark Mode
+• ສຽງສຽງພະຄໍາພີແບບກຳນົດເອງ ແລະຄວາມໄວໃນການຫຼິ້ນ
+• ການແຈ້ງເຕືອນປະຈຳວັນ ແລະການອ່ານແຜນການອ່ານ
+• ຖາມຄໍາຖາມຫຼືແຕະ ອະທິບາຍສໍາລັບຄວາມເຂົ້າໃຈຂໍ້ພຣະຄໍາພີ
+• ບໍ່ມີໂຄສະນາໃນລະຫວ່າງການອ່ານ ຫຼືສຽງ
+• ປັບປຸງທ່າທາງ ແລະ ການຮອງຮັບຂອບຫາຂອບ
+•ໄວຂຶ້ນ, ປະສິດທິພາບທີ່ຫມັ້ນຄົງຫຼາຍ
+</lo>
+
+<lt>
+Kas naujo:
+• Naujas pergamento dizainas ir tamsus režimas
+• Pasirinktiniai Biblijos garso balsai ir atkūrimo greitis
+• Kasdieniniai priminimai ir skaitymo plano eilės
+• Užduokite klausimus arba bakstelėkite Paaiškinti, kad pamatytumėte eilėraščių įžvalgas
+• Jokių skelbimų skaitymo ar garso metu
+• Patobulintas gestas ir palaikymas nuo krašto iki krašto
+• Greitesnis, stabilesnis veikimas
+</lt>
+
+<lv>
+Kas jauns:
+• Jauns pergamenta dizains un Dark Mode
+• Pielāgotas Bībeles audio balsis un atskaņošanas ātrums
+• Ikdienas atgādinājumi un lasīšanas plāna svītras
+• Uzdodiet jautājumus vai pieskarieties pie Paskaidrot, lai iegūtu ieskatu pantā
+• Nav reklāmu lasīšanas vai audio atskaņošanas laikā
+• Uzlabots žests un atbalsts no malas līdz malai
+• Ātrāka, stabilāka veiktspēja
+</lv>
+
+<mk>
+Што има ново:
+• Нов дизајн на пергамент и темен режим
+• Прилагодени библиски аудио гласови и брзина на репродукција
+• Дневни потсетници и ленти со план за читање
+• Поставувајте прашања или допрете Објаснете за увид во стиховите
+• Нема реклами за време на читање или аудио
+• Подобрени гестови и поддршка од работ до раб
+• Побрзи, постабилни перформанси
+</mk>
+
+<ml>
+എന്താണ് പുതിയത്:
+• പുതിയ കടലാസ് ഡിസൈനും ഡാർക്ക് മോഡും
+• ഇഷ്ടാനുസൃത ബൈബിൾ ഓഡിയോ ശബ്ദങ്ങളും പ്ലേബാക്ക് വേഗതയും
+• ദൈനംദിന ഓർമ്മപ്പെടുത്തലുകളും വായന-പദ്ധതി സ്ട്രീക്കുകളും
+• ചോദ്യങ്ങൾ ചോദിക്കുക അല്ലെങ്കിൽ വാക്യ ഉൾക്കാഴ്ചകൾക്കായി വിശദീകരിക്കുക ടാപ്പ് ചെയ്യുക
+• വായനയിലോ ഓഡിയോയിലോ പരസ്യങ്ങളൊന്നുമില്ല
+• മെച്ചപ്പെടുത്തിയ ആംഗ്യവും എഡ്ജ് ടു എഡ്ജ് പിന്തുണയും
+• വേഗതയേറിയതും സ്ഥിരതയുള്ളതുമായ പ്രകടനം
+</ml>
+
+<mn>
+Шинэ зүйл:
+• Илгэн цаасны шинэ загвар болон Dark Mode
+• Библийн аудио дуу хоолой болон тоглуулах хурд
+• Өдөр тутмын сануулга болон унших төлөвлөгөөний зураас
+• Шүлгийн ойлголтыг авахын тулд асуулт асуух эсвэл Тайлбарлах гэснийг товшино уу
+• Унших эсвэл аудио хийх явцад зар сурталчилгаа байхгүй
+• Дохио зангаа, ирмэгээс ирмэг хүртэлх дэмжлэгийг сайжруулсан
+• Илүү хурдан, илүү тогтвортой гүйцэтгэл
+</mn>
+
+<mr>
+नवीन काय आहे:
+• नवीन चर्मपत्र डिझाइन आणि गडद मोड
+• सानुकूल बायबल ऑडिओ आवाज आणि प्लेबॅक गती
+• दैनिक स्मरणपत्रे आणि वाचन-योजना स्ट्रीक्स
+• प्रश्न विचारा किंवा श्लोक अंतर्दृष्टीसाठी स्पष्ट करा वर टॅप करा
+• वाचन किंवा ऑडिओ दरम्यान कोणत्याही जाहिराती नाहीत
+• सुधारित जेश्चर आणि एज-टू-एज सपोर्ट
+• जलद, अधिक स्थिर कामगिरी
+</mr>
+
+<ms>
+Apa yang baharu:
+• Reka bentuk kertas kulit baharu dan Mod Gelap
+• Suara audio Bible tersuai dan kelajuan main balik
+• Peringatan harian dan coretan pelan bacaan
+• Tanya soalan atau ketik Terangkan untuk mendapatkan pandangan ayat
+• Tiada iklan semasa membaca atau audio
+• Gerak isyarat yang dipertingkatkan dan sokongan dari tepi ke tepi
+• Prestasi yang lebih pantas dan lebih stabil
+</ms>
+
+<my>
+ဘာအသစ်လဲ-
+• parchment ဒီဇိုင်းအသစ်နှင့် Dark Mode
+• စိတ်ကြိုက်ကျမ်းစာအသံများနှင့် ပြန်ဖွင့်နှုန်း
+• နေ့စဥ်သတိပေးချက်များနှင့် စာဖတ်ခြင်းအစီအစဉ်များ
+• မေးခွန်းများမေးပါ သို့မဟုတ် အပိုဒ်ငယ်၏ထိုးထွင်းသိမြင်မှုအတွက် ရှင်းပြပါ ကိုနှိပ်ပါ။
+• စာဖတ်နေစဉ် သို့မဟုတ် အသံတွင် ကြော်ငြာမရှိပါ။
+• ပိုမိုကောင်းမွန်သော အမူအရာနှင့် အနားမှ အနားသတ် ပံ့ပိုးမှု
+• ပိုမြန်၊ ပိုတည်ငြိမ်တဲ့ စွမ်းဆောင်ရည်
+</my>
+
+<ne>
+नयाँ के छ:
+• नयाँ चर्मपत्र डिजाइन र गाढा मोड
+• आफू अनुकूल बाइबल अडियो आवाज र प्लेब्याक गति
+• दैनिक रिमाइन्डरहरू र पढ्ने-योजना रेखाहरू
+• प्रश्नहरू सोध्नुहोस् वा पद अन्तर्दृष्टिहरूको लागि व्याख्या गर्नुहोस् ट्याप गर्नुहोस्
+• पढ्न वा अडियो को समयमा कुनै विज्ञापन छैन
+• सुधारिएको इशारा र किनारा देखि किनारा समर्थन
+• छिटो, थप स्थिर प्रदर्शन
+</ne>
+
+<nl>
+Wat is er nieuw:
+• Nieuw perkamentontwerp en donkere modus
+• Aangepaste Bijbelaudiostemmen en afspeelsnelheid
+• Dagelijkse herinneringen en leesplanstrepen
+• Stel vragen of tik op Uitleggen voor versinzichten
+• Geen advertenties tijdens het lezen of audio
+• Verbeterde gebaren en ondersteuning van rand tot rand
+• Snellere, stabielere prestaties
+</nl>
+
+<no>
+Hva er nytt:
+• Nytt pergamentdesign og mørk modus
+• Tilpassede bibellydstemmer og avspillingshastighet
+• Daglige påminnelser og leseplanstreker
+• Still spørsmål eller trykk på Forklar for versinnsikt
+• Ingen annonser under lesing eller lyd
+• Forbedret gest og kant-til-kant-støtte
+• Raskere, mer stabil ytelse
+</no>
+
+<or>
+କ’ଣ ନୂଆ:
+• ନୂତନ ଚିତ୍ରକଳା ଡିଜାଇନ୍ ଏବଂ ଡାର୍କ ମୋଡ୍ |
+କଷ୍ଟମ୍ ବାଇବଲ ଅଡିଓ ଭଏସ୍ ଏବଂ ପ୍ଲେକ୍ ସ୍ପିଡ୍ |
+• ଦ Daily ନିକ ସ୍ମାରକପତ୍ର ଏବଂ ପଠନ-ଯୋଜନା ଧାରା |
+• ପ୍ରଶ୍ନ ପଚାରନ୍ତୁ କିମ୍ବା ପଦର ଅନ୍ତର୍ଦୃଷ୍ଟି ପାଇଁ ବ୍ୟାଖ୍ୟା କରନ୍ତୁ ଟ୍ୟାପ୍ କରନ୍ତୁ |
+ପ reading ିବା କିମ୍ବା ଅଡିଓ ସମୟରେ କ ads ଣସି ବିଜ୍ଞାପନ ନାହିଁ |
+ଉନ୍ନତ ଅଙ୍ଗଭଙ୍ଗୀ ଏବଂ ଧାର-ଧାର ସମର୍ଥନ |
+ଶୀଘ୍ର, ଅଧିକ ସ୍ଥିର କାର୍ଯ୍ୟଦକ୍ଷତା |
+</or>
+
+<pa>
+ਨਵਾਂ ਕੀ ਹੈ:
+• ਨਵਾਂ ਪਾਰਚਮੈਂਟ ਡਿਜ਼ਾਈਨ ਅਤੇ ਡਾਰਕ ਮੋਡ
+• ਕਸਟਮ ਬਾਈਬਲ ਆਡੀਓ ਆਵਾਜ਼ਾਂ ਅਤੇ ਪਲੇਬੈਕ ਗਤੀ
+• ਰੋਜ਼ਾਨਾ ਰੀਮਾਈਂਡਰ ਅਤੇ ਪੜ੍ਹਨ-ਯੋਜਨਾ ਦੀਆਂ ਲਾਈਨਾਂ
+• ਸਵਾਲ ਪੁੱਛੋ ਜਾਂ ਆਇਤ ਦੀ ਸਮਝ ਲਈ ਸਮਝਾਓ 'ਤੇ ਟੈਪ ਕਰੋ
+• ਪੜ੍ਹਨ ਜਾਂ ਆਡੀਓ ਦੌਰਾਨ ਕੋਈ ਵਿਗਿਆਪਨ ਨਹੀਂ
+• ਸੁਧਾਰਿਆ ਗਿਆ ਸੰਕੇਤ ਅਤੇ ਕਿਨਾਰੇ ਤੋਂ ਕਿਨਾਰਾ ਸਮਰਥਨ
+• ਤੇਜ਼, ਵਧੇਰੇ ਸਥਿਰ ਪ੍ਰਦਰਸ਼ਨ
+</pa>
+
+<pl>
+Co nowego:
+• Nowy projekt pergaminu i tryb ciemny
+• Niestandardowe głosy biblijne i prędkość odtwarzania
+• Codzienne przypomnienia i serie planów czytania
+• Zadawaj pytania lub stuknij opcję Wyjaśnij, aby uzyskać szczegółowe informacje na temat wersetów
+• Brak reklam podczas czytania lub dźwięku
+• Ulepszona obsługa gestów i krawędzi do krawędzi
+• Szybsza i bardziej stabilna wydajność
+</pl>
+
+<pt-BR>
+O que há de novo:
+• Novo design de pergaminho e Modo Escuro
+• Vozes de áudio da Bíblia personalizadas e velocidade de reprodução
+• Lembretes diários e sequências de planos de leitura
+• Faça perguntas ou toque em Explicar para obter informações sobre os versículos
+• Sem anúncios durante a leitura ou áudio
+• Gestos aprimorados e suporte de ponta a ponta
+• Desempenho mais rápido e estável
+</pt-BR>
+
+<pt-PT>
+O que há de novo:
+• Novo design de pergaminho e Modo Escuro
+• Vozes de áudio da Bíblia personalizadas e velocidade de reprodução
+• Lembretes diários e sequências de planos de leitura
+• Faça perguntas ou toque em Explicar para obter informações sobre os versículos
+• Sem anúncios durante a leitura ou áudio
+• Gestos aprimorados e suporte de ponta a ponta
+• Desempenho mais rápido e estável
+</pt-PT>
+
+<ro>
+Ce este nou:
+• Design nou pergament și modul întunecat
+• Voci audio biblice personalizate și viteza de redare
+• Memento-uri zilnice și planuri de lectură
+• Puneți întrebări sau atingeți Explicați pentru informații despre versuri
+• Fără reclame în timpul citirii sau audio
+• Gesturi îmbunătățite și suport de la margine la margine
+• Performanță mai rapidă, mai stabilă
+</ro>
+
+<ru>
+Что нового:
+• Новый дизайн пергамента и темный режим.
+• Пользовательские библейские аудиоголоса и скорость воспроизведения.
+• Ежедневные напоминания и планы чтения.
+• Задавайте вопросы или нажмите «Объяснять», чтобы получить подсказки по стихам.
+• Нет рекламы во время чтения или аудио.
+• Улучшенная поддержка жестов и безрамочная поддержка.
+• Более быстрая и стабильная работа.
+</ru>
+
+<si>
+අලුත් මොනවාද:
+• නව පාච්මන්ට් නිර්මාණය සහ අඳුරු මාදිලිය
+• අභිරුචි බයිබල් ශ්‍රව්‍ය හඬ සහ නැවත ධාවනය කිරීමේ වේගය
+• දෛනික මතක් කිරීම් සහ කියවීමේ සැලසුම් ස්ට්‍රීක්
+• ප්‍රශ්න අසන්න හෝ පද විදසුන් සඳහා පැහැදිලි කරන්න තට්ටු කරන්න
+• කියවීම හෝ ශ්‍රව්‍ය අතරතුර දැන්වීම් නොමැත
+• වැඩිදියුණු කළ අභිනය සහ දාර සිට දාර දක්වා සහාය
+• වේගවත්, වඩා ස්ථාවර කාර්ය සාධනයක්
+</si>
+
+<sk>
+Čo je nové:
+• Nový dizajn pergamenu a tmavý režim
+• Vlastné biblické zvukové hlasy a rýchlosť prehrávania
+• Denné pripomenutia a pruhy plánu čítania
+• Pýtajte sa otázky alebo klepnite na Vysvetliť, aby ste získali prehľad o veršoch
+• Žiadne reklamy počas čítania alebo zvuku
+• Vylepšená podpora gest a od okraja po okraj
+• Rýchlejší a stabilnejší výkon
+</sk>
+
+<sl>
+Kaj je novega:
+• Nova oblika pergamenta in temni način
+• Zvočni glasovi Svetega pisma po meri in hitrost predvajanja
+• Dnevni opomniki in nizi bralnih načrtov
+• Postavite vprašanja ali tapnite Razloži za vpogled v verze
+• Brez oglasov med branjem ali zvokom
+• Izboljšana podpora za poteze in od roba do roba
+• Hitrejše in stabilnejše delovanje
+</sl>
+
+<sq>
+Çfarë ka të re:
+• Dizajn i ri pergamenë dhe modaliteti i errët
+• Zërat audio të personalizuar të Biblës dhe shpejtësia e riprodhimit
+• Përkujtuesit ditore dhe vijat e planit të leximit
+• Bëni pyetje ose prekni Shpjegoni për njohuritë e vargjeve
+• Nuk ka reklama gjatë leximit ose audios
+• Gjeste dhe mbështetje e përmirësuar nga skaji në skaj
+• Performancë më e shpejtë dhe më e qëndrueshme
+</sq>
+
+<sr-Latn>
+Шта има ново:
+• Нови дизајн пергамента и тамни режим
+• Прилагођени библијски аудио гласови и брзина репродукције
+• Дневни подсетници и низови планова читања
+• Постављајте питања или додирните Објасни за увид у стих
+• Нема огласа током читања или звука
+• Побољшани покрети и подршка од ивице до ивице
+• Брже, стабилније перформансе
+</sr-Latn>
+
+<sr>
+Шта има ново:
+• Нови дизајн пергамента и тамни режим
+• Прилагођени библијски аудио гласови и брзина репродукције
+• Дневни подсетници и низови планова читања
+• Постављајте питања или додирните Објасни за увид у стих
+• Нема огласа током читања или звука
+• Побољшани покрети и подршка од ивице до ивице
+• Брже, стабилније перформансе
+</sr>
+
+<sv>
+Vad är nytt:
+• Ny pergamentdesign och mörkt läge
+• Anpassade bibelljudröster och uppspelningshastighet
+• Dagliga påminnelser och läsplaner
+• Ställ frågor eller tryck på Förklara för versinsikter
+• Inga annonser under läsning eller ljud
+• Förbättrad gest och kant-till-kant-stöd
+• Snabbare, stabilare prestanda
+</sv>
+
+<sw>
+Nini kipya:
+• Muundo mpya wa ngozi na Hali Nyeusi
+• Sauti maalum za sauti za Biblia na kasi ya kucheza tena
+• Vikumbusho vya kila siku na mfululizo wa mpango wa kusoma
+• Uliza maswali au gusa Eleza kwa umaizi wa aya
+• Hakuna matangazo wakati wa kusoma au sauti
+• Ishara iliyoboreshwa na usaidizi kutoka makali hadi makali
+• Utendaji wa haraka na thabiti zaidi
+</sw>
+
+<ta>
+புதியது என்ன:
+• புதிய காகிதத்தோல் வடிவமைப்பு மற்றும் டார்க் பயன்முறை
+• தனிப்பயன் பைபிள் ஆடியோ குரல்கள் மற்றும் பின்னணி வேகம்
+• தினசரி நினைவூட்டல்கள் மற்றும் வாசிப்பு-திட்டக் கோடுகள்
+• கேள்விகளைக் கேளுங்கள் அல்லது வசன நுண்ணறிவுகளுக்கு விளக்கத்தைத் தட்டவும்
+• படிக்கும் போது அல்லது ஆடியோவின் போது விளம்பரங்கள் இல்லை
+• மேம்படுத்தப்பட்ட சைகை மற்றும் எட்ஜ்-டு-எட்ஜ் ஆதரவு
+• வேகமான, நிலையான செயல்திறன்
+</ta>
+
+<te>
+కొత్తవి ఏమిటి:
+• కొత్త పార్చ్‌మెంట్ డిజైన్ మరియు డార్క్ మోడ్
+• అనుకూల బైబిల్ ఆడియో వాయిస్‌లు మరియు ప్లేబ్యాక్ వేగం
+• రోజువారీ రిమైండర్‌లు మరియు రీడింగ్-ప్లాన్ స్ట్రీక్‌లు
+• ప్రశ్నలు అడగండి లేదా పద్య అంతర్దృష్టుల కోసం వివరించు నొక్కండి
+• చదివేటప్పుడు లేదా ఆడియో సమయంలో ప్రకటనలు ఉండవు
+• మెరుగైన సంజ్ఞ మరియు ఎడ్జ్-టు-ఎడ్జ్ సపోర్ట్
+• వేగవంతమైన, మరింత స్థిరమైన పనితీరు
+</te>
+
+<th>
+มีอะไรใหม่:
+• การออกแบบกระดาษ parchment ใหม่และโหมดมืด
+• เสียงเสียงพระคัมภีร์ที่กำหนดเองและความเร็วในการเล่น
+• การแจ้งเตือนรายวันและแนวแผนการอ่าน
+• ถามคำถามหรือแตะอธิบายเพื่อดูข้อมูลเชิงลึกของข้อ
+• ไม่มีโฆษณาระหว่างการอ่านหรือเสียง
+• ปรับปรุงท่าทางและการรองรับแบบขอบจรดขอบ
+• ประสิทธิภาพเร็วขึ้นและมีเสถียรภาพมากขึ้น
+</th>
+
+<tr>
+Yenilikler:
+• Yeni parşömen tasarımı ve Karanlık Mod
+• Özel İncil sesleri ve oynatma hızı
+• Günlük hatırlatmalar ve okuma planı serileri
+• Soru sorun veya ayetle ilgili bilgiler için Açıkla'ya dokunun
+• Okuma veya ses sırasında reklam yok
+• İyileştirilmiş hareket ve uçtan uca destek
+• Daha hızlı, daha istikrarlı performans
+</tr>
+
+<uk>
+Що нового:
+• Новий дизайн пергаменту та темний режим
+• Користувацькі біблійні звукові голоси та швидкість відтворення
+• Щоденні нагадування та плани читання
+• Ставте запитання або торкніться «Пояснити», щоб переглянути вірші
+• Немає реклами під час читання чи аудіо
+• Покращена підтримка жестів і від краю до краю
+• Швидша та стабільніша робота
+</uk>
+
+<ur>
+نیا کیا ہے:
+• پارچمنٹ کا نیا ڈیزائن اور ڈارک موڈ
+• حسب ضرورت بائبل آڈیو آوازیں اور پلے بیک کی رفتار
+• روزانہ یاددہانی اور پڑھنے کے منصوبے کی لکیریں۔
+• سوالات پوچھیں یا آیت کی بصیرت کے لیے وضاحت کریں پر ٹیپ کریں۔
+• پڑھنے یا آڈیو کے دوران کوئی اشتہار نہیں۔
+• بہتر اشارہ اور کنارے سے کنارے کی حمایت
+• تیز، زیادہ مستحکم کارکردگی
+</ur>
+
+<uz>
+Nima yangilik:
+• Yangi pergament dizayni va qorong'u rejim
+• Shaxsiy Injil audio ovozlari va ijro tezligi
+• Kundalik eslatmalar va o'qish rejasidagi chiziqlar
+• Oyat tushunchalari uchun savollar bering yoki Tushuntirish ga teging
+• O'qish yoki audio paytida hech qanday reklama yo'q
+• Yaxshilangan imo-ishora va chekka-chekka qo‘llab-quvvatlash
+• Tezroq, barqaror ishlash
+</uz>
+
+<vi>
+Có gì mới:
+• Thiết kế giấy da mới và Chế độ tối
+• Tùy chỉnh giọng nói và tốc độ phát lại của Kinh Thánh
+• Lời nhắc hàng ngày và chuỗi kế hoạch đọc
+• Đặt câu hỏi hoặc nhấn Giải thích để biết thông tin chi tiết về câu thơ
+• Không có quảng cáo trong khi đọc hoặc nghe âm thanh
+• Cải thiện cử chỉ và hỗ trợ từ cạnh này sang cạnh khác
+• Hiệu suất nhanh hơn, ổn định hơn
+</vi>
+
+<zh-CN>
+新内容：
+• 新的羊皮纸设计和深色模式
+• 自定义圣经音频声音和播放速度
+• 每日提醒和连续阅读计划
+• 提出问题或点击“解释”以获取经文见解
+• 阅读或听音频时没有广告
+• 改进的手势和边缘到边缘支持
+• 更快、更稳定的性能
+</zh-CN>
+
+<zh-HK>
+新內容：
+• 新的羊皮紙設計與深色模式
+• 自訂聖經音訊聲音和播放速度
+• 每日提醒與連續閱讀計劃
+• 提出問題或點擊「解釋」以獲得經文見解
+• 閱讀或聆聽音訊時沒有廣告
+• 改進的手勢和邊緣到邊緣支持
+• 更快、更穩定的效能
+</zh-HK>
+
+<zh-TW>
+新內容：
+• 新的羊皮紙設計與深色模式
+• 自訂聖經音訊聲音和播放速度
+• 每日提醒與連續閱讀計劃
+• 提出問題或點擊「解釋」以獲得經文見解
+• 閱讀或聆聽音訊時沒有廣告
+• 改進的手勢和邊緣到邊緣支持
+• 更快、更穩定的效能
+</zh-TW>
+
+<zu>
+Yini entsha:
+• Idizayini entsha yesikhumba kanye nemodi emnyama
+• Amazwi alalelwayo eBhayibheli ngokwezifiso nesivinini sokudlala
+• Izikhumbuzi zansuku zonke nokufunda-uhlelo lokulandelana
+• Buza imibuzo noma cindezela Chaza ukuze uthole ukuqonda kwamavesi
+• Azikho izikhangiso ngesikhathi sokufunda noma somsindo
+• Ukuthinta komzimba okuthuthukisiwe nokusekelwa okusuka emaphethelweni kuya komphetho
+• Ukusebenza okusheshayo, okuzinzile
+</zu>
